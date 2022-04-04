@@ -1,0 +1,6 @@
+${PODS_XCFRAMEWORKS_BUILD_DIR}/FirebaseFirestore/abseil.framework
+${PODS_XCFRAMEWORKS_BUILD_DIR}/FirebaseFirestore/BoringSSL-GRPC.framework
+${PODS_XCFRAMEWORKS_BUILD_DIR}/FirebaseFirestore/FirebaseFirestore.framework
+${PODS_XCFRAMEWORKS_BUILD_DIR}/FirebaseFirestore/gRPC-C++.framework
+${PODS_XCFRAMEWORKS_BUILD_DIR}/FirebaseFirestore/gRPC-Core.framework
+${PODS_XCFRAMEWORKS_BUILD_DIR}/FirebaseFirestore/leveldb-library.framework
