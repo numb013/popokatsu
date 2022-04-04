@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="y06-av-ePI">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Rank Up View Controller-->
+        <scene sceneID="IDH-ip-Jy6">
+            <objects>
+                <viewController storyboardIdentifier="rankup" id="y06-av-ePI" customClass="RankUpViewController" customModule="popo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="EHM-6V-QJ0">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="uI5-4f-pBO">
+                                <rect key="frame" x="0.0" y="123" width="414" height="773"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="rankUpCell" id="yYf-eP-eDp">
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yYf-eP-eDp" id="Df8-GG-iUA">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="31a-Tj-uDH">
+                                <rect key="frame" x="80" y="74" width="253" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="31" id="34P-Ij-PEc"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="今月"/>
+                                    <segment title="先月"/>
+                                </segments>
+                                <connections>
+                                    <action selector="segmentButton:" destination="y06-av-ePI" eventType="valueChanged" id="b2f-eV-l2B"/>
+                                </connections>
+                            </segmentedControl>
+                            <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MYk-k1-1wt">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                <color key="backgroundColor" systemColor="systemYellowColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="ZWC-u2-a7X"/>
+                                </constraints>
+                                <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </textAttributes>
+                                <items>
+                                    <navigationItem title="Title" id="3Xf-gY-WX6"/>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="1oZ-ga-yrQ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="MYk-k1-1wt" firstAttribute="leading" secondItem="EHM-6V-QJ0" secondAttribute="leading" id="15T-z6-WGw"/>
+                            <constraint firstItem="uI5-4f-pBO" firstAttribute="leading" secondItem="1oZ-ga-yrQ" secondAttribute="leading" id="21W-Yf-onK"/>
+                            <constraint firstAttribute="trailing" secondItem="MYk-k1-1wt" secondAttribute="trailing" id="9rY-9A-bYT"/>
+                            <constraint firstItem="MYk-k1-1wt" firstAttribute="top" secondItem="EHM-6V-QJ0" secondAttribute="top" id="GX4-kn-gZh"/>
+                            <constraint firstAttribute="bottom" secondItem="uI5-4f-pBO" secondAttribute="bottom" id="HXv-hp-4p9"/>
+                            <constraint firstItem="uI5-4f-pBO" firstAttribute="trailing" secondItem="1oZ-ga-yrQ" secondAttribute="trailing" id="SKf-eW-oo1"/>
+                            <constraint firstItem="1oZ-ga-yrQ" firstAttribute="trailing" secondItem="31a-Tj-uDH" secondAttribute="trailing" constant="81" id="Suq-1W-5Qb"/>
+                            <constraint firstItem="31a-Tj-uDH" firstAttribute="top" secondItem="MYk-k1-1wt" secondAttribute="bottom" constant="30" id="Xra-mk-yYa"/>
+                            <constraint firstItem="uI5-4f-pBO" firstAttribute="top" secondItem="31a-Tj-uDH" secondAttribute="bottom" constant="18" id="a4C-fj-zve"/>
+                            <constraint firstItem="31a-Tj-uDH" firstAttribute="leading" secondItem="1oZ-ga-yrQ" secondAttribute="leading" constant="80" id="kYG-i0-gOg"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="sUy-Ud-8Nz"/>
+                    <connections>
+                        <outlet property="navi" destination="3Xf-gY-WX6" id="j5T-sI-4Tu"/>
+                        <outlet property="segment" destination="31a-Tj-uDH" id="wCB-1D-KlU"/>
+                        <outlet property="tableView" destination="uI5-4f-pBO" id="h5l-ce-rHr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jco-yy-WGF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-43.478260869565219" y="99.776785714285708"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

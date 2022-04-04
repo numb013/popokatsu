@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="V41-ed-1M6">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Graph View Controller-->
+        <scene sceneID="0tW-NC-8zv">
+            <objects>
+                <viewController storyboardIdentifier="Graph" id="V41-ed-1M6" customClass="GraphViewController" customModule="popo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="W8t-BE-yBW">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="VNf-Fb-HuK">
+                                <rect key="frame" x="15" y="123" width="200" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="31" id="aBO-5C-kZM"/>
+                                    <constraint firstAttribute="width" constant="200" id="uwr-6k-yZf"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="7"/>
+                                    <segment title="31"/>
+                                    <segment title="90"/>
+                                    <segment title="180"/>
+                                </segments>
+                                <color key="selectedSegmentTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="segmentButton:" destination="V41-ed-1M6" eventType="valueChanged" id="ayv-3H-0ab"/>
+                                </connections>
+                            </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="obT-Ql-4t2">
+                                <rect key="frame" x="328" y="123" width="67" height="30"/>
+                                <color key="backgroundColor" red="0.24313725490196078" green="0.69019607843137254" blue="0.73333333333333328" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="GVA-Ga-Phc"/>
+                                    <constraint firstAttribute="width" constant="67" id="t80-IE-Pg5"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title=" 入力" image="input"/>
+                                <connections>
+                                    <action selector="inputButton:" destination="V41-ed-1M6" eventType="touchUpInside" id="eTb-pX-oGg"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ftn-d8-q6P">
+                                <rect key="frame" x="232" y="123" width="88" height="30"/>
+                                <color key="backgroundColor" red="1" green="0.64024397449409909" blue="0.74940621772320493" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="S6A-O7-DPc"/>
+                                    <constraint firstAttribute="width" constant="88" id="zF0-Ah-z4B"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title=" 目標体重" image="input">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="targetWeight:" destination="V41-ed-1M6" eventType="touchUpInside" id="qxK-AM-5aQ"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="入力ボタンから体重を入力して下さい" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tCo-jN-0eZ">
+                                <rect key="frame" x="0.0" y="312" width="414" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" systemColor="opaqueSeparatorColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hst-pk-jly">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="jPd-Jd-Bdz"/>
+                                </constraints>
+                                <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </textAttributes>
+                                <items>
+                                    <navigationItem title="健康グラフ" id="6Rz-ZR-xuT"/>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="K2S-1b-Oed"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="tCo-jN-0eZ" firstAttribute="trailing" secondItem="K2S-1b-Oed" secondAttribute="trailing" id="1q7-TA-XnM"/>
+                            <constraint firstItem="ftn-d8-q6P" firstAttribute="leading" secondItem="VNf-Fb-HuK" secondAttribute="trailing" constant="17" id="7jA-Oe-SgR"/>
+                            <constraint firstItem="hst-pk-jly" firstAttribute="trailing" secondItem="K2S-1b-Oed" secondAttribute="trailing" id="Gip-du-8rP"/>
+                            <constraint firstItem="K2S-1b-Oed" firstAttribute="trailing" secondItem="obT-Ql-4t2" secondAttribute="trailing" constant="19" id="ICJ-SH-38w"/>
+                            <constraint firstItem="ftn-d8-q6P" firstAttribute="top" secondItem="hst-pk-jly" secondAttribute="bottom" constant="35" id="LB0-JT-IUd"/>
+                            <constraint firstItem="obT-Ql-4t2" firstAttribute="leading" secondItem="ftn-d8-q6P" secondAttribute="trailing" constant="8" id="LgE-KZ-p4T"/>
+                            <constraint firstItem="tCo-jN-0eZ" firstAttribute="top" secondItem="VNf-Fb-HuK" secondAttribute="bottom" constant="158" id="SKE-pB-f3B"/>
+                            <constraint firstItem="VNf-Fb-HuK" firstAttribute="leading" secondItem="K2S-1b-Oed" secondAttribute="leading" constant="15" id="Zbs-vb-f8P"/>
+                            <constraint firstItem="tCo-jN-0eZ" firstAttribute="leading" secondItem="K2S-1b-Oed" secondAttribute="leading" id="eps-GB-4N1"/>
+                            <constraint firstItem="hst-pk-jly" firstAttribute="leading" secondItem="K2S-1b-Oed" secondAttribute="leading" id="hbW-R1-5iL"/>
+                            <constraint firstItem="VNf-Fb-HuK" firstAttribute="top" secondItem="hst-pk-jly" secondAttribute="bottom" constant="35" id="mJl-Ff-vUl"/>
+                            <constraint firstItem="hst-pk-jly" firstAttribute="top" secondItem="K2S-1b-Oed" secondAttribute="top" id="mhU-m5-Dqv"/>
+                            <constraint firstItem="obT-Ql-4t2" firstAttribute="top" secondItem="hst-pk-jly" secondAttribute="bottom" constant="35" id="zxu-p4-Zcx"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="inputButton" destination="obT-Ql-4t2" id="djg-mi-pdY"/>
+                        <outlet property="segment" destination="VNf-Fb-HuK" id="fmF-K6-4zH"/>
+                        <outlet property="segmentTopConstraint" destination="mJl-Ff-vUl" id="gag-Rf-N3t"/>
+                        <outlet property="segumentHeight" destination="aBO-5C-kZM" id="tg3-L8-iyK"/>
+                        <outlet property="targetWeightButton" destination="ftn-d8-q6P" id="SIi-jq-rkt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="16n-Aq-u6L" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2577" y="90"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="input" width="16" height="16"/>
+        <systemColor name="opaqueSeparatorColor">
+            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nOt-au-RdX">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Roulette View Controller-->
+        <scene sceneID="wTH-VG-Ec7">
+            <objects>
+                <viewController storyboardIdentifier="Roulette" id="iAV-Ww-jSR" customClass="RouletteViewController" customModule="popo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="C2C-es-FLq">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cgI-oh-ZZD" customClass="PieChartView" customModule="Charts">
+                                <rect key="frame" x="0.0" y="241" width="414" height="414"/>
+                                <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                <color key="tintColor" systemColor="labelColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="414" id="jGi-J2-aqn"/>
+                                    <constraint firstAttribute="width" constant="414" id="s1K-0o-RNf"/>
+                                </constraints>
+                            </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrowtriangle.down.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="lf2-5p-mqj">
+                                <rect key="frame" x="167" y="146" width="80" height="76"/>
+                                <color key="tintColor" systemColor="systemRedColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="P8M-Gk-0wt"/>
+                                    <constraint firstAttribute="width" constant="80" id="oo8-6J-S1G"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RFz-F0-2be">
+                                <rect key="frame" x="169.5" y="426" width="75" height="44"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="tapStartButton:" destination="iAV-Ww-jSR" eventType="touchUpInside" id="96d-aF-CNc"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Mbx-Qa-yXd"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="lf2-5p-mqj" firstAttribute="leading" secondItem="Mbx-Qa-yXd" secondAttribute="leading" constant="167" id="M41-uh-WsP"/>
+                            <constraint firstItem="RFz-F0-2be" firstAttribute="centerY" secondItem="C2C-es-FLq" secondAttribute="centerY" id="SCY-sk-y4E"/>
+                            <constraint firstItem="cgI-oh-ZZD" firstAttribute="centerX" secondItem="C2C-es-FLq" secondAttribute="centerX" id="a4p-cG-r1k"/>
+                            <constraint firstItem="cgI-oh-ZZD" firstAttribute="centerY" secondItem="C2C-es-FLq" secondAttribute="centerY" id="k3g-sQ-pgf"/>
+                            <constraint firstItem="Mbx-Qa-yXd" firstAttribute="trailing" secondItem="lf2-5p-mqj" secondAttribute="trailing" constant="167" id="rZF-th-ph3"/>
+                            <constraint firstItem="RFz-F0-2be" firstAttribute="centerX" secondItem="C2C-es-FLq" secondAttribute="centerX" id="scZ-ru-p66"/>
+                            <constraint firstItem="lf2-5p-mqj" firstAttribute="top" secondItem="Mbx-Qa-yXd" secondAttribute="top" constant="100" id="xa3-1c-Gzz"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="pieChartsView" destination="cgI-oh-ZZD" id="dLL-pB-Szn"/>
+                        <outlet property="startButton" destination="RFz-F0-2be" id="qPZ-Jl-LIe"/>
+                        <outlet property="yajirushi" destination="lf2-5p-mqj" id="HNo-sE-hDe"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fdk-Qf-Yi1" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="63.768115942028992" y="37.5"/>
+        </scene>
+        <!--Roulette List View Controller-->
+        <scene sceneID="A3P-kL-rd0">
+            <objects>
+                <viewController storyboardIdentifier="RouletteList" id="nOt-au-RdX" customClass="RouletteListViewController" customModule="popo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="riq-B5-qLN">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="bNf-Xl-zRC">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ojW-Gz-OGN"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ojW-Gz-OGN" firstAttribute="bottom" secondItem="bNf-Xl-zRC" secondAttribute="bottom" constant="-34" id="2Df-qo-c07"/>
+                            <constraint firstItem="bNf-Xl-zRC" firstAttribute="top" secondItem="ojW-Gz-OGN" secondAttribute="top" constant="-44" id="6HR-lY-t8N"/>
+                            <constraint firstItem="bNf-Xl-zRC" firstAttribute="leading" secondItem="ojW-Gz-OGN" secondAttribute="leading" id="cUM-kg-MoH"/>
+                            <constraint firstItem="ojW-Gz-OGN" firstAttribute="trailing" secondItem="bNf-Xl-zRC" secondAttribute="trailing" id="pCP-2K-9eg"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="bNf-Xl-zRC" id="dMb-7R-GKY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ecq-T0-tvF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-675.36231884057975" y="37.5"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="arrowtriangle.down.fill" catalog="system" width="128" height="124"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

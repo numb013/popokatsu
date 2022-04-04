@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="bau-7R-5LC">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--User Detail View Controller-->
+        <scene sceneID="Iac-Rm-JLr">
+            <objects>
+                <viewController storyboardIdentifier="toUserDetail" id="bau-7R-5LC" customClass="UserDetailViewController" customModule="popo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="iFE-Cz-xW0">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ib4-oT-vCP">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" tag="1" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="userDetailInfo" id="TaL-vI-a3u">
+                                        <rect key="frame" x="0.0" y="44.5" width="600" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="TaL-vI-a3u" id="iZM-7g-DcT">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hP7-5W-CBe">
+                                <rect key="frame" x="0.0" y="568" width="600" height="32"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="6Rz-lz-cpn"/>
+                                    <constraint firstAttribute="width" constant="375" id="iLt-aN-ZXZ"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vdl-ul-S6I" customClass="GradationView" customModule="popo" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="493" width="600" height="107"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JSF-kC-805">
+                                        <rect key="frame" x="23" y="38" width="330" height="55"/>
+                                        <color key="backgroundColor" red="0.022531533610000001" green="0.55086839200000004" blue="0.63139176370000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="55" id="VM9-Bw-DZO"/>
+                                            <constraint firstAttribute="width" constant="330" id="dbU-Mw-T4p"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="メッセージ">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="chatButton:" destination="bau-7R-5LC" eventType="touchUpInside" id="owb-dO-fje"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bCq-Bi-qch">
+                                        <rect key="frame" x="23" y="38" width="555" height="55"/>
+                                        <color key="backgroundColor" red="0.99851840729999997" green="0.1761319935" blue="0.59218323230000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="いいね"/>
+                                        <connections>
+                                            <action selector="addLikeButton:" destination="bau-7R-5LC" eventType="touchUpInside" id="Ga2-lJ-1Vp"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="375" id="2WN-lR-yY1"/>
+                                    <constraint firstItem="JSF-kC-805" firstAttribute="leading" secondItem="Vdl-ul-S6I" secondAttribute="leading" constant="23" id="3ST-dd-4DZ"/>
+                                    <constraint firstItem="bCq-Bi-qch" firstAttribute="leading" secondItem="Vdl-ul-S6I" secondAttribute="leading" constant="23" id="70r-aH-pY7"/>
+                                    <constraint firstAttribute="trailing" secondItem="bCq-Bi-qch" secondAttribute="trailing" constant="22" id="FhB-sQ-HUy"/>
+                                    <constraint firstItem="bCq-Bi-qch" firstAttribute="top" secondItem="Vdl-ul-S6I" secondAttribute="top" constant="38" id="VS6-IK-Rhc"/>
+                                    <constraint firstAttribute="height" constant="107" id="g4M-cZ-0ez"/>
+                                    <constraint firstAttribute="bottom" secondItem="JSF-kC-805" secondAttribute="bottom" constant="14" id="hOh-UJ-ZCQ"/>
+                                    <constraint firstAttribute="bottom" secondItem="bCq-Bi-qch" secondAttribute="bottom" constant="14" id="kcZ-Av-70Y"/>
+                                    <constraint firstItem="JSF-kC-805" firstAttribute="top" secondItem="Vdl-ul-S6I" secondAttribute="top" constant="38" id="mf5-3M-pGq"/>
+                                    <constraint firstAttribute="trailing" secondItem="JSF-kC-805" secondAttribute="trailing" constant="22" id="r2F-Bt-oUs"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="topColor">
+                                        <color key="value" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="bottomColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="htX-OA-dDH"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="hP7-5W-CBe" firstAttribute="leading" secondItem="htX-OA-dDH" secondAttribute="leading" id="5Wz-A2-45k"/>
+                            <constraint firstAttribute="bottom" secondItem="Ib4-oT-vCP" secondAttribute="bottom" id="5dE-dd-sUS"/>
+                            <constraint firstItem="Vdl-ul-S6I" firstAttribute="leading" secondItem="htX-OA-dDH" secondAttribute="leading" id="Bcn-qc-Tz4"/>
+                            <constraint firstItem="hP7-5W-CBe" firstAttribute="trailing" secondItem="htX-OA-dDH" secondAttribute="trailing" id="MG5-PF-Sfy"/>
+                            <constraint firstItem="Ib4-oT-vCP" firstAttribute="top" secondItem="iFE-Cz-xW0" secondAttribute="top" id="N19-tV-ZFT"/>
+                            <constraint firstItem="Ib4-oT-vCP" firstAttribute="leading" secondItem="htX-OA-dDH" secondAttribute="leading" id="WyM-vI-GFg"/>
+                            <constraint firstItem="hP7-5W-CBe" firstAttribute="bottom" secondItem="htX-OA-dDH" secondAttribute="bottom" id="enA-iK-fwg"/>
+                            <constraint firstItem="Vdl-ul-S6I" firstAttribute="trailing" secondItem="htX-OA-dDH" secondAttribute="trailing" id="f86-hc-4d7"/>
+                            <constraint firstItem="hP7-5W-CBe" firstAttribute="top" secondItem="Vdl-ul-S6I" secondAttribute="bottom" constant="-32" id="smu-Gy-IQb"/>
+                            <constraint firstItem="Ib4-oT-vCP" firstAttribute="trailing" secondItem="htX-OA-dDH" secondAttribute="trailing" id="x6f-Ws-yMm"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="oub-LX-ovc"/>
+                    <connections>
+                        <outlet property="LikeRequest" destination="bCq-Bi-qch" id="JVC-Fa-Shv"/>
+                        <outlet property="chatButton" destination="JSF-kC-805" id="ZI9-Hr-lM7"/>
+                        <outlet property="gradationView" destination="Vdl-ul-S6I" id="p5I-vM-xxZ"/>
+                        <outlet property="tableView" destination="Ib4-oT-vCP" id="NoF-Ei-KBF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PrC-yB-dDH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3023.1999999999998" y="1476.6116941529237"/>
+        </scene>
+    </scenes>
+</document>
