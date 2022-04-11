@@ -58,13 +58,10 @@ class StepSideCell: UITableViewCell {
             day = 0
             self.step_1 = []
 //            getStepDate()
-
-
 //            contentVM.delegate = self
             dateFormatter.timeZone = TimeZone(identifier: "Asia/Tokyo")
             dateFormatter.locale = Locale(identifier: "ja_JP")
             dateFormatter.dateFormat = "yyyy/MM/dd HH:mm:ss"
-
 
             contentVM.get(
                 Calendar(identifier: .gregorian).date(bySettingHour: 0, minute: 0, second: 0, of: Date())!,
@@ -125,6 +122,13 @@ class StepSideCell: UITableViewCell {
                 self.timeLabel.text = self.formatter.string(from: self.count)
 
             }
+            
+            
+            let from = Date(timeInterval: TimeInterval(-60*60*24*day), since: now)
+            dateFormatter.dateFormat = "MM月dd日"
+            let selectDate =  dateFormatter.string(from: from)
+            dateFormatter.dateFormat = DateFormatter.dateFormat(fromTemplate: "E", options: 0, locale: Locale.current)
+            self.schedule.text = "\(selectDate + " " + dateFormatter.string(from: from))"
         }
 
         if let weight_data = self.userDefaults.object(forKey: "weight") {

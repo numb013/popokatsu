@@ -30,7 +30,7 @@ class WeekRankingFirstController: UIViewController, UITableViewDelegate , UITabl
 
     let image_url: String = ApiConfig.REQUEST_URL_IMEGE;
     var dataSource = [ApiWeekRanking]()
-    var dataEventList = [ApiGroupEventList]()
+    var dataEventList = [ApiWeekRankList]()
     var errorData: Dictionary<String, ApiErrorAlert> = [:]
     let dateFormater = DateFormatter()
     var isUpdate = false
@@ -104,6 +104,7 @@ class WeekRankingFirstController: UIViewController, UITableViewDelegate , UITabl
     }
     
     @objc func refreshTable() {
+        print("リグレッシュリグレッシュリグレッシュ")
         if self.isUpdate == false {
             self.isUpdate = true
         } else {
@@ -111,6 +112,7 @@ class WeekRankingFirstController: UIViewController, UITableViewDelegate , UITabl
         }
         self.page_no = 1
         dataSource = []
+        dataEventList = []
         getStepWeekDate()
         self.refreshControl?.endRefreshing()
     }
@@ -251,10 +253,17 @@ class WeekRankingFirstController: UIViewController, UITableViewDelegate , UITabl
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        var week = dataEventList[indexPath.row]
-            
         let cell = tableView.dequeueReusableCell(withIdentifier: "NewGroupPepleTableViewCell") as! NewGroupPepleTableViewCell
-
+        
+        if dataEventList.count == 0 {
+            return cell
+        }
+        
+        var week = dataEventList[indexPath.row]
+        
+        print("アカウントアカウントアカウント")
+        dump(week)
+        
         if (week.profile_image == nil) {
             cell.userImage.image = UIImage(named: "no_image")
         } else {
@@ -282,10 +291,12 @@ class WeekRankingFirstController: UIViewController, UITableViewDelegate , UITabl
         var name = week.name
 
         var prefecture = ApiConfig.PREFECTURE_LIST[week.prefecture_id ?? 0]
-
-            cell.userInfo?.adjustsFontSizeToFitWidth = true
-            cell.userInfo?.numberOfLines = 0
-            cell.rank.text = String(indexPath.row + 1)
+        var age = "\(week.age) 歳"
+        cell.userInfo?.adjustsFontSizeToFitWidth = true
+        cell.userInfo?.numberOfLines = 0
+        cell.userInfo.text = name + " " + age + prefecture
+        cell.userStep.text = "\(week.step)"
+        cell.rank.text = String(indexPath.row + 1)
 
             cell.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
             cell.rank.textColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)

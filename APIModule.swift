@@ -28,7 +28,7 @@ enum Platform {
     
     var host: String {
 //        return "https://popokatsu.com/api"
-        return "https://34f8-27-121-139-208.ngrok.io/api"
+        return "https://7d54-2001-f70-b360-2d00-9d97-b4cf-7122-3bbd.ngrok.io/api"
     }
 }
 

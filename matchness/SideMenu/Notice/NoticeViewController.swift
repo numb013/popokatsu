@@ -17,17 +17,14 @@ class NoticeViewController: UIViewController {
         // PagingMenuController追加
         let options = PagingMenuOptions()
         let pagingMenuController = PagingMenuController(options: options)
-//        let navBarHeight = self.navigationController?.navigationBar.frame.size.height
+        let navBarHeight = self.navigationController?.navigationBar.frame.size.height
         let statusBarHeight: CGFloat = UIApplication.shared.statusBarFrame.height
 
         // 高さ調整。この2行を追加
-        pagingMenuController.view.frame.origin.y += statusBarHeight + 8
-        pagingMenuController.view.frame.size.height -= statusBarHeight + 8
+        pagingMenuController.view.frame.origin.y += 55
+        pagingMenuController.view.frame.size.height -= 55
         
-        
-        print("高さ高さ高さ高さ高さ高さ高さ")
-        print(pagingMenuController.view.frame.origin.y)
-        print(pagingMenuController.view.frame.size.height)
+
         
         self.addChild(pagingMenuController)
         self.view.addSubview(pagingMenuController.view)

@@ -11,5 +11,16 @@ import Foundation;
 class ApiWeekRanking: Codable {
     var rank: Int
     var step: Int
-    var week_rank_list: [ApiGroupEventList]
+    var week_rank_list: [ApiWeekRankList]
+}
+
+class ApiWeekRankList: Codable {
+    var user_id:Int
+    var name:String
+    var prefecture_id:Int
+    var step:Int
+    var profile_image:String
+    var action_datetime:String
+    var age:Int
+    var my_rank:Int
 }

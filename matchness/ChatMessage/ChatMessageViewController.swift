@@ -60,6 +60,7 @@ class ChatMessageViewController: UIViewController, UITableViewDelegate, UITableV
         super.viewDidLoad()
         navigationItem.title = "やりとり"
         navigationController!.navigationBar.topItem!.title = message_users["target_name"]
+
         setupNotification()
         setupChatRoomTableView()
         fetchMessages()

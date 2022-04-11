@@ -153,6 +153,8 @@
 		849BE95F2523060200CE6C56 /* LoginModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849BE95D2523060200CE6C56 /* LoginModalViewController.swift */; };
 		849E34BB2355A39A0062E928 /* ApiGroupEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849E34BA2355A3990062E928 /* ApiGroupEvent.swift */; };
 		849E34BD23593C900062E928 /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849E34BC23593C900062E928 /* SearchTableViewController.swift */; };
+		849FA32C27FAE94B0029E532 /* RouletteContact.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 849FA32B27FAE94B0029E532 /* RouletteContact.storyboard */; };
+		849FA32E27FAE95D0029E532 /* RouletteContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849FA32D27FAE95D0029E532 /* RouletteContactViewController.swift */; };
 		84A4FFE424526E8D00FE5C9C /* MultipleFirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A4FFDF24526E8D00FE5C9C /* MultipleFirstViewController.swift */; };
 		84A4FFE624526E8D00FE5C9C /* MultipleSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A4FFE124526E8D00FE5C9C /* MultipleSecondViewController.swift */; };
 		84A4FFEB2452A96A00FE5C9C /* MultipleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84A4FFE92452A96800FE5C9C /* MultipleTableViewCell.xib */; };
@@ -475,6 +477,8 @@
 		849E34B32355A2840062E928 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = "../../../../Downloads/FacebookSDKs-iOS-4.40.0 (1) 2/FBSDKLoginKit.framework"; sourceTree = "<group>"; };
 		849E34BA2355A3990062E928 /* ApiGroupEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiGroupEvent.swift; sourceTree = "<group>"; };
 		849E34BC23593C900062E928 /* SearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
+		849FA32B27FAE94B0029E532 /* RouletteContact.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RouletteContact.storyboard; sourceTree = "<group>"; };
+		849FA32D27FAE95D0029E532 /* RouletteContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouletteContactViewController.swift; sourceTree = "<group>"; };
 		84A466952474F78F00ADBD6B /* FirebaseDatabase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseDatabase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		84A4FFDF24526E8D00FE5C9C /* MultipleFirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultipleFirstViewController.swift; sourceTree = "<group>"; };
 		84A4FFE124526E8D00FE5C9C /* MultipleSecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultipleSecondViewController.swift; sourceTree = "<group>"; };
@@ -788,6 +792,8 @@
 				84441EFF27B1EA5100F1D51C /* Roulette.storyboard */,
 				84441F0627DAC16E00F1D51C /* RouletteListViewController.swift */,
 				84441F0127B1EABD00F1D51C /* RouletteViewController.swift */,
+				849FA32B27FAE94B0029E532 /* RouletteContact.storyboard */,
+				849FA32D27FAE95D0029E532 /* RouletteContactViewController.swift */,
 			);
 			path = Roulette;
 			sourceTree = "<group>";
@@ -1433,6 +1439,7 @@
 				84DF20442707065C00B53083 /* Graph.storyboard in Resources */,
 				840A37A9272955E3002DB086 /* Calender.storyboard in Resources */,
 				84CEE00E25B74B6E00EEB32E /* TweetTableViewCell.xib in Resources */,
+				849FA32C27FAE94B0029E532 /* RouletteContact.storyboard in Resources */,
 				841B19A826314D0900779FA2 /* NewGroupPepleTableViewCell.xib in Resources */,
 				8425041A274B711E00DAEE36 /* ChatInputAccessoryView.xib in Resources */,
 				849BE957252305BB00CE6C56 /* Modal.storyboard in Resources */,
@@ -1716,6 +1723,7 @@
 				843F1A68279AB43300259E54 /* ApiProfile.swift in Sources */,
 				846F132B274B7E4000D34A49 /* ChatImageCell.swift in Sources */,
 				CE0F9EF222DEFAD000D320F5 /* GroupEventAddViewController.swift in Sources */,
+				849FA32E27FAE95D0029E532 /* RouletteContactViewController.swift in Sources */,
 				845956A822FBF75000B79278 /* ProfileEditViewController.swift in Sources */,
 				CE05743022AA3A3A0082182F /* ChatTableViewCell.swift in Sources */,
 				CE1D51E622C4990A0093DC58 /* MyDateStepViewController.swift in Sources */,

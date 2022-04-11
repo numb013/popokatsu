@@ -92,14 +92,14 @@ class UserSearchViewController: BaseViewController,UICollectionViewDataSource, U
         dateFormatter.dateFormat = "yyyy/MM/dd HH:mm:ss"
         
 
-        var contentVM = StepMaster()
-        contentVM.get(
-            dateFormatter.date(from: "2022/02/01 00:00:00")!,
-            dateFormatter.date(from: "2022/02/05 23:59:59")!
-        )
-        DispatchQueue.main.async { [self] in
-            print("歩数歩数歩数歩数歩数歩数歩数", contentVM.count)
-        }
+//        var contentVM = StepMaster()
+//        contentVM.get(
+//            dateFormatter.date(from: "2022/02/01 00:00:00")!,
+//            dateFormatter.date(from: "2022/02/05 23:59:59")!
+//        )
+//        DispatchQueue.main.async { [self] in
+//            print("歩数歩数歩数歩数歩数歩数歩数", contentVM.count)
+//        }
 
         
         if #available(iOS 14, *) {
@@ -124,9 +124,6 @@ class UserSearchViewController: BaseViewController,UICollectionViewDataSource, U
                 print("制限")
             }
         }
-
-
-
 
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -155,13 +152,12 @@ class UserSearchViewController: BaseViewController,UICollectionViewDataSource, U
         collectionView.contentInset.bottom = 80
 
         let bannerView = GADBannerView(adSize: kGADAdSizeBanner)
-        let bHeight :CGFloat = 70
-        var bHeight_1 :CGFloat = 5
 
-        if UIScreen.main.nativeBounds.height >= 1792 {
-            var bHeight_1 = 1
-        }
-        bannerView.frame = CGRect(x: 0 , y: self.view.frame.size.height-bHeight - bHeight_1, width: self.view.frame.width, height: bHeight - bHeight_1)
+        let tabBarController: UITabBarController = UITabBarController()
+        let tabBarHeight = tabBarController.tabBar.frame.size.height
+        bannerView.frame.origin = CGPoint(x:0, y:self.view.frame.size.height - tabBarHeight - bannerView.frame.height)
+        bannerView.frame.size = CGSize(width:self.view.frame.width, height:bannerView.frame.height)
+        
         bannerView.adUnitID = ApiConfig.ADUNIT_ID // 本番
 //        bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716" // テスト
         bannerView.rootViewController = self;
@@ -327,9 +323,18 @@ class UserSearchViewController: BaseViewController,UICollectionViewDataSource, U
     } 
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        print("SSSSSSSSSSS", self.dataSource.count, indexPath.row)
+        
+
+        let cell : UserSearchCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "userDetailCell", for: indexPath as IndexPath) as! UserSearchCollectionViewCell
+
+        if self.dataSource.count == 0 {
+            return cell
+        }
         var search = self.dataSource[indexPath.row]
         var age_text = String(search.age)
-        let cell : UserSearchCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "userDetailCell", for: indexPath as IndexPath) as! UserSearchCollectionViewCell
+
         if (search != nil) {
             cell.agearea.text = search.name
             cell.job.text = age_text + "歳 / " + ApiConfig.PREFECTURE_LIST[search.prefecture_id]
@@ -397,12 +402,11 @@ class UserSearchViewController: BaseViewController,UICollectionViewDataSource, U
     }
 
     @IBAction func nextButton(_ sender: Any) {
-//        let vc = UIStoryboard(name: "pointChange", bundle: nil).instantiateInitialViewController()! as! PointChangeViewController
-//        self.navigationController?.pushViewController(vc, animated: true)
-        
-        
-        let vc = UIStoryboard(name: "Roulette", bundle: nil).instantiateInitialViewController()! as! RouletteViewController
+        let vc = UIStoryboard(name: "pointChange", bundle: nil).instantiateInitialViewController()! as! PointChangeViewController
         self.navigationController?.pushViewController(vc, animated: true)
+        
+//        let vc = UIStoryboard(name: "Roulette", bundle: nil).instantiateViewController(withIdentifier: "RouletteList") as! RouletteListViewController
+//        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     func apiRequest() {

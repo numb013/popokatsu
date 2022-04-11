@@ -17,6 +17,8 @@ class ProfileEditViewController: UIViewController, UITableViewDelegate, UITableV
     @IBOutlet weak var pickerView: UIPickerView!
     @IBOutlet weak var pickerBottom: NSLayoutConstraint!
 
+    @IBOutlet weak var editButton: UIButton!
+    
     var setDateviewTime = ""
     var profile_text = ""
     var vi = UIView()
@@ -87,6 +89,8 @@ class ProfileEditViewController: UIViewController, UITableViewDelegate, UITableV
         activityIndicatorView.style = .whiteLarge
         activityIndicatorView.color = .gray
         view.addSubview(activityIndicatorView)
+        
+        editButton.setTitleColor(UIColor.white, for: .normal)
         
         let presenter = ProfileEditPresenter(view: self)
         inject(presenter: presenter)
@@ -582,6 +586,11 @@ class ProfileEditViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     @IBAction func editProfilButton(_ sender: Any) {
+        
+        if presenter.data.count == 0 {
+            return
+        }
+        
         if presenter.data[0].name!.count > 15 {
             validator(2)
             return

@@ -205,13 +205,13 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="distance" destination="hqv-bO-taf" id="Pop-Yc-FGW"/>
+                <outlet property="distance" destination="Gtn-mE-557" id="Zcz-hl-uHB"/>
                 <outlet property="kcalLabel" destination="Juo-Cw-5ED" id="UYz-RR-EGt"/>
                 <outlet property="playLabel" destination="HSv-Td-iYS" id="9rF-dl-Oex"/>
                 <outlet property="progressViewBar" destination="9Kh-bt-9Op" id="PAh-De-QDX"/>
                 <outlet property="schedule" destination="ULy-U2-4su" id="mJZ-Qa-zNI"/>
                 <outlet property="stepCountLabel" destination="1ak-ME-Lp4" id="f6A-Hi-RHH"/>
-                <outlet property="timeLabel" destination="Gtn-mE-557" id="vEk-Lc-1cM"/>
+                <outlet property="timeLabel" destination="hqv-bO-taf" id="Gea-Hk-AKh"/>
             </connections>
             <point key="canvasLocation" x="197.10144927536234" y="162.38839285714286"/>
         </tableViewCell>

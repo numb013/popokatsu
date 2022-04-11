@@ -38,7 +38,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="STEP" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ml7-Eo-YcZ">
-                                        <rect key="frame" x="124" y="184" width="83" height="30"/>
+                                        <rect key="frame" x="64" y="184" width="203" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="PuU-xj-kLR"/>
                                         </constraints>
@@ -54,12 +54,12 @@
                                     <constraint firstItem="2Kb-UT-h71" firstAttribute="leading" secondItem="jfL-mh-xgV" secondAttribute="leading" id="GEV-pB-rgq"/>
                                     <constraint firstAttribute="trailing" secondItem="2Kb-UT-h71" secondAttribute="trailing" id="M1b-6k-HuN"/>
                                     <constraint firstItem="2Kb-UT-h71" firstAttribute="top" secondItem="jfL-mh-xgV" secondAttribute="top" constant="46" id="NE8-de-2Kn"/>
-                                    <constraint firstAttribute="trailing" secondItem="Ml7-Eo-YcZ" secondAttribute="trailing" constant="124" id="SZr-dB-a3Z"/>
+                                    <constraint firstAttribute="trailing" secondItem="Ml7-Eo-YcZ" secondAttribute="trailing" constant="64" id="SZr-dB-a3Z"/>
                                     <constraint firstItem="m2C-Pj-q4u" firstAttribute="top" secondItem="2Kb-UT-h71" secondAttribute="bottom" constant="10" id="brx-L7-sCY"/>
                                     <constraint firstAttribute="height" constant="277" id="r4h-t6-0Y6"/>
                                     <constraint firstItem="m2C-Pj-q4u" firstAttribute="leading" secondItem="jfL-mh-xgV" secondAttribute="leading" constant="64" id="vMX-gZ-gx7"/>
                                     <constraint firstItem="Ml7-Eo-YcZ" firstAttribute="top" secondItem="m2C-Pj-q4u" secondAttribute="bottom" constant="8" symbolic="YES" id="x5F-pz-P1p"/>
-                                    <constraint firstItem="Ml7-Eo-YcZ" firstAttribute="leading" secondItem="jfL-mh-xgV" secondAttribute="leading" constant="124" id="zjo-ET-5LU"/>
+                                    <constraint firstItem="Ml7-Eo-YcZ" firstAttribute="leading" secondItem="jfL-mh-xgV" secondAttribute="leading" constant="64" id="zjo-ET-5LU"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="showValueString" value="NO"/>
@@ -113,7 +113,7 @@
                                 <items>
                                     <navigationItem title="歩数計" id="TeT-0D-BVn">
                                         <barButtonItem key="rightBarButtonItem" style="plain" id="1r1-W6-4G8">
-                                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="njp-iY-bQU">
+                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="njp-iY-bQU">
                                                 <rect key="frame" x="302" y="5" width="92" height="34.5"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

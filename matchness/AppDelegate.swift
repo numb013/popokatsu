@@ -18,7 +18,6 @@ import FBSDKCoreKit
 import GoogleSignIn
 import AuthenticationServices
 import StoreKit
-import Siren
 import GoogleMobileAds
 import IQKeyboardManagerSwift
 
@@ -113,14 +112,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PurchaseManagerDelegate {
             self.window?.makeKeyAndVisible()
             return true
         }
-
-        // 強制アップデート
-        forceUpdate()
-//        let siren = Siren.shared
-//        siren.forceLanguageLocalization = SirenLanguageType.Japanese  // 日本語
-//        siren.alertType = .force  // 強制アップデートしか選択肢が無いオプション
-//        siren.checkVersion(checkType: .immediately)  // .Daily or .Weekly とかチェック頻度を設定できる
-
         
         
         let appearance = UITabBarAppearance()
@@ -219,40 +210,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PurchaseManagerDelegate {
 //    }
 
 }
-
-// 以下、追記
-@available(iOS 13.0, *)
-private extension AppDelegate {
-    func forceUpdate() {
-        let siren = Siren.shared
-        // 言語を日本語に設定
-        siren.presentationManager = PresentationManager(forceLanguageLocalization: .japanese)
-
-        // ruleを設定
-//        siren.rulesManager = RulesManager(globalRules: .critical)
-
-        siren.rulesManager = RulesManager(
-            patchUpdateRules: Rules(promptFrequency: .daily, forAlertType: .option) // a.b.C.d
-        )
-        
-        // sirenの実行関数
-        siren.wail { results in
-            switch results {
-            case .success(let updateResults):
-                print("AlertAction ", updateResults.alertAction)
-                print("Localization ", updateResults.localization)
-                print("Model ", updateResults.model)
-                print("UpdateType ", updateResults.updateType)
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
-
-        // 以下のように、完了時の処理を無視して記述することも可能
-        // siren.wail()
-    }
-}
-
 
 
 @available(iOS 13, *)

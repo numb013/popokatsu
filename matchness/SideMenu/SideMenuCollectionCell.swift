@@ -60,29 +60,32 @@ class SideMenuCollectionCell: UITableViewCell, UICollectionViewDataSource, UICol
         cell.iconImage.image = UIImage(named: menuList1[indexPath.row]["icon"]!)
         cell.badge.isHidden = true
         if indexPath.row == 4 {
-            var count = userDefaults.object(forKey: "footprint") as! Int?
-            print("足跡のnoti", count)
-            if count != 0 {
-                cell.badge.isHidden = false
-                cell.badge.text = String(count ?? 0)
+            if let count = userDefaults.object(forKey: "footprint") as! Int? {
+                print("足跡のnoti", count)
+                if count != 0 {
+                    cell.badge.isHidden = false
+                    cell.badge.text = String(count ?? 0)
+                }
             }
         }
 
         if indexPath.row == 5 {
-            var count = userDefaults.object(forKey: "like") as! Int?
-            print("いいねのnoti", count)
-            if count != 0 {
-                cell.badge.isHidden = false
-                cell.badge.text = String(count ?? 0)
+            if let count = userDefaults.object(forKey: "like") as! Int? {
+                print("いいねのnoti", count)
+                if count != 0 {
+                    cell.badge.isHidden = false
+                    cell.badge.text = String(count ?? 0)
+                }
             }
         }
 
         if indexPath.row == 9 {
-            var count = userDefaults.object(forKey: "notice") as! Int?
-            print("お知らせのnoti", count)
-            if count != 0 {
-                cell.badge.isHidden = false
-                cell.badge.text = String(count ?? 0)
+            if let count = userDefaults.object(forKey: "notice") as! Int? {
+                print("お知らせのnoti", count)
+                if count != 0 {
+                    cell.badge.isHidden = false
+                    cell.badge.text = String(count ?? 0)
+                }
             }
         }
         return cell

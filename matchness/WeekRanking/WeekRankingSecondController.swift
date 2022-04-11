@@ -31,7 +31,7 @@ class WeekRankingSecondController: UIViewController, UITableViewDelegate , UITab
 
     let image_url: String = ApiConfig.REQUEST_URL_IMEGE;
     var dataSource = [ApiWeekRanking]()
-    var dataEventList = [ApiGroupEventList]()
+    var dataEventList = [ApiWeekRankList]()
     
     var dataSourceOrder: Array<String> = []
     var errorData: Dictionary<String, ApiErrorAlert> = [:]
@@ -125,8 +125,8 @@ class WeekRankingSecondController: UIViewController, UITableViewDelegate , UITab
         }
         self.page_no = 1
         
-        self.dataSourceOrder = []
         dataSource = []
+        dataEventList = []
         getStepWeekDate()
         self.refreshControl?.endRefreshing()
     }
@@ -215,6 +215,11 @@ class WeekRankingSecondController: UIViewController, UITableViewDelegate , UITab
          APIへリクエスト（ユーザー取得）
          *****************/
         dateFormatter.dateFormat = "yyyy/MM/dd"
+        
+        
+        print("スターーーーと", self.start)
+        print("エンドーーーーと", self.end)
+        
         let parameters = [
             "start": dateFormatter.string(from: self.start),
             "end": dateFormatter.string(from: self.end),

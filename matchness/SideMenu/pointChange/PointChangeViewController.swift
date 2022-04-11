@@ -83,7 +83,7 @@ class PointChangeViewController: UIViewController, UITableViewDelegate, UITableV
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController!.navigationBar.topItem!.title = ""
+        navigationController?.navigationBar.topItem!.title = ""
         tabBarController?.tabBar.isHidden = true
     }
     

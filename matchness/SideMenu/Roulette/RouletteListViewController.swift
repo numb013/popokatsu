@@ -26,6 +26,14 @@ class RouletteListViewController: UIViewController, UITableViewDelegate, UITable
         self.tableView.register(UINib(nibName: "SideMenuCell", bundle: nil), forCellReuseIdentifier: "SideMenuCell")
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        self.navigationItem.title = "ルーレット"
+        navigationController!.navigationBar.topItem!.title = ""
+        //タブバー表示
+        tabBarController?.tabBar.isHidden = true
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return list.count
     }
@@ -38,6 +46,17 @@ class RouletteListViewController: UIViewController, UITableViewDelegate, UITable
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(indexPath.row)
         let vc = UIStoryboard(name: "Roulette", bundle: nil).instantiateViewController(withIdentifier: "Roulette") as! RouletteViewController
+
+        if indexPath.row == 0 {
+            vc.hitPoint = 15
+        }
+        if indexPath.row == 1 {
+            vc.hitPoint = 10
+        }
+        if indexPath.row == 2 {
+            vc.hitPoint = 5
+        }
+        tableView.deselectRow(at: indexPath, animated: true)
         navigationController?.pushViewController(vc, animated: true)
     }
     
