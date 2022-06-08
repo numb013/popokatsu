@@ -5,25 +5,9 @@
    <BuildAction
       parallelizeBuildables = "YES"
       buildImplicitDependencies = "YES">
-      <BuildActionEntries>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "841A27F828504FD2001AD203"
-               BuildableName = "matchness_dev.app"
-               BlueprintName = "matchness_dev"
-               ReferencedContainer = "container:matchness.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-      </BuildActionEntries>
    </BuildAction>
    <TestAction
-      buildConfiguration = "Develop"
+      buildConfiguration = "Release"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
@@ -41,7 +25,7 @@
       </Testables>
    </TestAction>
    <LaunchAction
-      buildConfiguration = "Develop"
+      buildConfiguration = "Release"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       disableMainThreadChecker = "YES"
@@ -55,15 +39,15 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "841A27F828504FD2001AD203"
-            BuildableName = "matchness_dev.app"
-            BlueprintName = "matchness_dev"
+            BlueprintIdentifier = "841FBB72285064FA00A1EC22"
+            BuildableName = "matchness.app"
+            BlueprintName = "matchness"
             ReferencedContainer = "container:matchness.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
    <ProfileAction
-      buildConfiguration = "Develop"
+      buildConfiguration = "Release"
       shouldUseLaunchSchemeArgsEnv = "YES"
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
@@ -72,19 +56,19 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "841A27F828504FD2001AD203"
-            BuildableName = "matchness_dev.app"
-            BlueprintName = "matchness_dev"
+            BlueprintIdentifier = "841FBB72285064FA00A1EC22"
+            BuildableName = "matchness.app"
+            BlueprintName = "matchness"
             ReferencedContainer = "container:matchness.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
-      buildConfiguration = "Develop">
+      buildConfiguration = "Release">
    </AnalyzeAction>
    <ArchiveAction
-      buildConfiguration = "Develop"
-      customArchiveName = "dev-popo"
+      buildConfiguration = "Release"
+      customArchiveName = "popo"
       revealArchiveInOrganizer = "YES">
    </ArchiveAction>
 </Scheme>

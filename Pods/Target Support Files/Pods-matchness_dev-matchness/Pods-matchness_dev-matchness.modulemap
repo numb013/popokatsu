@@ -1,0 +1,6 @@
+framework module Pods_matchness_dev_matchness {
+  umbrella header "Pods-matchness_dev-matchness-umbrella.h"
+
+  export *
+  module * { export * }
+}
