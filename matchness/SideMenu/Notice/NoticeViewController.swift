@@ -21,25 +21,25 @@ class NoticeViewController: UIViewController {
         let statusBarHeight: CGFloat = UIApplication.shared.statusBarFrame.height
 
         // 高さ調整。この2行を追加
-        pagingMenuController.view.frame.origin.y += 55
-        pagingMenuController.view.frame.size.height -= 55
+//        pagingMenuController.view.frame.origin.y += 65
+//        pagingMenuController.view.frame.size.height -= 65
         
+        pagingMenuController.view.frame.origin.y += (navBarHeight! + statusBarHeight)
+        pagingMenuController.view.frame.size.height -= (navBarHeight! + statusBarHeight)
 
+        print("ナビばーーーーー", (navBarHeight! + statusBarHeight))
         
         self.addChild(pagingMenuController)
         self.view.addSubview(pagingMenuController.view)
         pagingMenuController.didMove(toParent: self)
 
         tabBarController?.tabBar.isHidden = true
-        // Do any additional setup after loading the view.
-//        navigationController!.navigationBar.topItem!.title = ""
-//        self.navigationItem.title = "お知らせ"
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-//        self.navigationItem.title = "お知らせ"
-//        navigationController!.navigationBar.topItem!.title = ""
+        self.navigationItem.title = "お知らせ"
+        navigationController!.navigationBar.topItem!.title = ""
         //タブバー表示
         tabBarController?.tabBar.isHidden = true
     }

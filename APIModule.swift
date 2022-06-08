@@ -28,7 +28,10 @@ enum Platform {
     
     var host: String {
 //        return "https://popokatsu.com/api"
-        return "https://7d54-2001-f70-b360-2d00-9d97-b4cf-7122-3bbd.ngrok.io/api"
+//        return "https://ba46-133-32-128-167.ngrok.io/api"
+        
+        print("ホストAPIURL", Bundle.main.object(forInfoDictionaryKey: "api_url") as! String)
+        return Bundle.main.object(forInfoDictionaryKey: "api_url") as! String
     }
 }
 
@@ -97,7 +100,8 @@ class POPOAPI {
         case selectGroupChat
         case searchGroup
         case createLike
-        
+        case createRouletteHit
+        case usedPoint
         
         var platform: Platform {
             return Platform.popo
@@ -165,7 +169,8 @@ class POPOAPI {
                 case .selectGroupChat: return "/select_group_chat"
                 case .searchGroup: return "/search_group"
                 case .createLike: return "/like/create_like"
-
+                case .createRouletteHit: return "/create_roulette_hit"
+                case .usedPoint: return "/user/used_point"
             }
         }
     }

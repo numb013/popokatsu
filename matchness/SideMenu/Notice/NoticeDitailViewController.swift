@@ -18,10 +18,18 @@ class NoticeDetailViewController: UIViewController{
 
     override func viewDidLoad() {
         super.viewDidLoad()
-//         Do any additional setup after loading the view.
         noticeDetail.text = self.body
-//        navigationController!.navigationBar.topItem!.title = ""
-            // テキストを編集不可にする.
+        // テキストを編集不可にする.
         noticeDetail.isEditable = false
     }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationItem.title = "お知らせ詳細"
+        navigationController!.navigationBar.topItem!.title = ""
+        //タブバー表示
+        tabBarController?.tabBar.isHidden = true
+    }
+
 }
+

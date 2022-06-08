@@ -7,7 +7,7 @@ class Alert: UIAlertController {
             UIAlertController(title:"ポイントが不足しています",message: "ポイント変換が必要です", preferredStyle: .alert)
         let backView = alertController.view.subviews.last?.subviews.last
         backView?.layer.cornerRadius = 15.0
-        backView?.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        backView?.backgroundColor = .white
         // Default のaction
         let defaultAction:UIAlertAction =
             UIAlertAction(title: "ポイント変換ページへ",style: .destructive,handler:{
@@ -29,8 +29,8 @@ class Alert: UIAlertController {
                 // 処理
                 print("キャンセル")
             })
-        cancelAction.setValue(#colorLiteral(red: 0, green: 0.71307832, blue: 0.7217405438, alpha: 1), forKey: "titleTextColor")
-        defaultAction.setValue(#colorLiteral(red: 0.9884889722, green: 0.3815950453, blue: 0.7363485098, alpha: 1), forKey: "titleTextColor")
+        cancelAction.setValue(UIColor.popoTextGreen, forKey: "titleTextColor")
+        defaultAction.setValue(UIColor.popoTextPink, forKey: "titleTextColor")
         // actionを追加
         alertController.addAction(cancelAction)
         alertController.addAction(defaultAction)
@@ -42,7 +42,7 @@ class Alert: UIAlertController {
         let alert = UIAlertController(title: alertNum["0"]?.title, message: alertNum["0"]?.message, preferredStyle: .alert)
         let backView = alert.view.subviews.last?.subviews.last
         backView?.layer.cornerRadius = 15.0
-        backView?.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        backView?.backgroundColor = .white
         
         if alertNum["0"]?.code != "100" {
             viewController.present(alert, animated: true, completion: {
@@ -69,7 +69,7 @@ class Alert: UIAlertController {
                         }
                     }
                 })
-            defaultAction.setValue(#colorLiteral(red: 0.9884889722, green: 0.3815950453, blue: 0.7363485098, alpha: 1), forKey: "titleTextColor")
+            defaultAction.setValue(UIColor.popoTextPink, forKey: "titleTextColor")
             // actionを追加
             alert.addAction(defaultAction)
             // UIAlertControllerの起動
@@ -83,7 +83,7 @@ class Alert: UIAlertController {
             UIAlertController(title:alertNum["0"]?.title,message: alertNum["0"]?.message, preferredStyle: .alert)
         let backView = alertController.view.subviews.last?.subviews.last
         backView?.layer.cornerRadius = 15.0
-        backView?.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        backView?.backgroundColor = .white
         // Default のaction
         let defaultAction:UIAlertAction =
             UIAlertAction(title: "ランクアップ",style: .destructive,handler:{
@@ -104,8 +104,8 @@ class Alert: UIAlertController {
                 // 処理
                 print("キャンセル")
             })
-        cancelAction.setValue(#colorLiteral(red: 0, green: 0.71307832, blue: 0.7217405438, alpha: 1), forKey: "titleTextColor")
-        defaultAction.setValue(#colorLiteral(red: 0.9884889722, green: 0.3815950453, blue: 0.7363485098, alpha: 1), forKey: "titleTextColor")
+        cancelAction.setValue(UIColor.popoTextGreen, forKey: "titleTextColor")
+        defaultAction.setValue(UIColor.popoTextPink, forKey: "titleTextColor")
         // actionを追加
         alertController.addAction(cancelAction)
         alertController.addAction(defaultAction)
@@ -121,7 +121,7 @@ class Alert: UIAlertController {
             UIAlertController(title:"データが取得できません",message: "設定アプリを起動し、「プライバシー」→「ヘルスケア」→「POPOKATSU」と選択し、全ての項目をオンにして下さい", preferredStyle: .alert)
         let backView = alertController.view.subviews.last?.subviews.last
         backView?.layer.cornerRadius = 15.0
-        backView?.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        backView?.backgroundColor = .white
         // Cancel のaction
         let cancelAction:UIAlertAction =
             UIAlertAction(title: "閉じる",style: .cancel,handler:{
@@ -129,7 +129,7 @@ class Alert: UIAlertController {
                 // 処理
                 print("キャンセル")
             })
-        cancelAction.setValue(#colorLiteral(red: 0, green: 0.71307832, blue: 0.7217405438, alpha: 1), forKey: "titleTextColor")
+        cancelAction.setValue(UIColor.popoTextGreen, forKey: "titleTextColor")
         // actionを追加
         alertController.addAction(cancelAction)
         // UIAlertControllerの起動

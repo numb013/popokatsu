@@ -10,7 +10,6 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 import SafariServices
-import GoogleMobileAds
 
 class MenuViewController: UIViewController {
 
@@ -47,7 +46,7 @@ class MenuViewController: UIViewController {
         self.tableView.rowHeight = UITableView.automaticDimension
         setupTableView()
         
-        view.backgroundColor = #colorLiteral(red: 0.9803921569, green: 0.9803921569, blue: 0.9803921569, alpha: 1)
+        view.backgroundColor = .white
         activityIndicatorView.center = view.center
         activityIndicatorView.style = .whiteLarge
         activityIndicatorView.color = .gray
@@ -72,17 +71,6 @@ class MenuViewController: UIViewController {
         tableView.tableFooterView = UIView(frame: .zero)
 
         tableView.contentInset.bottom = 100
-        let bannerView = GADBannerView(adSize: kGADAdSizeBanner)
-        let tabBarController: UITabBarController = UITabBarController()
-        let tabBarHeight = tabBarController.tabBar.frame.size.height
-        bannerView.frame.origin = CGPoint(x:0, y:self.view.frame.size.height - tabBarHeight - bannerView.frame.height)
-        bannerView.frame.size = CGSize(width:self.view.frame.width, height:bannerView.frame.height)
-        bannerView.adUnitID = ApiConfig.ADUNIT_ID // 本番
-//        bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716" // テスト
-        bannerView.rootViewController = self;
-        let request = GADRequest();
-        bannerView.load(request)
-        addBannerViewToView(bannerView)
         apiRequest()
     }
     
@@ -100,28 +88,6 @@ class MenuViewController: UIViewController {
             }
         )
     }
-
-
-    func addBannerViewToView(_ bannerView: GADBannerView) {
-      bannerView.translatesAutoresizingMaskIntoConstraints = false
-      view.addSubview(bannerView)
-      view.addConstraints(
-        [NSLayoutConstraint(item: bannerView,
-                            attribute: .bottom,
-                            relatedBy: .equal,
-                            toItem: bottomLayoutGuide,
-                            attribute: .top,
-                            multiplier: 1,
-                            constant: 0),
-         NSLayoutConstraint(item: bannerView,
-                            attribute: .centerX,
-                            relatedBy: .equal,
-                            toItem: view,
-                            attribute: .centerX,
-                            multiplier: 1,
-                            constant: 0)
-        ])
-     }
 
     private func setupTableView() {
         tableView.dataSource = self
@@ -284,7 +250,7 @@ extension MenuViewController: UITableViewDataSource {
                     UIAlertController(title:"退会する",message: "本当に退会しますか？",preferredStyle: .alert)
                 let backView = alertController.view.subviews.last?.subviews.last
                 backView?.layer.cornerRadius = 15.0
-                backView?.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+                backView?.backgroundColor = .white
                 let defaultAction:UIAlertAction =
                     UIAlertAction(title: "退会する",style: .destructive,handler:{
                     (action:UIAlertAction!) -> Void in
@@ -294,8 +260,10 @@ extension MenuViewController: UITableViewDataSource {
                     UIAlertAction(title: "キャンセル",style: .cancel,handler:{
                     (action:UIAlertAction!) -> Void in
                     })
-                cancelAction.setValue(#colorLiteral(red: 0, green: 0.71307832, blue: 0.7217405438, alpha: 1), forKey: "titleTextColor")
-                defaultAction.setValue(#colorLiteral(red: 0.9884889722, green: 0.3815950453, blue: 0.7363485098, alpha: 1), forKey: "titleTextColor")
+                
+                cancelAction.setValue(UIColor.popoTextGreen, forKey: "titleTextColor")
+                defaultAction.setValue(UIColor.popoTextPink, forKey: "titleTextColor")
+                
                 alertController.addAction(cancelAction)
                 alertController.addAction(defaultAction)
                 present(alertController, animated: true, completion: nil)
@@ -413,7 +381,7 @@ extension MenuViewController: UITableViewDataSource {
                 let alert = UIAlertController(title: "設定", message: "失敗しました。", preferredStyle: .alert)
                 let backView = alert.view.subviews.last?.subviews.last
                 backView?.layer.cornerRadius = 15.0
-                backView?.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+            backView?.backgroundColor = .white
                 self.present(alert, animated: true, completion: {
                     DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
                         alert.dismiss(animated: true, completion: nil)
@@ -440,7 +408,7 @@ extension MenuViewController: UITableViewDataSource {
                 let alert = UIAlertController(title: "退会", message: "退会に失敗しました。", preferredStyle: .alert)
                 let backView = alert.view.subviews.last?.subviews.last
                 backView?.layer.cornerRadius = 15.0
-                backView?.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+            backView?.backgroundColor = .white
                 self.present(alert, animated: true, completion: {
                     DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
                         alert.dismiss(animated: true, completion: nil)

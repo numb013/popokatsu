@@ -20,7 +20,7 @@ class SideMenuCollectionCell: UITableViewCell, UICollectionViewDataSource, UICol
     var type = 1
     
     var menuList1 = [
-        ["title": "ルーレット", "icon": "calendar"],
+        ["title": "ルーレットチャンス", "icon": "roulette"],
         ["title": "カレンダー", "icon": "calendar"],
         ["title": "歩数計", "icon": "stepdata"],
         ["title": "健康グラフ", "icon": "graph"],
@@ -42,6 +42,8 @@ class SideMenuCollectionCell: UITableViewCell, UICollectionViewDataSource, UICol
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(UINib(nibName: "SideCell", bundle: nil), forCellWithReuseIdentifier: "SideCell")
+        collectionView.register(UINib(nibName: "SideWidthCell", bundle: nil), forCellWithReuseIdentifier: "SideWidthCell")
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -55,16 +57,26 @@ class SideMenuCollectionCell: UITableViewCell, UICollectionViewDataSource, UICol
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        if indexPath.row == 0 {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SideWidthCell", for: indexPath as IndexPath) as! SideWidthCell
+//            cell.title.text = menuList1[indexPath.row]["title"]
+//            cell.iconImage.image = UIImage(named: menuList1[indexPath.row]["icon"]!)
+            return cell
+        }
+        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SideCell", for: indexPath as IndexPath) as! SideCell
         cell.title.text = menuList1[indexPath.row]["title"]
         cell.iconImage.image = UIImage(named: menuList1[indexPath.row]["icon"]!)
         cell.badge.isHidden = true
+
         if indexPath.row == 4 {
             if let count = userDefaults.object(forKey: "footprint") as! Int? {
                 print("足跡のnoti", count)
                 if count != 0 {
                     cell.badge.isHidden = false
                     cell.badge.text = String(count ?? 0)
+                    userDefaults.removeObject(forKey: "sidemenu")
                 }
             }
         }
@@ -75,6 +87,7 @@ class SideMenuCollectionCell: UITableViewCell, UICollectionViewDataSource, UICol
                 if count != 0 {
                     cell.badge.isHidden = false
                     cell.badge.text = String(count ?? 0)
+                    userDefaults.removeObject(forKey: "sidemenu")
                 }
             }
         }
@@ -85,6 +98,7 @@ class SideMenuCollectionCell: UITableViewCell, UICollectionViewDataSource, UICol
                 if count != 0 {
                     cell.badge.isHidden = false
                     cell.badge.text = String(count ?? 0)
+                    userDefaults.removeObject(forKey: "sidemenu")
                 }
             }
         }
@@ -127,6 +141,7 @@ class SideMenuCollectionCell: UITableViewCell, UICollectionViewDataSource, UICol
         
         if indexPath.row == 6 {
             let vc = UIStoryboard(name: "Profile", bundle: nil).instantiateInitialViewController()! as! ProfileEditViewController
+            type = 2
             delegate?.selected(vc, type)
         }
         
@@ -142,6 +157,7 @@ class SideMenuCollectionCell: UITableViewCell, UICollectionViewDataSource, UICol
         }
         if indexPath.row == 9 {
             let vc = UIStoryboard(name: "Notice", bundle: nil).instantiateInitialViewController()! as! NoticeViewController
+            type = 2
             delegate?.selected(vc, type)
         }
         if indexPath.row == 10 {
@@ -158,12 +174,10 @@ class SideMenuCollectionCell: UITableViewCell, UICollectionViewDataSource, UICol
             delegate?.selected(vc, type)
         }
 
-
-
-
-
-        let cell = collectionView.cellForItem(at: indexPath) as! SideCell
-        cell.badge.isHidden = true
+        if indexPath.row != 0 {
+            let cell = collectionView.cellForItem(at: indexPath) as! SideCell
+            cell.badge.isHidden = true
+        }
         
         if indexPath.row == 3 || indexPath.row == 4 || indexPath.row == 8 {
             switch indexPath.row {
@@ -181,7 +195,15 @@ class SideMenuCollectionCell: UITableViewCell, UICollectionViewDataSource, UICol
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if indexPath.row == 0 {
-            return CGSize(width:width, height: 80)
+
+            if let roulette = userDefaults.object(forKey: "roulette") as! Int? {
+                print("AAAルーレットルーレットルーレットルーレット", roulette)
+                if roulette == 0 {
+                    return CGSize(width:width, height: 0)
+                } else {
+                    return CGSize(width:width, height: 70)
+                }
+            }
         }
         return CGSize(width: (width/3)-7, height: 80)
     }

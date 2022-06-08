@@ -99,8 +99,8 @@ class PointPaymentViewController: UIViewController, UITableViewDelegate , UITabl
             cell.point.text = String(self.dataSource[indexPath.row].point!)
 
             if indexPath.row % 2 == 0 {
-                cell.point.textColor = #colorLiteral(red: 0.2431372549, green: 0.6901960784, blue: 0.7333333333, alpha: 1)
-                cell.unit.textColor = #colorLiteral(red: 0.2431372549, green: 0.6901960784, blue: 0.7333333333, alpha: 1)
+                cell.point.textColor = .popoTextGreen
+                cell.unit.textColor = .popoTextGreen
             }
             cell.pointPaymentImage.image = UIImage(named: "paybuttom")
             cell.pointPaymentImage.isUserInteractionEnabled = true
@@ -185,7 +185,7 @@ class PointPaymentViewController: UIViewController, UITableViewDelegate , UITabl
                 let alert = UIAlertController(title: "アクセス失敗", message: "しばらくお待ちください", preferredStyle: .alert)
                 let backView = alert.view.subviews.last?.subviews.last
                 backView?.layer.cornerRadius = 15.0
-                backView?.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+            backView?.backgroundColor = .white
                 self.present(alert, animated: true, completion: {
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.8, execute: {
                         alert.dismiss(animated: true, completion: nil)
@@ -259,7 +259,7 @@ class PointPaymentViewController: UIViewController, UITableViewDelegate , UITabl
         let alert = UIAlertController(title: "購入処理失敗", message: "購入処理に失敗しました。", preferredStyle: .alert)
         let backView = alert.view.subviews.last?.subviews.last
         backView?.layer.cornerRadius = 15.0
-        backView?.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        backView?.backgroundColor = .white
         self.present(alert, animated: true, completion: {
             DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
                 alert.dismiss(animated: true, completion: nil)

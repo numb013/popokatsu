@@ -186,7 +186,7 @@ class GroupChat: UIViewController, UITableViewDelegate, UITableViewDataSource, U
         let alert = UIAlertController(title: "入力して下さい", message: "メッセージを入力してください。", preferredStyle: .alert)
         let backView = alert.view.subviews.last?.subviews.last
         backView?.layer.cornerRadius = 15.0
-        backView?.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        backView?.backgroundColor = .white
         // アラート表示
         self.present(alert, animated: true, completion: {
             // アラートを閉じる

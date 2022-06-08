@@ -308,16 +308,16 @@ class WeekRankingSecondController: UIViewController, UITableViewDelegate , UITab
         cell.rank.textColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
         cell.userStep.textColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
         if indexPath.row == 0 {
-            cell.userStep.textColor = #colorLiteral(red: 0.8230579495, green: 0.6966378093, blue: 0.2210325897, alpha: 1)
-            cell.rank.textColor = #colorLiteral(red: 0.8230579495, green: 0.6966378093, blue: 0.2210325897, alpha: 1)
+            cell.userStep.textColor = .popoGold
+            cell.rank.textColor = .popoGold
         }
         if indexPath.row == 1 {
-            cell.userStep.textColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
-            cell.rank.textColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
+            cell.userStep.textColor = .popoSilver
+            cell.rank.textColor = .popoSilver
         }
         if indexPath.row == 2 {
-            cell.userStep.textColor = #colorLiteral(red: 0.6633054614, green: 0.4208735824, blue: 0.3299359679, alpha: 1)
-            cell.rank.textColor = #colorLiteral(red: 0.6633054614, green: 0.4208735824, blue: 0.3299359679, alpha: 1)
+            cell.userStep.textColor = .popoBronze
+            cell.rank.textColor = .popoBronze
         }
 
         return cell

@@ -71,16 +71,16 @@ class API<T: Decodable> {
                     let decoder: JSONDecoder = JSONDecoder()
                     
                     guard let model = try? decoder.decode(T.self, from: data) else {
-                        print("モデルエラー [\(statusCode)]: \(url)")
-//                        self.jsonDump(data)
+                        print("1モデルエラー [\(statusCode)]: \(url)")
+                        self.jsonDump(data)
                         return
                     }
                     
                     print("SUCCESS [Status: \(statusCode)] (URL: \(url)")
                     success(model)
                 case .failure(let error):
-                    print("モデルエラーーーーー")
-//                    dump(parameters)
+                    print("2モデルエラーーーーー")
+                    dump(parameters)
                     guard let failure = failure else { return }
                     failure(error)
                 }

@@ -5,6 +5,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -18,46 +19,47 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="block" translatesAutoresizingMaskIntoConstraints="NO" id="iqR-nz-FLV">
-                        <rect key="frame" x="15" y="6" width="48" height="48"/>
+                        <rect key="frame" x="15" y="36" width="48" height="48"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="48" id="Xs0-EH-3Zc"/>
                             <constraint firstAttribute="width" constant="48" id="grj-Pt-szq"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="スタンダード" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aew-qT-tDY">
-                        <rect key="frame" x="35" y="68" width="89" height="14"/>
+                        <rect key="frame" x="94" y="68" width="90" height="14"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="14" id="tBp-G9-NhE"/>
+                            <constraint firstAttribute="width" constant="90" id="wF5-5Q-RpK"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="15"/>
+                        <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="14"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1000 pt" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eOr-Kv-YNE">
-                        <rect key="frame" x="158.5" y="67" width="60" height="18"/>
+                        <rect key="frame" x="215" y="67" width="61" height="18"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="18" id="Eex-6e-jM5"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="15"/>
+                        <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="14"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hwG-dE-YSx">
-                        <rect key="frame" x="0.0" y="94" width="320" height="3"/>
-                        <color key="backgroundColor" red="1" green="0.0" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <rect key="frame" x="0.0" y="96" width="320" height="1"/>
+                        <color key="backgroundColor" systemColor="systemGray3Color"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="3" id="rHA-P7-rJn"/>
+                            <constraint firstAttribute="height" constant="1" id="Brf-sX-koA"/>
                         </constraints>
                     </view>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_rank" translatesAutoresizingMaskIntoConstraints="NO" id="z4I-J1-c8h">
-                        <rect key="frame" x="16" y="67" width="16" height="16"/>
+                        <rect key="frame" x="75" y="67" width="16" height="16"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="16" id="NtX-U8-dTI"/>
                             <constraint firstAttribute="width" constant="16" id="i43-Bg-Yi3"/>
                         </constraints>
                     </imageView>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="point" translatesAutoresizingMaskIntoConstraints="NO" id="cmX-F7-o6X">
-                        <rect key="frame" x="139.5" y="68" width="16" height="16"/>
+                        <rect key="frame" x="196" y="68" width="16" height="16"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="16" id="juV-zH-ffa"/>
                             <constraint firstAttribute="height" constant="16" id="njJ-yo-pIN"/>
@@ -74,22 +76,22 @@
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="iqR-nz-FLV" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="6" id="0ku-Im-sAB"/>
+                    <constraint firstItem="iqR-nz-FLV" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="36" id="0ku-Im-sAB"/>
+                    <constraint firstItem="hwG-dE-YSx" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="2Lm-2p-qRI"/>
+                    <constraint firstAttribute="trailing" secondItem="hwG-dE-YSx" secondAttribute="trailing" id="5LR-Ng-hQa"/>
                     <constraint firstItem="2tb-ow-4V5" firstAttribute="leading" secondItem="iqR-nz-FLV" secondAttribute="trailing" constant="8" id="Ap8-33-KQ0"/>
+                    <constraint firstAttribute="bottom" secondItem="hwG-dE-YSx" secondAttribute="bottom" id="Bjx-41-03y"/>
                     <constraint firstItem="eOr-Kv-YNE" firstAttribute="leading" secondItem="cmX-F7-o6X" secondAttribute="trailing" constant="3" id="D6z-ZV-Ebo"/>
                     <constraint firstItem="aew-qT-tDY" firstAttribute="leading" secondItem="z4I-J1-c8h" secondAttribute="trailing" constant="3" id="Dlo-jh-kdk"/>
+                    <constraint firstItem="z4I-J1-c8h" firstAttribute="leading" secondItem="iqR-nz-FLV" secondAttribute="trailing" constant="12" id="FS9-Ey-SkK"/>
                     <constraint firstAttribute="trailing" secondItem="2tb-ow-4V5" secondAttribute="trailing" constant="16" id="H6G-xP-n9P"/>
-                    <constraint firstAttribute="trailing" secondItem="hwG-dE-YSx" secondAttribute="trailing" id="Ims-Wb-jAy"/>
-                    <constraint firstItem="cmX-F7-o6X" firstAttribute="leading" secondItem="aew-qT-tDY" secondAttribute="trailing" constant="15.5" id="KaT-t7-u3F"/>
+                    <constraint firstItem="cmX-F7-o6X" firstAttribute="leading" secondItem="aew-qT-tDY" secondAttribute="trailing" constant="12" id="KaT-t7-u3F"/>
                     <constraint firstItem="2tb-ow-4V5" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="35" id="N1s-uA-hWj"/>
                     <constraint firstItem="iqR-nz-FLV" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="gjr-5V-SRy"/>
                     <constraint firstItem="eOr-Kv-YNE" firstAttribute="top" secondItem="2tb-ow-4V5" secondAttribute="bottom" constant="16" id="jqN-Hm-uY9"/>
-                    <constraint firstItem="z4I-J1-c8h" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="k97-mU-jVs"/>
-                    <constraint firstItem="aew-qT-tDY" firstAttribute="top" secondItem="iqR-nz-FLV" secondAttribute="bottom" constant="14" id="kRf-3N-ORB"/>
-                    <constraint firstItem="z4I-J1-c8h" firstAttribute="top" secondItem="iqR-nz-FLV" secondAttribute="bottom" constant="13" id="kS5-3C-x73"/>
-                    <constraint firstItem="hwG-dE-YSx" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="l9J-o5-zaW"/>
+                    <constraint firstItem="aew-qT-tDY" firstAttribute="top" secondItem="iqR-nz-FLV" secondAttribute="bottom" constant="-16" id="kRf-3N-ORB"/>
+                    <constraint firstItem="z4I-J1-c8h" firstAttribute="top" secondItem="iqR-nz-FLV" secondAttribute="bottom" constant="-17" id="kS5-3C-x73"/>
                     <constraint firstItem="cmX-F7-o6X" firstAttribute="top" secondItem="2tb-ow-4V5" secondAttribute="bottom" constant="17" id="lsn-ti-A2d"/>
-                    <constraint firstAttribute="bottom" secondItem="hwG-dE-YSx" secondAttribute="bottom" id="mfw-FQ-09a"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
@@ -106,5 +108,8 @@
         <image name="block" width="128" height="128"/>
         <image name="icon_rank" width="512" height="512"/>
         <image name="point" width="512" height="512"/>
+        <systemColor name="systemGray3Color">
+            <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
     </resources>
 </document>

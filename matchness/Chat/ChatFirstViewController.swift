@@ -9,7 +9,6 @@
 import UIKit
 import XLPagerTabStrip
 import DZNEmptyDataSet
-import GoogleMobileAds
 
 class ChatFirstViewController: BaseViewController, IndicatorInfoProvider, UITableViewDelegate , UITableViewDataSource, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate{
     
@@ -52,40 +51,8 @@ class ChatFirstViewController: BaseViewController, IndicatorInfoProvider, UITabl
         view.addSubview(activityIndicatorView)
         
         tableView.contentInset.bottom = 80
-        let bannerView = GADBannerView(adSize: kGADAdSizeBanner)
-        let tabBarController: UITabBarController = UITabBarController()
-        let tabBarHeight = tabBarController.tabBar.frame.size.height
-        bannerView.frame.origin = CGPoint(x:0, y:self.view.frame.size.height - tabBarHeight - bannerView.frame.height)
-        bannerView.frame.size = CGSize(width:self.view.frame.width, height:bannerView.frame.height)
-        bannerView.adUnitID = ApiConfig.ADUNIT_ID // 本番
-//        bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716" // テスト
-        bannerView.rootViewController = self;
-        let request = GADRequest();
-        bannerView.load(request)
-        addBannerViewToView(bannerView)
     }
 
-
-    func addBannerViewToView(_ bannerView: GADBannerView) {
-      bannerView.translatesAutoresizingMaskIntoConstraints = false
-      view.addSubview(bannerView)
-      view.addConstraints(
-        [NSLayoutConstraint(item: bannerView,
-                            attribute: .bottom,
-                            relatedBy: .equal,
-                            toItem: bottomLayoutGuide,
-                            attribute: .top,
-                            multiplier: 1,
-                            constant: 0),
-         NSLayoutConstraint(item: bannerView,
-                            attribute: .centerX,
-                            relatedBy: .equal,
-                            toItem: view,
-                            attribute: .centerX,
-                            multiplier: 1,
-                            constant: 0)
-        ])
-     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -172,7 +139,7 @@ class ChatFirstViewController: BaseViewController, IndicatorInfoProvider, UITabl
         }
         
         var message = dataMessage[indexPath.row]
-        cell.contentView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        cell.contentView.backgroundColor = .white
         if message.confirmed == 0 {
             cell.contentView.backgroundColor = #colorLiteral(red: 0.9658249021, green: 0.8720960021, blue: 0.9104463458, alpha: 1)
         }

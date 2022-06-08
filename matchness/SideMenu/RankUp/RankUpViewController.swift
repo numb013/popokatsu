@@ -72,12 +72,12 @@ class RankUpViewController: UIViewController,UITableViewDelegate, UITableViewDat
                 cell.period.text = "\(self.selectDate_start) ~ \(self.selectDate_end)"
                 cell.monthStep.text = String(self.month_step)
                 cell.requestButton.isEnabled = false
-                cell.requestButton.backgroundColor =  #colorLiteral(red: 0.007505211513, green: 0.569126904, blue: 0.5776273608, alpha: 1)
+                cell.requestButton.backgroundColor = .popoGreen
                 cell.requestButton.setTitle("ランクアップできません", for: .normal)
 
                 if (self.now_rank != 4) {
                     if self.month_step >= Int(ApiConfig.RANK_STEP_LIST[self.now_rank + 1])! {
-                        cell.requestButton.backgroundColor =  #colorLiteral(red: 1, green: 0, blue: 0.5997084379, alpha: 1)
+                        cell.requestButton.backgroundColor = .popoPink
                         cell.requestButton.isEnabled = true
                         cell.requestButton.setTitle("ランクアップする", for: .normal)
                     }
@@ -230,7 +230,7 @@ class RankUpViewController: UIViewController,UITableViewDelegate, UITableViewDat
                 let alert = UIAlertController(title: "アクセス失敗", message: "しばらくお待ちください", preferredStyle: .alert)
                 let backView = alert.view.subviews.last?.subviews.last
                 backView?.layer.cornerRadius = 15.0
-                backView?.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+            backView?.backgroundColor = .white
                 self.present(alert, animated: true, completion: {
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.8, execute: {
                         alert.dismiss(animated: true, completion: nil)
@@ -247,7 +247,7 @@ class RankUpViewController: UIViewController,UITableViewDelegate, UITableViewDat
         let alert = UIAlertController(title: "\(rank_name) ランクにアップしました！", message: "おめでとうございます！！", preferredStyle: .alert)
         let backView = alert.view.subviews.last?.subviews.last
         backView?.layer.cornerRadius = 15.0
-        backView?.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        backView?.backgroundColor = .white
         // アラート表示
         self.present(alert, animated: true, completion: {
             // アラートを閉じる

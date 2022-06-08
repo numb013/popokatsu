@@ -60,7 +60,12 @@ class BaseViewController: UIViewController {
             userDefaults.set(baseParam.rank, forKey: "rank")
             userDefaults.set(baseParam.user_name, forKey: "user_name")
             userDefaults.set(baseParam.profile_image, forKey: "profile_image")
-
+            
+            userDefaults.set(0, forKey: "roulette")
+            if baseParam.roulette != nil {
+                userDefaults.set(baseParam.roulette, forKey: "roulette")
+            }
+            
             if let tabBarItem = self.tabBarController?.tabBar.items?[1] as? UITabBarItem {
                 tabBarItem.badgeValue = nil
             }
@@ -92,9 +97,8 @@ class BaseViewController: UIViewController {
             }
             if (baseParam.notice != 0 || baseParam.like != 0 || baseParam.footprint != 0) {
                 var total = baseParam.notice + baseParam.like  + baseParam.footprint
-                print("ベーーーーーす", String(total))
+                print("ベーーーーーす", String(total), baseParam.notice, baseParam.like, baseParam.footprint)
                 userDefaults.set(String(total), forKey: "sidemenu")
-
             } else {
                 userDefaults.removeObject(forKey: "sidemenu")
             }
@@ -108,7 +112,7 @@ class BaseViewController: UIViewController {
             let alert = UIAlertController(title: "アクセス失敗", message: "しばらくお待ちください", preferredStyle: .alert)
             let backView = alert.view.subviews.last?.subviews.last
             backView?.layer.cornerRadius = 15.0
-            backView?.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+            backView?.backgroundColor = .white
             self.present(alert, animated: true, completion: {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.8, execute: {
                     alert.dismiss(animated: true, completion: nil)

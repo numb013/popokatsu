@@ -16,7 +16,6 @@ import DZNEmptyDataSet
 import HealthKit
 import Koloda
 import PagingMenuController
-import GoogleMobileAds
 import SafariServices
 import AdSupport
 import AppTrackingTransparency
@@ -90,18 +89,7 @@ class UserSearchViewController: BaseViewController,UICollectionViewDataSource, U
         dateFormatter.timeZone = TimeZone(identifier: "Asia/Tokyo")
         dateFormatter.locale = Locale(identifier: "ja_JP")
         dateFormatter.dateFormat = "yyyy/MM/dd HH:mm:ss"
-        
 
-//        var contentVM = StepMaster()
-//        contentVM.get(
-//            dateFormatter.date(from: "2022/02/01 00:00:00")!,
-//            dateFormatter.date(from: "2022/02/05 23:59:59")!
-//        )
-//        DispatchQueue.main.async { [self] in
-//            print("歩数歩数歩数歩数歩数歩数歩数", contentVM.count)
-//        }
-
-        
         if #available(iOS 14, *) {
             switch ATTrackingManager.trackingAuthorizationStatus {
             case .authorized:
@@ -150,74 +138,19 @@ class UserSearchViewController: BaseViewController,UICollectionViewDataSource, U
         self.navigationItem.title = "さがす"
 
         collectionView.contentInset.bottom = 80
-
-        let bannerView = GADBannerView(adSize: kGADAdSizeBanner)
-
+        
         let tabBarController: UITabBarController = UITabBarController()
         let tabBarHeight = tabBarController.tabBar.frame.size.height
-        bannerView.frame.origin = CGPoint(x:0, y:self.view.frame.size.height - tabBarHeight - bannerView.frame.height)
-        bannerView.frame.size = CGSize(width:self.view.frame.width, height:bannerView.frame.height)
+        tabBarController.appearance()
         
-        bannerView.adUnitID = ApiConfig.ADUNIT_ID // 本番
-//        bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716" // テスト
-        bannerView.rootViewController = self;
-        let request = GADRequest();
-        bannerView.load(request)
-        addBannerViewToView(bannerView)
-    }
-    ///Alert表示
-    private func showRequestTrackingAuthorizationAlert() {
-        if #available(iOS 14, *) {
-            ATTrackingManager.requestTrackingAuthorization(completionHandler: { status in
-                switch status {
-                case .authorized:
-                    print("🎉")
-                    //IDFA取得
-                    print("IDFA: \(ASIdentifierManager.shared().advertisingIdentifier)")
-                case .denied, .restricted, .notDetermined:
-                    print("😭")
-                @unknown default:
-                    fatalError()
-                }
-            })
-        }
-    }
-    
-    func addBannerViewToView(_ bannerView: GADBannerView) {
-      bannerView.translatesAutoresizingMaskIntoConstraints = false
-      view.addSubview(bannerView)
-      view.addConstraints(
-        [NSLayoutConstraint(item: bannerView,
-                            attribute: .bottom,
-                            relatedBy: .equal,
-                            toItem: bottomLayoutGuide,
-                            attribute: .top,
-                            multiplier: 1,
-                            constant: 0),
-         NSLayoutConstraint(item: bannerView,
-                            attribute: .centerX,
-                            relatedBy: .equal,
-                            toItem: view,
-                            attribute: .centerX,
-                            multiplier: 1,
-                            constant: 0)
-        ])
-     }
-    
-    
-    
-    //上に引っ張る更新
-    @objc func refresh() {
-        self.isUpdate = false
-        self.page_no = 1
-        dataSource = []
         apiRequest()
-        self.refreshControl?.endRefreshing()
     }
+    
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
+        
         if (userDefaults.object(forKey: "status") == nil) {
              let storyboard: UIStoryboard = self.storyboard!
              let multiple = storyboard.instantiateViewController(withIdentifier: "profile")
@@ -257,19 +190,46 @@ class UserSearchViewController: BaseViewController,UICollectionViewDataSource, U
         }
     }
     
+
+    ///Alert表示
+    private func showRequestTrackingAuthorizationAlert() {
+        if #available(iOS 14, *) {
+            ATTrackingManager.requestTrackingAuthorization(completionHandler: { status in
+                switch status {
+                case .authorized:
+                    print("🎉")
+                    //IDFA取得
+                    print("IDFA: \(ASIdentifierManager.shared().advertisingIdentifier)")
+                case .denied, .restricted, .notDetermined:
+                    print("😭")
+                @unknown default:
+                    fatalError()
+                }
+            })
+        }
+    }
+
+    //上に引っ張る更新
+    @objc func refresh() {
+        self.isUpdate = false
+        self.page_no = 1
+        dataSource = []
+        self.refreshControl?.endRefreshing()
+    }
+
+    
     // 画面に表示された直後に呼ばれます。
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         //サイドメニューセット
         sideMenuButtonSet()
-        print("viewDidAppear")
     }
     
     func sideMenuButtonSet() {
-        menuButton.frame = CGRect(x: 0, y: 0, width: 0, height: 0)
+        menuButton.frame = CGRect(x: 0, y: 0, width: 30, height: 0)
         menuButton.setImage(UIImage(named: "menu")?.withRenderingMode(.alwaysTemplate), for: .normal)
         if userDefaults.object(forKey: "sidemenu") != nil {
-            menuButton.badgeEdgeInsets = UIEdgeInsets(top: 10, left: 20, bottom: 0, right: 0)
+            menuButton.badgeEdgeInsets = UIEdgeInsets(top: 10, left: 2, bottom: 0, right: 0)
             menuButton.badge = userDefaults.string(forKey: "sidemenu")
         }
         menuButton.addTarget(self,action: #selector(self.sideMenu(_ :)),for: .touchUpInside)
@@ -323,12 +283,7 @@ class UserSearchViewController: BaseViewController,UICollectionViewDataSource, U
     } 
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        print("SSSSSSSSSSS", self.dataSource.count, indexPath.row)
-        
-
         let cell : UserSearchCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "userDetailCell", for: indexPath as IndexPath) as! UserSearchCollectionViewCell
-
         if self.dataSource.count == 0 {
             return cell
         }
@@ -404,9 +359,6 @@ class UserSearchViewController: BaseViewController,UICollectionViewDataSource, U
     @IBAction func nextButton(_ sender: Any) {
         let vc = UIStoryboard(name: "pointChange", bundle: nil).instantiateInitialViewController()! as! PointChangeViewController
         self.navigationController?.pushViewController(vc, animated: true)
-        
-//        let vc = UIStoryboard(name: "Roulette", bundle: nil).instantiateViewController(withIdentifier: "RouletteList") as! RouletteListViewController
-//        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     func apiRequest() {
@@ -423,7 +375,6 @@ class UserSearchViewController: BaseViewController,UICollectionViewDataSource, U
         
         API.requestHttp(POPOAPI.base.userSearch, parameters: parameters,success: { [self] (response: [ApiUserDate]) in
                 isUpdate = response.count < 5 ? false : true
-//                    print("更新更新更新更新更新更新更新更新", isUpdate, response.count)
                 dataSource.append(contentsOf: response)
                 self.activityIndicatorView.stopAnimating()
                 collectionView.reloadData()
@@ -530,7 +481,7 @@ extension UserSearchViewController: KolodaViewDataSource {
 //        label.sizeToFit()
         title.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.8833208476)
         title.font = UIFont.systemFont(ofSize:14.0)
-        title.textColor = #colorLiteral(red: 0.3277077377, green: 0.3560283184, blue: 0.3939625323, alpha: 1)
+        title.textColor = .popoTextColor
         title.textAlignment = NSTextAlignment.center
         view.addSubview(title)
         
@@ -541,7 +492,7 @@ extension UserSearchViewController: KolodaViewDataSource {
         label.text = name_title
 //        label.sizeToFit()
         label.font = UIFont.systemFont(ofSize:17.0)
-        label.textColor = #colorLiteral(red: 0.3277077377, green: 0.3560283184, blue: 0.3939625323, alpha: 1)
+        label.textColor = .popoTextColor
         label.textAlignment = NSTextAlignment.center
         view.addSubview(label)
 
@@ -550,7 +501,7 @@ extension UserSearchViewController: KolodaViewDataSource {
         button.frame = CGRect(x: 20, y: 385, width: 130, height: 50)
         button.setTitle("スキップ", for:UIControl.State.normal)
         button.titleLabel?.font =  UIFont.systemFont(ofSize: 16)
-        button.backgroundColor = #colorLiteral(red: 0.2431372549, green: 0.6901960784, blue: 0.7333333333, alpha: 1)
+        button.backgroundColor = .popoTextGreen
         button.addTarget(self, action: #selector(self.cardGoToNope(_:)), for: .touchUpInside)
         view.addSubview(button)
 
@@ -559,7 +510,7 @@ extension UserSearchViewController: KolodaViewDataSource {
         button_1.frame = CGRect(x: 165, y: 385, width: 130, height: 50)
         button_1.setTitle("いいね", for:UIControl.State.normal)
         button_1.titleLabel?.font =  UIFont.systemFont(ofSize: 16)
-        button_1.backgroundColor = #colorLiteral(red: 1, green: 0.1857388616, blue: 0.5733950138, alpha: 1)
+        button_1.backgroundColor = .popoPink
         button_1.addTarget(self, action: #selector(self.cardGoToLike(_:)), for: .touchUpInside)
         view.addSubview(button_1)
         return view
@@ -597,6 +548,8 @@ extension UserSearchViewController: KolodaViewDelegate {
         if direction.rawValue == "right" {
             apiSwipeLikeRequest(type: 1, like_id : self.pick_up_list[index].id!)
         } else {
+            print("こここkエラーーーindex", index)
+            dump(self.pick_up_list)
             apiSwipeLikeRequest(type: 0, like_id : self.pick_up_list[index].id!)
         }
     }
@@ -619,3 +572,15 @@ extension UserSearchViewController: KolodaViewDelegate {
      }
 }
 
+
+extension UITabBarController {
+    func appearance() {
+        let appearance = UITabBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = UIColor(red: 248/255, green: 248/255, blue: 248/255, alpha: 1.0)
+        UITabBar.appearance().standardAppearance = appearance
+        if #available(iOS 15.0, *) {
+            UITabBar.appearance().scrollEdgeAppearance = appearance
+        }
+    }
+}

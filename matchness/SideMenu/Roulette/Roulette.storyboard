@@ -17,9 +17,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UoP-OK-enW">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cgI-oh-ZZD" customClass="PieChartView" customModule="Charts">
                                 <rect key="frame" x="0.0" y="241" width="414" height="414"/>
-                                <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                <color key="backgroundColor" systemColor="systemGray6Color"/>
                                 <color key="tintColor" systemColor="labelColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="414" id="jGi-J2-aqn"/>
@@ -27,17 +31,18 @@
                                 </constraints>
                             </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrowtriangle.down.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="lf2-5p-mqj">
-                                <rect key="frame" x="167" y="96" width="80" height="76"/>
-                                <color key="tintColor" systemColor="systemRedColor"/>
+                                <rect key="frame" x="167" y="198" width="80" height="76"/>
+                                <color key="tintColor" systemColor="systemTealColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="80" id="P8M-Gk-0wt"/>
-                                    <constraint firstAttribute="width" constant="80" id="oo8-6J-S1G"/>
+                                    <constraint firstAttribute="width" constant="80" id="04K-Jr-gqz"/>
+                                    <constraint firstAttribute="height" constant="80" id="SK1-l9-lCp"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RFz-F0-2be">
-                                <rect key="frame" x="169.5" y="426" width="75" height="44"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                <state key="normal" title="Button"/>
+                                <rect key="frame" x="166" y="426" width="82" height="44"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
+                                <color key="tintColor" systemColor="systemTealColor"/>
+                                <state key="normal" title="START"/>
                                 <connections>
                                     <action selector="tapStartButton:" destination="iAV-Ww-jSR" eventType="touchUpInside" id="96d-aF-CNc"/>
                                 </connections>
@@ -46,16 +51,20 @@
                         <viewLayoutGuide key="safeArea" id="Mbx-Qa-yXd"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="lf2-5p-mqj" firstAttribute="leading" secondItem="Mbx-Qa-yXd" secondAttribute="leading" constant="167" id="M41-uh-WsP"/>
+                            <constraint firstItem="UoP-OK-enW" firstAttribute="leading" secondItem="Mbx-Qa-yXd" secondAttribute="leading" id="1a2-wz-8AL"/>
+                            <constraint firstItem="UoP-OK-enW" firstAttribute="top" secondItem="C2C-es-FLq" secondAttribute="top" id="3qw-6F-y2S"/>
+                            <constraint firstAttribute="bottom" secondItem="UoP-OK-enW" secondAttribute="bottom" id="7pf-Lo-yef"/>
+                            <constraint firstItem="UoP-OK-enW" firstAttribute="trailing" secondItem="Mbx-Qa-yXd" secondAttribute="trailing" id="Bi0-2o-T3b"/>
+                            <constraint firstItem="lf2-5p-mqj" firstAttribute="centerX" secondItem="C2C-es-FLq" secondAttribute="centerX" id="Kqo-bz-4ls"/>
                             <constraint firstItem="RFz-F0-2be" firstAttribute="centerY" secondItem="C2C-es-FLq" secondAttribute="centerY" id="SCY-sk-y4E"/>
                             <constraint firstItem="cgI-oh-ZZD" firstAttribute="centerX" secondItem="C2C-es-FLq" secondAttribute="centerX" id="a4p-cG-r1k"/>
+                            <constraint firstItem="RFz-F0-2be" firstAttribute="top" secondItem="lf2-5p-mqj" secondAttribute="bottom" constant="150" id="i5H-A4-3sv"/>
                             <constraint firstItem="cgI-oh-ZZD" firstAttribute="centerY" secondItem="C2C-es-FLq" secondAttribute="centerY" id="k3g-sQ-pgf"/>
-                            <constraint firstItem="Mbx-Qa-yXd" firstAttribute="trailing" secondItem="lf2-5p-mqj" secondAttribute="trailing" constant="167" id="rZF-th-ph3"/>
                             <constraint firstItem="RFz-F0-2be" firstAttribute="centerX" secondItem="C2C-es-FLq" secondAttribute="centerX" id="scZ-ru-p66"/>
-                            <constraint firstItem="lf2-5p-mqj" firstAttribute="top" secondItem="Mbx-Qa-yXd" secondAttribute="top" constant="50" id="xa3-1c-Gzz"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="backView" destination="UoP-OK-enW" id="yHr-4u-jTI"/>
                         <outlet property="pieChartsView" destination="cgI-oh-ZZD" id="dLL-pB-Szn"/>
                         <outlet property="startButton" destination="RFz-F0-2be" id="qPZ-Jl-LIe"/>
                         <outlet property="yajirushi" destination="lf2-5p-mqj" id="HNo-sE-hDe"/>
@@ -76,6 +85,16 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="bNf-Xl-zRC">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="rouletteCell" id="gqQ-KX-UVH">
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gqQ-KX-UVH" id="7gR-zI-QXP">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ojW-Gz-OGN"/>
@@ -104,11 +123,11 @@
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
-        <systemColor name="systemGreenColor">
-            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
-        <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="systemTealColor">
+            <color red="0.18823529411764706" green="0.69019607843137254" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

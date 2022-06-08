@@ -42,7 +42,7 @@ class SectionHeaderView: UITableViewHeaderFooterView {
         buttomBorder.backgroundColor = UIColor.lightGray.cgColor
 
         contentView.layer.addSublayer(buttomBorder)
-        textLabel?.textColor = #colorLiteral(red: 0.3726522326, green: 0.3743820786, blue: 0.3785918653, alpha: 1)
+        textLabel?.textColor = .popoTextColor
         contentView.backgroundColor = #colorLiteral(red: 0.9683176875, green: 0.9684795737, blue: 0.968296349, alpha: 1)
     }
 }

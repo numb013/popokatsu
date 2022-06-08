@@ -148,7 +148,7 @@ public struct ApiConfig {
 
     static let RANK_NAME_LIST: [String] = ["スタンダード","ブロンズ","シルバー","ゴールド","プラチナ"]
     static let RANK_STEP_LIST: [String] = ["0","500000","1000000","1500000","2000000"]
-    static let POINT_HISTORY: [String] = ["ポイント交換","ポイント購入","グループ賞金","ランクアップ報酬","目標達成報酬","いいね","メッセージ","グループ作成","グループ招待","つぶやき","使用","プレゼント"]
+    static let POINT_HISTORY: [String] = ["ポイント交換","ポイント購入","グループ賞金","ランクアップ報酬","目標達成報酬","いいね","メッセージ","グループ作成","グループ招待","つぶやき","ラッキールーレット"]
     static let GROUP_LABEL: [String] = ["","開催中","集計中","参加済"]
 
     //

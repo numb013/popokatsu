@@ -9,7 +9,6 @@
 import UIKit
 import XLPagerTabStrip
 import DZNEmptyDataSet
-import GoogleMobileAds
 
 class ChatSecondViewController: UIViewController, IndicatorInfoProvider, UITableViewDelegate , UITableViewDataSource, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
     @IBOutlet weak var tableView: UITableView!
@@ -40,44 +39,9 @@ class ChatSecondViewController: UIViewController, IndicatorInfoProvider, UITable
         tableView.addSubview(self.refreshControl)
 
         tableView.contentInset.bottom = 80
-        let bannerView = GADBannerView(adSize: kGADAdSizeBanner)
-        let tabBarController: UITabBarController = UITabBarController()
-        let tabBarHeight = tabBarController.tabBar.frame.size.height
-        bannerView.frame.origin = CGPoint(x:0, y:self.view.frame.size.height - tabBarHeight - bannerView.frame.height)
-        bannerView.frame.size = CGSize(width:self.view.frame.width, height:bannerView.frame.height)
-        bannerView.adUnitID = ApiConfig.ADUNIT_ID // 本番
-//        bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716" // テスト
-        bannerView.rootViewController = self;
-        let request = GADRequest();
-        bannerView.load(request)
-        addBannerViewToView(bannerView)
-        
         apiRequest()
     }
 
-
-    func addBannerViewToView(_ bannerView: GADBannerView) {
-      bannerView.translatesAutoresizingMaskIntoConstraints = false
-      view.addSubview(bannerView)
-      view.addConstraints(
-        [NSLayoutConstraint(item: bannerView,
-                            attribute: .bottom,
-                            relatedBy: .equal,
-                            toItem: bottomLayoutGuide,
-                            attribute: .top,
-                            multiplier: 1,
-                            constant: 0),
-         NSLayoutConstraint(item: bannerView,
-                            attribute: .centerX,
-                            relatedBy: .equal,
-                            toItem: view,
-                            attribute: .centerX,
-                            multiplier: 1,
-                            constant: 0)
-        ])
-     }
-    
-    
     @objc func refreshTable() {
         if self.isUpdate == false {
             self.isUpdate = true

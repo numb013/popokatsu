@@ -37,6 +37,7 @@ pod 'GTMAppAuth'
 pod 'FBSDKLoginKit'
 pod 'Alamofire'
 pod 'SwiftyJSON'
+pod 'Siren'
 
   target 'matchnessTests' do
     inherit! :search_paths

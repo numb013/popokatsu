@@ -22,6 +22,7 @@ import GoogleMobileAds
 import IQKeyboardManagerSwift
 
 import Swifter
+import Siren
 
 //import AppTrackingTransparency
 //import AdSupport
@@ -122,6 +123,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PurchaseManagerDelegate {
             UITabBar.appearance().scrollEdgeAppearance = appearance
         }
         
+        // sirenの強制アップデート設定用関数
+        forceUpdate()
         
         return true
     }
@@ -234,6 +237,30 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
         print(userInfo)
         completionHandler()
     }
-    
+}
 
+private extension AppDelegate {
+    func forceUpdate() {
+        let siren = Siren.shared
+        // 言語を日本語に設定
+        siren.presentationManager = PresentationManager(forceLanguageLocalization: .japanese)
+        // ruleを設定
+        siren.rulesManager = RulesManager(globalRules: .critical)
+
+        // sirenの実行関数
+        siren.wail { results in
+            switch results {
+            case .success(let updateResults):
+                print("AlertAction ", updateResults.alertAction)
+                print("Localization ", updateResults.localization)
+                print("Model ", updateResults.model)
+                print("UpdateType ", updateResults.updateType)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+
+        // 以下のように、完了時の処理を無視して記述することも可能
+        // siren.wail()
+    }
 }

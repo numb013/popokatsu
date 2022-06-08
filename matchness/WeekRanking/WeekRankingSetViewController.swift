@@ -26,7 +26,7 @@ class WeekRankingSetViewController: ButtonBarPagerTabStripViewController, UIView
         //セルの文字色
         settings.style.buttonBarItemTitleColor = UIColor.white
         //セレクトバーの色
-        settings.style.selectedBarBackgroundColor = #colorLiteral(red: 0.2431372549, green: 0.6901960784, blue: 0.7333333333, alpha: 1)
+        settings.style.selectedBarBackgroundColor = .popoTextGreen
 
         super.viewDidLoad()
 
@@ -64,11 +64,10 @@ class WeekRankingSetViewController: ButtonBarPagerTabStripViewController, UIView
     
     func sideMenuButtonSet() {
 
-        menuButton.frame = CGRect(x: 0, y: 0, width: 0, height: 0)
+        menuButton.frame = CGRect(x: 0, y: 0, width: 30, height: 0)
         menuButton.setImage(UIImage(named: "menu")?.withRenderingMode(.alwaysTemplate), for: .normal)
-        print("メニューーーーーーーーー", userDefaults.string(forKey: "sidemenu"))
         if userDefaults.object(forKey: "sidemenu") != nil {
-            menuButton.badgeEdgeInsets = UIEdgeInsets(top: 10, left: 20, bottom: 0, right: 0)
+            menuButton.badgeEdgeInsets = UIEdgeInsets(top: 10, left: 2, bottom: 0, right: 0)
             menuButton.badge = userDefaults.string(forKey: "sidemenu")
         }
         menuButton.addTarget(self,action: #selector(self.sideMenu(_ :)),for: .touchUpInside)

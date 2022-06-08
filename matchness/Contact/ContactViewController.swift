@@ -100,7 +100,7 @@ class ContactViewController: UIViewController, UITextViewDelegate, UITextFieldDe
 
         let backView = alert.view.subviews.last?.subviews.last
         backView?.layer.cornerRadius = 15.0
-        backView?.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        backView?.backgroundColor = .white
         // アラート表示
         self.present(alert, animated: true, completion: {
             // アラートを閉じる
@@ -162,7 +162,7 @@ class ContactViewController: UIViewController, UITextViewDelegate, UITextFieldDe
             let alert = UIAlertController(title: message, message: "貴重なご意見ありがとうございます。", preferredStyle: .alert)
             let backView = alert.view.subviews.last?.subviews.last
             backView?.layer.cornerRadius = 15.0
-            backView?.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+            backView?.backgroundColor = .white
             // アラート表示
             self.present(alert, animated: true, completion: {
                 // アラートを閉じる

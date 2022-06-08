@@ -361,8 +361,8 @@ extension CalendarViewController: UICollectionViewDelegateFlowLayout {
         cell.selectionStyle = UITableViewCell.SelectionStyle.none
         
         cell.startDate.textColor = #colorLiteral(red: 0.4859109521, green: 0.4859964848, blue: 0.4858996868, alpha: 1)
-        cell.weightLabel.textColor = #colorLiteral(red: 0.3333333433, green: 0.3333333433, blue: 0.3333333433, alpha: 1)
-        cell.memoLabel.textColor = #colorLiteral(red: 0.3333333433, green: 0.3333333433, blue: 0.3333333433, alpha: 1)
+        cell.weightLabel.textColor = .popoTextColor
+        cell.memoLabel.textColor = .popoTextColor
 
         return cell
     }
@@ -380,7 +380,7 @@ extension CalendarViewController: UICollectionViewDelegateFlowLayout {
         let alert = UIAlertController(title: "体重 / メモ", message: "\n" + setdaytime, preferredStyle: .alert)
         let backView = alert.view.subviews.last?.subviews.last
         backView?.layer.cornerRadius = 15.0
-        backView?.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        backView?.backgroundColor = .white
         let dateFormater = DateFormatter()
         dateFormater.locale = Locale(identifier: "ja_JP")
         dateFormater.dateFormat = "yyyy/MM/dd"
@@ -408,7 +408,7 @@ extension CalendarViewController: UICollectionViewDelegateFlowLayout {
              }
             inputTextViewUpdate(setdaytime)
         }
-        okAction.setValue(#colorLiteral(red: 0.9884889722, green: 0.3815950453, blue: 0.7363485098, alpha: 1), forKey: "titleTextColor")
+        okAction.setValue(UIColor.popoTextPink, forKey: "titleTextColor")
         //OKボタンを追加
          alert.addAction(okAction)
          
@@ -416,12 +416,12 @@ extension CalendarViewController: UICollectionViewDelegateFlowLayout {
          let cancelAction = UIAlertAction(title: "キャンセル", style: .cancel) { (UIAlertAction) -> Void in
             print("閉じる")
          }
-        cancelAction.setValue(#colorLiteral(red: 0.2431372549, green: 0.6901960784, blue: 0.7333333333, alpha: 1), forKey: "titleTextColor")
+        cancelAction.setValue(UIColor.popoTextGreen, forKey: "titleTextColor")
         //Cancelボタンを追加
          alert.addAction(cancelAction)
         //TextFieldを２つ追加
         alert.addTextField { [self] (text:UITextField!) in
-            text.textColor = #colorLiteral(red: 0.41229707, green: 0.4098508656, blue: 0.4141805172, alpha: 1)
+            text.textColor = .popoTextColor
             text.textAlignment = NSTextAlignment.center
             text.font = UIFont.boldSystemFont(ofSize: 20)
             text.keyboardType = UIKeyboardType.decimalPad //数字と小数点のみ表示
@@ -434,7 +434,7 @@ extension CalendarViewController: UICollectionViewDelegateFlowLayout {
             text.tag = 1
         }
         alert.addTextField { [self] (text:UITextField!) in
-            text.textColor = #colorLiteral(red: 0.41229707, green: 0.4098508656, blue: 0.4141805172, alpha: 1)
+            text.textColor = .popoTextColor
              text.textAlignment = NSTextAlignment.center
              text.font = UIFont.boldSystemFont(ofSize: 20)
              text.placeholder = "メモ"

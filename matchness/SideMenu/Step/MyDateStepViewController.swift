@@ -114,7 +114,7 @@ class MyDateStepViewController: UIViewController, ChartViewDelegate {
         tabBarController?.tabBar.isHidden = false
 
         toDayButton.title = "更新"
-        toDayButton.tintColor = #colorLiteral(red: 1, green: 0, blue: 0.5997084379, alpha: 1)
+        toDayButton.tintColor = .popoPink
         
         jikanLabel.text = "時間"
         syouhiLabel.text = "消費カロリー"
@@ -191,12 +191,12 @@ class MyDateStepViewController: UIViewController, ChartViewDelegate {
             leftbuttonLabel.isHidden = true
 
             toDayButton.title = "更新"
-            toDayButton.tintColor = #colorLiteral(red: 1, green: 0, blue: 0.6, alpha: 1)
+            toDayButton.tintColor = .popoPink
 
         } else {
             leftbuttonLabel.isHidden = false
             toDayButton.title = "本日へ"
-            toDayButton.tintColor = #colorLiteral(red: 0.3333333433, green: 0.3333333433, blue: 0.3333333433, alpha: 1)
+            toDayButton.tintColor = .popoTextColor
         }
 
         if UserDefaults.standard.object(forKey: timer_key) != nil {
@@ -309,7 +309,7 @@ class MyDateStepViewController: UIViewController, ChartViewDelegate {
 
             let chartDataSet = BarChartDataSet(entries: dataEntries, label: "")
             chartDataSet.drawValuesEnabled = false
-            chartDataSet.colors = [#colorLiteral(red: 0.2431372549, green: 0.6901960784, blue: 0.7333333333, alpha: 1)]
+            chartDataSet.colors = [.popoTextGreen]
 
             self.barChartView.data = BarChartData(dataSet: chartDataSet)
 
@@ -331,9 +331,9 @@ class MyDateStepViewController: UIViewController, ChartViewDelegate {
     func showMarkerView(value:String){
         //使用气泡状的标签
         let marker = BalloonMarker(
-            color: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1),
+            color: .white,
             font: .systemFont(ofSize: 12),
-            textColor: #colorLiteral(red: 0.2431372549, green: 0.6901960784, blue: 0.7333333333, alpha: 1),
+            textColor: .popoTextGreen,
             insets: UIEdgeInsets(top: 8, left: 8, bottom: 20, right: 8)
         )
         marker.chartView = self.barChartView

@@ -23,7 +23,7 @@ class TweetSetViewController: ButtonBarPagerTabStripViewController {
         //セルの文字色
         settings.style.buttonBarItemTitleColor = UIColor.white
         //セレクトバーの色
-        settings.style.selectedBarBackgroundColor = #colorLiteral(red: 0.2431372549, green: 0.6901960784, blue: 0.7333333333, alpha: 1)
+        settings.style.selectedBarBackgroundColor = .popoTextGreen
 
         super.viewDidLoad()
 
@@ -43,7 +43,7 @@ class TweetSetViewController: ButtonBarPagerTabStripViewController {
         button.setImage(UIImage(named: "tweeticon"), for: .normal)
         button.imageEdgeInsets = UIEdgeInsets(top: 12, left: 12, bottom: 12, right: 12)
         button.titleLabel?.font =  UIFont.boldSystemFont(ofSize: 12)
-        button.backgroundColor = #colorLiteral(red: 1, green: 0.1857388616, blue: 0.5733950138, alpha: 1)
+        button.backgroundColor = .popoPink
         button.addTarget(self, action: #selector(self.goAddTweet(_:)), for: .touchUpInside)
         button.layer.cornerRadius = 30.0
         // 影の濃さを決める
@@ -75,11 +75,13 @@ class TweetSetViewController: ButtonBarPagerTabStripViewController {
     }
     
     func sideMenuButtonSet() {
-        menuButton.frame = CGRect(x: 0, y: 0, width: 0, height: 0)
+        menuButton.frame = CGRect(x: 0, y: 0, width: 30, height: 0)
         menuButton.setImage(UIImage(named: "menu")?.withRenderingMode(.alwaysTemplate), for: .normal)
         if userDefaults.object(forKey: "sidemenu") != nil {
-            menuButton.badgeEdgeInsets = UIEdgeInsets(top: 10, left: 20, bottom: 0, right: 0)
+            menuButton.badgeEdgeInsets = UIEdgeInsets(top: 10, left: 2, bottom: 0, right: 0)
             menuButton.badge = userDefaults.string(forKey: "sidemenu")
+        } else {
+            menuButton.badge = nil
         }
         menuButton.addTarget(self,action: #selector(self.sideMenu(_ :)),for: .touchUpInside)
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: menuButton)

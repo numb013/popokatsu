@@ -48,7 +48,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="rwQ-fG-vXb">
-                                <rect key="frame" x="0.0" y="99" width="375" height="519"/>
+                                <rect key="frame" x="0.0" y="99" width="375" height="548"/>
                                 <color key="backgroundColor" red="0.90898635786802029" green="0.90898635786802029" blue="0.90898635786802029" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="1" id="wQw-SC-2z8">
                                     <size key="itemSize" width="30" height="30"/>
@@ -90,7 +90,7 @@
                         <constraints>
                             <constraint firstItem="a4F-Du-wDA" firstAttribute="leading" secondItem="faX-o6-eeQ" secondAttribute="leading" id="4Sa-wE-dUp"/>
                             <constraint firstItem="a4F-Du-wDA" firstAttribute="top" secondItem="faX-o6-eeQ" secondAttribute="top" id="RDa-0T-iUW"/>
-                            <constraint firstItem="faX-o6-eeQ" firstAttribute="bottom" secondItem="rwQ-fG-vXb" secondAttribute="bottom" id="UHK-YO-AcP"/>
+                            <constraint firstItem="faX-o6-eeQ" firstAttribute="bottom" secondItem="rwQ-fG-vXb" secondAttribute="bottom" constant="-29" id="UHK-YO-AcP"/>
                             <constraint firstItem="rwQ-fG-vXb" firstAttribute="leading" secondItem="faX-o6-eeQ" secondAttribute="leading" id="Xn4-2b-vEO"/>
                             <constraint firstItem="a4F-Du-wDA" firstAttribute="trailing" secondItem="faX-o6-eeQ" secondAttribute="trailing" id="c9n-Md-pow"/>
                             <constraint firstItem="rwQ-fG-vXb" firstAttribute="trailing" secondItem="faX-o6-eeQ" secondAttribute="trailing" id="f0h-NI-Hu7"/>

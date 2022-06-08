@@ -202,8 +202,8 @@ class UserDetailViewController: UIViewController, UITableViewDelegate, UITableVi
                     if detail.is_like == 1 && detail.is_matche == 0 {
                         LikeRequest.isHidden = false
                         LikeRequest.isEnabled = false
-                        LikeRequest.backgroundColor =  #colorLiteral(red: 0.9803921569, green: 0.9803921569, blue: 0.9803921569, alpha: 1)
-                        LikeRequest.backgroundColor =  #colorLiteral(red: 0.4803626537, green: 0.05874101073, blue: 0.1950398982, alpha: 1)
+                        LikeRequest.backgroundColor = .white
+                        LikeRequest.backgroundColor = .popoPinkOff
                         LikeRequest.setTitle("いいね済み", for: .normal)
                     } else if detail.is_matche != 0 {
                         chatButton.isHidden = false
@@ -336,7 +336,7 @@ class UserDetailViewController: UIViewController, UITableViewDelegate, UITableVi
                     self.profile_text = "自己紹介の入力はありません。"
                     cell.textLabel!.textColor = #colorLiteral(red: 0.572501719, green: 0.5725748539, blue: 0.5724850297, alpha: 1)
                 } else {
-                    cell.textLabel!.textColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
+                    cell.textLabel!.textColor = .popoTextColor
                     self.profile_text = detail.profile_text!
                 }
             }
@@ -472,7 +472,7 @@ class UserDetailViewController: UIViewController, UITableViewDelegate, UITableVi
                     let myString  = "マッチングしました"
                     var myMutableString = NSMutableAttributedString()
                     myMutableString = NSMutableAttributedString(string: myString as String, attributes: [NSAttributedString.Key.font:UIFont.boldSystemFont(ofSize: 20.0)])
-                    myMutableString.addAttribute(NSAttributedString.Key.foregroundColor, value: #colorLiteral(red: 0.2431372549, green: 0.6901960784, blue: 0.7333333333, alpha: 1), range: NSRange(location:0,length:myString.count))
+                    myMutableString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.popoTextGreen, range: NSRange(location:0,length:myString.count))
                     alert.setValue(myMutableString, forKey: "attributedTitle")
                     self.present(alert, animated: true, completion: {
                         DispatchQueue.main.asyncAfter(deadline: .now() + 2.5, execute: {
@@ -483,13 +483,13 @@ class UserDetailViewController: UIViewController, UITableViewDelegate, UITableVi
                 }
             } else {
                 self.LikeRequest.isEnabled = true
-                self.LikeRequest.backgroundColor = #colorLiteral(red: 1, green: 0.1857388616, blue: 0.5733950138, alpha: 1)
+                self.LikeRequest.backgroundColor = .popoPink
                 self.LikeRequest.setTitle("いいね", for: .normal)
                 if response.message == "4" {
                     let alert = UIAlertController(title: "アクセス失敗", message: "しばらくお待ちください", preferredStyle: .alert)
                     let backView = alert.view.subviews.last?.subviews.last
                     backView?.layer.cornerRadius = 15.0
-                    backView?.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+                    backView?.backgroundColor = .white
                     self.present(alert, animated: true, completion: {
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.8, execute: {
                             alert.dismiss(animated: true, completion: nil)
@@ -500,7 +500,7 @@ class UserDetailViewController: UIViewController, UITableViewDelegate, UITableVi
                     let alert = UIAlertController(title: "アカウントが無効です", message: "申し訳ございませんが、ご利用停止にさせていただいています", preferredStyle: .alert)
                     let backView = alert.view.subviews.last?.subviews.last
                     backView?.layer.cornerRadius = 15.0
-                    backView?.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+                    backView?.backgroundColor = .white
                     self.present(alert, animated: true, completion: {
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.8, execute: {
                             alert.dismiss(animated: true, completion: nil)
@@ -512,7 +512,7 @@ class UserDetailViewController: UIViewController, UITableViewDelegate, UITableVi
                         UIAlertController(title:"ポイントが不足しています",message: "いいねするにはポイント5p必要です", preferredStyle: .alert)
                     let backView = alertController.view.subviews.last?.subviews.last
                     backView?.layer.cornerRadius = 15.0
-                    backView?.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+                    backView?.backgroundColor = .white
                     // Default のaction
                     let defaultAction:UIAlertAction =
                         UIAlertAction(title: "ポイント変換ページへ",style: .destructive,handler:{
@@ -528,8 +528,10 @@ class UserDetailViewController: UIViewController, UITableViewDelegate, UITableVi
                             // 処理
                             print("キャンセル")
                         })
-                    cancelAction.setValue(#colorLiteral(red: 0.2431372549, green: 0.6901960784, blue: 0.7333333333, alpha: 1), forKey: "titleTextColor")
-                    defaultAction.setValue(#colorLiteral(red: 0.9884889722, green: 0.3815950453, blue: 0.7363485098, alpha: 1), forKey: "titleTextColor")
+                    cancelAction.setValue(UIColor.popoTextGreen, forKey: "titleTextColor")
+                    defaultAction.setValue(UIColor.popoTextPink, forKey: "titleTextColor")
+                    
+                    
                     // actionを追加
                     alertController.addAction(cancelAction)
                     alertController.addAction(defaultAction)
@@ -771,7 +773,7 @@ class UserDetailViewController: UIViewController, UITableViewDelegate, UITableVi
                 let alert = UIAlertController(title: alert_title, message: alert_text, preferredStyle: .alert)
                 let backView = alert.view.subviews.last?.subviews.last
                 backView?.layer.cornerRadius = 15.0
-                backView?.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+                backView?.backgroundColor = .white
                 // アラート表示
                 self.present(alert, animated: true, completion: {
                     // アラートを閉じる

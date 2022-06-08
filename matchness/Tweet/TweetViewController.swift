@@ -179,7 +179,7 @@ class TweetViewController: BaseViewController, IndicatorInfoProvider, UITableVie
 
             cell.rename.layer.cornerRadius = 12
             cell.rename.clipsToBounds = true
-            cell.rename.backgroundColor = #colorLiteral(red: 0.2431372549, green: 0.6901960784, blue: 0.7333333333, alpha: 1)
+            cell.rename.backgroundColor = .popoTextGreen
             cell.rename.text = "Re:" + tweet.target_name! + "   "
             cell.rename.numberOfLines = 0
             //最大値の設定。　幅固定で高さはいい感じにしたい、と言う場合はこのように高さの最大値を無限大に
@@ -380,7 +380,7 @@ class TweetViewController: BaseViewController, IndicatorInfoProvider, UITableVie
                 let alert = UIAlertController(title: alert_title, message: alert_text, preferredStyle: .alert)
                 let backView = alert.view.subviews.last?.subviews.last
                 backView?.layer.cornerRadius = 15.0
-                backView?.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+                backView?.backgroundColor = .white
                 // アラート表示
                 self.present(alert, animated: true, completion: {
                     // アラートを閉じる
@@ -481,7 +481,7 @@ class TweetViewController: BaseViewController, IndicatorInfoProvider, UITableVie
                         UIAlertController(title:"ポイントが不足しています",message: "いいねするにはポイント5p必要です", preferredStyle: .alert)
                     let backView = alertController.view.subviews.last?.subviews.last
                     backView?.layer.cornerRadius = 15.0
-                    backView?.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+                    backView?.backgroundColor = .white
                     // Default のaction
                     let defaultAction:UIAlertAction =
                         UIAlertAction(title: "ポイント変換ページへ",style: .destructive,handler:{
@@ -497,8 +497,9 @@ class TweetViewController: BaseViewController, IndicatorInfoProvider, UITableVie
                             // 処理
                             print("キャンセル")
                         })
-                    cancelAction.setValue(#colorLiteral(red: 0, green: 0.71307832, blue: 0.7217405438, alpha: 1), forKey: "titleTextColor")
-                    defaultAction.setValue(#colorLiteral(red: 0.9884889722, green: 0.3815950453, blue: 0.7363485098, alpha: 1), forKey: "titleTextColor")
+                    
+                    cancelAction.setValue(UIColor.popoTextGreen, forKey: "titleTextColor")
+                    defaultAction.setValue(UIColor.popoTextPink, forKey: "titleTextColor")
                     // actionを追加
                     alertController.addAction(cancelAction)
                     alertController.addAction(defaultAction)
@@ -555,8 +556,9 @@ class TweetViewController: BaseViewController, IndicatorInfoProvider, UITableVie
                                     // 処理
                                     print("キャンセル")
                                 })
-                            cancelAction.setValue(#colorLiteral(red: 0, green: 0.71307832, blue: 0.7217405438, alpha: 1), forKey: "titleTextColor")
-                            defaultAction.setValue(#colorLiteral(red: 0.9884889722, green: 0.3815950453, blue: 0.7363485098, alpha: 1), forKey: "titleTextColor")
+                            
+                            cancelAction.setValue(UIColor.popoTextGreen, forKey: "titleTextColor")
+                            defaultAction.setValue(UIColor.popoTextPink, forKey: "titleTextColor")
                             // actionを追加
                             alertController.addAction(cancelAction)
                             alertController.addAction(defaultAction)
@@ -578,7 +580,7 @@ class TweetViewController: BaseViewController, IndicatorInfoProvider, UITableVie
                 let alert = UIAlertController(title: "アクセス失敗", message: "しばらくお待ちください", preferredStyle: .alert)
                 let backView = alert.view.subviews.last?.subviews.last
                 backView?.layer.cornerRadius = 15.0
-                backView?.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+                backView?.backgroundColor = .white
                 self.present(alert, animated: true, completion: {
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.8, execute: {
                         alert.dismiss(animated: true, completion: nil)
@@ -600,7 +602,7 @@ class TweetViewController: BaseViewController, IndicatorInfoProvider, UITableVie
                 let myString  = "削除しました"
                 var myMutableString = NSMutableAttributedString()
                 myMutableString = NSMutableAttributedString(string: myString as String, attributes: [NSAttributedString.Key.font:UIFont.boldSystemFont(ofSize: 20.0)])
-                myMutableString.addAttribute(NSAttributedString.Key.foregroundColor, value: #colorLiteral(red: 0.9884889722, green: 0.3815950453, blue: 0.7363485098, alpha: 1), range: NSRange(location:0,length:myString.count))
+                myMutableString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.popoTextPink, range: NSRange(location:0,length:myString.count))
                 alert.setValue(myMutableString, forKey: "attributedTitle")
 
                 self.present(alert, animated: true, completion: {
@@ -616,7 +618,7 @@ class TweetViewController: BaseViewController, IndicatorInfoProvider, UITableVie
                 let alert = UIAlertController(title: "アクセス失敗", message: "しばらくお待ちください", preferredStyle: .alert)
                 let backView = alert.view.subviews.last?.subviews.last
                 backView?.layer.cornerRadius = 15.0
-                backView?.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+                backView?.backgroundColor = .white
                 self.present(alert, animated: true, completion: {
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.8, execute: {
                         alert.dismiss(animated: true, completion: nil)

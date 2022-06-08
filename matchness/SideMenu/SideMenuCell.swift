@@ -20,13 +20,22 @@ class SideMenuCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         icon.layer.cornerRadius = icon.frame.width / 2
-        let imageText = userDefaults.object(forKey: "profile_image") as! String
-        let profileImageURL = image_url + imageText
-        icon.sd_setImage(with: NSURL(string: profileImageURL)! as URL)
-        label.text = userDefaults.object(forKey: "user_name") as! String
-        rankLabel.text = ApiConfig.RANK_NAME_LIST[userDefaults.object(forKey: "rank") as! Int ?? 0]
-        var point = userDefaults.object(forKey: "point") as! Int
-        pointLabel.text = String(point) + " pt"
+        if let imageText = userDefaults.object(forKey: "profile_image") as? String {
+            let profileImageURL = image_url + imageText
+            icon.sd_setImage(with: NSURL(string: profileImageURL)! as URL)
+        }
+        if let userName = userDefaults.object(forKey: "user_name") as? String {
+            label.text = userName
+        }
+        if let rank = userDefaults.object(forKey: "rank") as? Int {
+            rankLabel.text = ApiConfig.RANK_NAME_LIST[rank]
+        } else {
+            rankLabel.text = ApiConfig.RANK_NAME_LIST[0]
+        }
+
+        if let point = userDefaults.object(forKey: "point") as? Int {
+            pointLabel.text = String(point) + " pt"
+        }
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

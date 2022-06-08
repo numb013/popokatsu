@@ -73,10 +73,10 @@ class WishViewController: UIViewController,UITextFieldDelegate, StepMasterDelega
         super.viewWillAppear(animated)
     }
 
-    func viewUploal() {
+    func viewUpload() {
         wishStep.text = self.next_step
         achievementButton.isEnabled = false
-        achievementButton.backgroundColor = #colorLiteral(red: 0.007505211513, green: 0.569126904, blue: 0.5776273608, alpha: 1)
+        achievementButton.backgroundColor = .popoGreen
         achievementButton.setTitle("達成してません", for: .normal)
         
         if self.is_week == 0 {
@@ -84,12 +84,12 @@ class WishViewController: UIViewController,UITextFieldDelegate, StepMasterDelega
                 this_week_text.text = self.selectDate_start + "~" + self.selectDate_end
                 var nokori = Int(self.this_step)! - self.week_step
                 if self.this_clear == 1 {
-                    achievementButton.backgroundColor =  #colorLiteral(red: 0.4803626537, green: 0.05874101073, blue: 0.1950398982, alpha: 1)
+                    achievementButton.backgroundColor = .popoPinkOff
                     achievementButton.isEnabled = false
                     achievementButton.setTitle("達成済", for: .normal)
                     nokori = 0
                 } else if (nokori <= 0) {
-                    achievementButton.backgroundColor =  #colorLiteral(red: 1, green: 0.1857388616, blue: 0.5733950138, alpha: 1)
+                    achievementButton.backgroundColor = .popoPink
                     achievementButton.isEnabled = true
                     achievementButton.setTitle("ポイントを受け取る", for: .normal)
                     nokori = 0
@@ -100,7 +100,7 @@ class WishViewController: UIViewController,UITextFieldDelegate, StepMasterDelega
 
             } else {
 
-                achievementButton.backgroundColor =  #colorLiteral(red: 0.007505211513, green: 0.569126904, blue: 0.5776273608, alpha: 1)
+                achievementButton.backgroundColor = .popoTextGreen
                 achievementButton.isEnabled = false
                 achievementButton.setTitle("目標未設定", for: .normal)
 
@@ -115,12 +115,12 @@ class WishViewController: UIViewController,UITextFieldDelegate, StepMasterDelega
                 this_week_text.text = self.selectDate_start + "~" + self.selectDate_end
                 var nokori = Int(self.last_step)! - self.week_step
                 if self.last_clear == 1 {
-                    achievementButton.backgroundColor =  #colorLiteral(red: 0.4803626537, green: 0.05874101073, blue: 0.1950398982, alpha: 1)
+                    achievementButton.backgroundColor = .popoPinkOff
                     achievementButton.isEnabled = false
                     achievementButton.setTitle("達成済", for: .normal)
                     nokori = 0
                 } else if (nokori <= 0) {
-                    achievementButton.backgroundColor =  #colorLiteral(red: 1, green: 0.1857388616, blue: 0.5733950138, alpha: 1)
+                    achievementButton.backgroundColor = .popoPink
                     achievementButton.isEnabled = true
                     achievementButton.setTitle("ポイントを受け取る", for: .normal)
                     nokori = 0
@@ -129,7 +129,7 @@ class WishViewController: UIViewController,UITextFieldDelegate, StepMasterDelega
                 notReallyText.text = "目標達成まで残り " + String(nokori) + " step"
                 nowStep.text = String(self.week_step) + " / " + self.last_step
             } else {
-                achievementButton.backgroundColor = #colorLiteral(red: 0.007505211513, green: 0.569126904, blue: 0.5776273608, alpha: 1)
+                achievementButton.backgroundColor = .popoTextGreen
                 achievementButton.isEnabled = false
                 achievementButton.setTitle("目標未設定", for: .normal)
 
@@ -192,11 +192,10 @@ class WishViewController: UIViewController,UITextFieldDelegate, StepMasterDelega
     func stepCount(_ count: Double) {
         self.week_step = Int(count)
         print("WWW歩数歩数歩数歩歩数歩数WWWWW", self.week_step)
-        self.viewUploal()
+        DispatchQueue.main.async {
+            self.viewUpload()
+        }
     }
-    
-    
-    
 //    // 今日の歩数を取得するための関数
 //    func getWeekStep(completion: @escaping (Double) -> Void) {
 //        let calendar = Calendar.current
@@ -342,7 +341,7 @@ class WishViewController: UIViewController,UITextFieldDelegate, StepMasterDelega
         let alert = UIAlertController(title: "入力して下さい", message: self.error_message, preferredStyle: .alert)
         let backView = alert.view.subviews.last?.subviews.last
         backView?.layer.cornerRadius = 15.0
-        backView?.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        backView?.backgroundColor = .white
         // アラート表示
         self.present(alert, animated: true, completion: {
             // アラートを閉じる
@@ -403,7 +402,7 @@ class WishViewController: UIViewController,UITextFieldDelegate, StepMasterDelega
                 if status == 3 {
                     self.clearAlert()
                 }
-                self.viewUploal()
+                self.viewUpload()
             } else if status == 2 {
                 self.setAlert()
             }
@@ -415,7 +414,7 @@ class WishViewController: UIViewController,UITextFieldDelegate, StepMasterDelega
                 let alert = UIAlertController(title: "アクセス失敗", message: "しばらくお待ちください", preferredStyle: .alert)
                 let backView = alert.view.subviews.last?.subviews.last
                 backView?.layer.cornerRadius = 15.0
-                backView?.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+            backView?.backgroundColor = .white
                 self.present(alert, animated: true, completion: {
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.8, execute: {
                         alert.dismiss(animated: true, completion: nil)
@@ -431,7 +430,7 @@ class WishViewController: UIViewController,UITextFieldDelegate, StepMasterDelega
         let alert = UIAlertController(title: "来週の目標を設定しました", message: "こちらの設定は来週の日曜日からスタートです", preferredStyle: .alert)
         let backView = alert.view.subviews.last?.subviews.last
         backView?.layer.cornerRadius = 15.0
-        backView?.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        backView?.backgroundColor = .white
         // アラート表示
         self.present(alert, animated: true, completion: {
             // アラートを閉じる
@@ -446,7 +445,7 @@ class WishViewController: UIViewController,UITextFieldDelegate, StepMasterDelega
         let alert = UIAlertController(title: "目標達成おめでとうございます", message: self.clear_point + "Pを付与しました", preferredStyle: .alert)
         let backView = alert.view.subviews.last?.subviews.last
         backView?.layer.cornerRadius = 15.0
-        backView?.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        backView?.backgroundColor = .white
         // アラート表示
         self.present(alert, animated: true, completion: {
             // アラートを閉じる

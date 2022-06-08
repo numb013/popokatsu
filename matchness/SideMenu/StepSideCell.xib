@@ -88,7 +88,7 @@
                                             <constraint firstAttribute="height" constant="31.5" id="iV5-0q-NbD"/>
                                             <constraint firstAttribute="width" constant="94" id="jnJ-Xc-A4N"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="18"/>
+                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
                                         <color key="textColor" red="0.92031210659999996" green="0.27961313719999997" blue="0.58825957780000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -98,7 +98,7 @@
                                             <constraint firstAttribute="width" constant="31" id="AuW-m3-MhD"/>
                                             <constraint firstAttribute="height" constant="18" id="c1I-Qd-T5M"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="11"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="10"/>
                                         <color key="textColor" red="0.3200547272" green="0.3200547272" blue="0.3200547272" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -124,7 +124,7 @@
                                             <constraint firstAttribute="width" constant="121" id="TY1-fX-2gv"/>
                                             <constraint firstAttribute="height" constant="31.5" id="nW0-pB-d8b"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="18"/>
+                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
                                         <color key="textColor" red="0.92031210659999996" green="0.27961313719999997" blue="0.58825957780000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -134,7 +134,7 @@
                                             <constraint firstAttribute="height" constant="18" id="Q3S-pU-2x3"/>
                                             <constraint firstAttribute="width" constant="121" id="yVe-Qh-w6D"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="11"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="10"/>
                                         <color key="textColor" red="0.3200547272" green="0.3200547272" blue="0.3200547272" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -158,7 +158,7 @@
                                             <constraint firstAttribute="height" constant="31.5" id="HfY-QL-ZwT"/>
                                             <constraint firstAttribute="width" constant="94" id="MaI-kJ-CQZ"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="18"/>
+                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
                                         <color key="textColor" red="0.92031210659999996" green="0.27961313719999997" blue="0.58825957780000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -168,7 +168,7 @@
                                             <constraint firstAttribute="width" constant="113" id="30F-gB-tC6"/>
                                             <constraint firstAttribute="height" constant="18" id="j3K-lQ-iZQ"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="11"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="10"/>
                                         <color key="textColor" red="0.3200547272" green="0.3200547272" blue="0.3200547272" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>

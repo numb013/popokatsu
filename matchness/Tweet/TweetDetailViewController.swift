@@ -299,7 +299,7 @@ class TweetDetailViewController: UIViewController, UITableViewDelegate, DZNEmpty
                 let alert = UIAlertController(title: alert_title, message: alert_text, preferredStyle: .alert)
                 let backView = alert.view.subviews.last?.subviews.last
                 backView?.layer.cornerRadius = 15.0
-            backView?.backgroundColor =  #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+            backView?.backgroundColor = .white
                 // アラート表示
                 self.present(alert, animated: true, completion: {
                     // アラートを閉じる
@@ -334,7 +334,7 @@ class TweetDetailViewController: UIViewController, UITableViewDelegate, DZNEmpty
                 let myString  = "削除しました"
                 var myMutableString = NSMutableAttributedString()
                 myMutableString = NSMutableAttributedString(string: myString as String, attributes: [NSAttributedString.Key.font:UIFont.boldSystemFont(ofSize: 20.0)])
-                myMutableString.addAttribute(NSAttributedString.Key.foregroundColor, value: #colorLiteral(red: 0.9884889722, green: 0.3815950453, blue: 0.7363485098, alpha: 1), range: NSRange(location:0,length:myString.count))
+                myMutableString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.popoTextPink, range: NSRange(location:0,length:myString.count))
                 alert.setValue(myMutableString, forKey: "attributedTitle")
 
                 self.present(alert, animated: true, completion: {
@@ -350,7 +350,7 @@ class TweetDetailViewController: UIViewController, UITableViewDelegate, DZNEmpty
                 let alert = UIAlertController(title: "アクセス失敗", message: "しばらくお待ちください", preferredStyle: .alert)
                 let backView = alert.view.subviews.last?.subviews.last
                 backView?.layer.cornerRadius = 15.0
-                backView?.backgroundColor =  #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+                backView?.backgroundColor = .white
                 self.present(alert, animated: true, completion: {
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.8, execute: {
                         alert.dismiss(animated: true, completion: nil)

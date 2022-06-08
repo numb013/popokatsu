@@ -10,7 +10,6 @@ import UIKit
 import XLPagerTabStrip
 import SDWebImage
 import DZNEmptyDataSet
-import GoogleMobileAds
 
 class MultipleFirstViewController: UIViewController, IndicatorInfoProvider, UITableViewDelegate , UITableViewDataSource, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
 
@@ -58,17 +57,7 @@ class MultipleFirstViewController: UIViewController, IndicatorInfoProvider, UITa
         view.addSubview(activityIndicatorView)
         
         tableView.contentInset.bottom = 80
-        let bannerView = GADBannerView(adSize: kGADAdSizeBanner)
-        let tabBarController: UITabBarController = UITabBarController()
-        let tabBarHeight = tabBarController.tabBar.frame.size.height
-        bannerView.frame.origin = CGPoint(x:0, y:self.view.frame.size.height - tabBarHeight - bannerView.frame.height)
-        bannerView.frame.size = CGSize(width:self.view.frame.width, height:bannerView.frame.height)
-        bannerView.adUnitID = ApiConfig.ADUNIT_ID // 本番
-        bannerView.rootViewController = self;
-        let request = GADRequest();
-        bannerView.load(request)
-        addBannerViewToView(bannerView)
-        
+
         let presenter = MultiplePresenter(view: self)
         inject(presenter: presenter)
     }
@@ -77,31 +66,12 @@ class MultipleFirstViewController: UIViewController, IndicatorInfoProvider, UITa
         super.viewWillAppear(animated)
         activityIndicatorView.startAnimating()
         tabBarController?.tabBar.isHidden = true
+        
+        self.page_no = 1
+        self.presenter.data = []
         apiRequest()
     }
 
-
-    func addBannerViewToView(_ bannerView: GADBannerView) {
-      bannerView.translatesAutoresizingMaskIntoConstraints = false
-      view.addSubview(bannerView)
-      view.addConstraints(
-        [NSLayoutConstraint(item: bannerView,
-                            attribute: .bottom,
-                            relatedBy: .equal,
-                            toItem: bottomLayoutGuide,
-                            attribute: .top,
-                            multiplier: 1,
-                            constant: 0),
-         NSLayoutConstraint(item: bannerView,
-                            attribute: .centerX,
-                            relatedBy: .equal,
-                            toItem: view,
-                            attribute: .centerX,
-                            multiplier: 1,
-                            constant: 0)
-        ])
-     }
-    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if (scrollView.contentOffset.y  >= self.tableView.bounds.size.height + 150) && isUpdate == true {
             //ページ更新処理
@@ -124,6 +94,7 @@ class MultipleFirstViewController: UIViewController, IndicatorInfoProvider, UITa
     }
 
     func apiRequest() {
+        print("ステータス", status)
         if status == 0 {
             presenter.apiMultiple(self.page_no, POPOAPI.base.foot)
             userDefaults.removeObject(forKey: "footprint")

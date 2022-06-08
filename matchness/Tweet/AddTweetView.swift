@@ -124,7 +124,7 @@ class AddTweetView: BaseViewController, UITextViewDelegate, UITextFieldDelegate 
                 UIAlertController(title:"文字数オーバー",message: "つぶやきは1ポイント１文字になります", preferredStyle: .alert)
             let backView = alertController.view.subviews.last?.subviews.last
             backView?.layer.cornerRadius = 15.0
-            backView?.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+            backView?.backgroundColor = .white
             // Default のaction
             let defaultAction:UIAlertAction =
                 UIAlertAction(title: "ポイント変換ページへ",style: .destructive,handler:{
@@ -140,8 +140,8 @@ class AddTweetView: BaseViewController, UITextViewDelegate, UITextFieldDelegate 
                     // 処理
                     print("キャンセル")
                 })
-            cancelAction.setValue(#colorLiteral(red: 0.2431372549, green: 0.6901960784, blue: 0.7333333333, alpha: 1), forKey: "titleTextColor")
-            defaultAction.setValue(#colorLiteral(red: 0.9884889722, green: 0.3815950453, blue: 0.7363485098, alpha: 1), forKey: "titleTextColor")
+            cancelAction.setValue(UIColor.popoTextGreen, forKey: "titleTextColor")
+            defaultAction.setValue(UIColor.popoTextPink, forKey: "titleTextColor")
             // actionを追加
             alertController.addAction(cancelAction)
             alertController.addAction(defaultAction)
@@ -181,7 +181,7 @@ class AddTweetView: BaseViewController, UITextViewDelegate, UITextFieldDelegate 
                         UIAlertController(title:"ポイントが不足しています",message: "いいねするにはポイント5p必要です", preferredStyle: .alert)
                     let backView = alertController.view.subviews.last?.subviews.last
                     backView?.layer.cornerRadius = 15.0
-                    backView?.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+                    backView?.backgroundColor = .white
                     // Default のaction
                     let defaultAction:UIAlertAction =
                         UIAlertAction(title: "ポイント変換ページへ",style: .destructive,handler:{
@@ -197,8 +197,8 @@ class AddTweetView: BaseViewController, UITextViewDelegate, UITextFieldDelegate 
                             // 処理
                             print("キャンセル")
                         })
-                    cancelAction.setValue(#colorLiteral(red: 0.2431372549, green: 0.6901960784, blue: 0.7333333333, alpha: 1), forKey: "titleTextColor")
-                    defaultAction.setValue(#colorLiteral(red: 0.9884889722, green: 0.3815950453, blue: 0.7363485098, alpha: 1), forKey: "titleTextColor")
+                    cancelAction.setValue(UIColor.popoTextGreen, forKey: "titleTextColor")
+                    defaultAction.setValue(UIColor.popoTextPink, forKey: "titleTextColor")
                     // actionを追加
                     alertController.addAction(cancelAction)
                     alertController.addAction(defaultAction)
@@ -211,7 +211,7 @@ class AddTweetView: BaseViewController, UITextViewDelegate, UITextFieldDelegate 
             let alert = UIAlertController(title: "つぶやき", message: "投稿しました。", preferredStyle: .alert)
             let backView = alert.view.subviews.last?.subviews.last
             backView?.layer.cornerRadius = 15.0
-            backView?.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+            backView?.backgroundColor = .white
             // アラート表示
             self.present(alert, animated: true, completion: {
                 // アラートを閉じる

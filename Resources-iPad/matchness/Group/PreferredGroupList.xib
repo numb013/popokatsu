@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" variant="6xAndEarlier" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PreferredGroupList" customModule="popo" customModuleProvider="target">
+            <connections>
+                <outlet property="decisionButton" destination="cN7-xW-K3j" id="hUY-EI-tvx"/>
+                <outlet property="tableView" destination="PFk-wt-Bjv" id="iXs-sW-hLb"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="PFk-wt-Bjv">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <color key="backgroundColor" name="systemBackgroundColor" catalog="iPhoneSDK" colorSpace="catalog"/>
+                </tableView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cN7-xW-K3j">
+                    <rect key="frame" x="72" y="509" width="456" height="63"/>
+                    <color key="backgroundColor" red="0.99851840729999997" green="0.1761319935" blue="0.59218323230000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="63" id="avb-j6-77w"/>
+                        <constraint firstAttribute="width" constant="270" id="kkM-MR-h7n"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <state key="normal" title="グループを開催する"/>
+                    <connections>
+                        <action selector="decisionAction:" destination="-1" eventType="touchUpInside" id="CsN-8V-5nt"/>
+                    </connections>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" name="systemBackgroundColor" catalog="iPhoneSDK" colorSpace="catalog"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="cN7-xW-K3j" secondAttribute="bottom" constant="28" id="BkH-Zh-FGw"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="PFk-wt-Bjv" secondAttribute="bottom" id="JBG-Nt-YKf"/>
+                <constraint firstItem="cN7-xW-K3j" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="72" id="LfY-hd-AEt"/>
+                <constraint firstItem="PFk-wt-Bjv" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="NlF-hc-O3B"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="PFk-wt-Bjv" secondAttribute="trailing" id="bX2-HD-agB"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="cN7-xW-K3j" secondAttribute="trailing" constant="72" id="hAf-8x-6lI"/>
+                <constraint firstItem="PFk-wt-Bjv" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="qcb-el-AWI"/>
+            </constraints>
+            <point key="canvasLocation" x="-65.217391304347828" y="49.553571428571423"/>
+        </view>
+    </objects>
+</document>

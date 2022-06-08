@@ -24,12 +24,17 @@ class ChatMessagePresenter: ChatMessageInput {
         self.view = view
     }
     
-    func apiChat(_ point:Int, _ last_message:String, _ room_code: String) {
+    func apiChat(_ point:Int, _ message:String, _ room_code: String) {
         let params = [
             "point": String(point),
-            "last_message":last_message,
+            "last_message":message,
             "room_code":room_code
         ] as [String: Any]
+
+
+print("メッセージメッセージメッセージメッセージ")
+dump(params)
+
         API.requestHttp(POPOAPI.base.chatSend, parameters: params,success: { [self] (response: ApiStatus) in
             print("結果", response.status)
             },

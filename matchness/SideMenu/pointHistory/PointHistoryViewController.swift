@@ -98,11 +98,11 @@ class PointHistoryViewController: UIViewController, UITableViewDelegate, UITable
         cell.title?.text = ApiConfig.POINT_HISTORY[status]
         cell.point?.text = notice.point
         if ((notice.status)! <= 4) {
-            cell.point?.textColor = #colorLiteral(red: 1, green: 0.1857388616, blue: 0.5733950138, alpha: 1)
-            cell.p_text.textColor = #colorLiteral(red: 1, green: 0.1857388616, blue: 0.5733950138, alpha: 1)
+            cell.point?.textColor = .popoPink
+            cell.p_text.textColor = .popoPink
         } else {
-            cell.point?.textColor = #colorLiteral(red: 0.2431372549, green: 0.6901960784, blue: 0.7333333333, alpha: 1)
-            cell.p_text.textColor = #colorLiteral(red: 0.2431372549, green: 0.6901960784, blue: 0.7333333333, alpha: 1)
+            cell.point?.textColor = .popoTextGreen
+            cell.p_text.textColor = .popoTextGreen
         }
 
         //cell.detail?.text = ApiConfig.BLOOD_LIST[myData?.blood_type ?? 2]

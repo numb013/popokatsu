@@ -95,7 +95,7 @@ class AddTweetCommentView: BaseViewController, UITextViewDelegate, UITextFieldDe
         target_name.titleLabel?.adjustsFontSizeToFitWidth = true
         target_name.titleLabel?.minimumScaleFactor = 0.8
         target_name.setTitle(" Re:" + name + " ", for: .normal)
-        target_name.backgroundColor = #colorLiteral(red: 0.2431372549, green: 0.6901960784, blue: 0.7333333333, alpha: 1)
+        target_name.backgroundColor = .popoTextGreen
         target_name.layer.cornerRadius = 13
         target_name.clipsToBounds = true
         self.point = self.userDefaults.object(forKey: "point") as! Int
@@ -187,7 +187,7 @@ class AddTweetCommentView: BaseViewController, UITextViewDelegate, UITextFieldDe
                         UIAlertController(title:"ポイントが不足しています",message: "つぶやくにはポイント50p必要です", preferredStyle: .alert)
                     let backView = alertController.view.subviews.last?.subviews.last
                     backView?.layer.cornerRadius = 15.0
-                    backView?.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+                    backView?.backgroundColor = .white
                     // Default のaction
                     let defaultAction:UIAlertAction =
                         UIAlertAction(title: "ポイント変換ページへ",style: .destructive,handler:{
@@ -203,8 +203,8 @@ class AddTweetCommentView: BaseViewController, UITextViewDelegate, UITextFieldDe
                             // 処理
                             print("キャンセル")
                         })
-                    cancelAction.setValue(#colorLiteral(red: 0, green: 0.71307832, blue: 0.7217405438, alpha: 1), forKey: "titleTextColor")
-                    defaultAction.setValue(#colorLiteral(red: 0.9884889722, green: 0.3815950453, blue: 0.7363485098, alpha: 1), forKey: "titleTextColor")
+                    cancelAction.setValue(UIColor.popoTextGreen, forKey: "titleTextColor")
+                    defaultAction.setValue(UIColor.popoTextPink, forKey: "titleTextColor")
                     // actionを追加
                     alertController.addAction(cancelAction)
                     alertController.addAction(defaultAction)
@@ -217,7 +217,7 @@ class AddTweetCommentView: BaseViewController, UITextViewDelegate, UITextFieldDe
             let alert = UIAlertController(title: "つぶやきコメント", message: "つぶやきにコメントしました。", preferredStyle: .alert)
             let backView = alert.view.subviews.last?.subviews.last
             backView?.layer.cornerRadius = 15.0
-            backView?.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+            backView?.backgroundColor = .white
             // アラート表示
             self.present(alert, animated: true, completion: {
                 // アラートを閉じる

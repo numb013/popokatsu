@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" variant="6xAndEarlier" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ContactViewController" customModule="popo" customModuleProvider="target">
+            <connections>
+                <outlet property="ContactButton" destination="OYY-Fi-55c" id="kAg-tC-cJs"/>
+                <outlet property="textViewPost" destination="lay-5w-bVI" id="cFY-Jt-B0l"/>
+                <outlet property="titile" destination="DDq-xl-Dtu" id="S0A-xO-fSE"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="lay-5w-bVI">
+                    <rect key="frame" x="10" y="80" width="580" height="227"/>
+                    <color key="backgroundColor" name="systemBackgroundColor" catalog="iPhoneSDK" colorSpace="catalog"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="227" id="6Vx-5L-o0d"/>
+                    </constraints>
+                    <color key="textColor" name="labelColor" catalog="iPhoneSDK" colorSpace="catalog"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OYY-Fi-55c">
+                    <rect key="frame" x="72" y="342" width="456" height="55"/>
+                    <color key="backgroundColor" red="0.99875146150000005" green="0.27845174070000001" blue="0.67846250529999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="270" id="Ogs-Ph-Mhw"/>
+                        <constraint firstAttribute="height" constant="55" id="mlg-pb-Qs4"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <state key="normal" title="-"/>
+                    <connections>
+                        <action selector="addButton:" destination="-1" eventType="touchUpInside" id="VlA-Zx-042"/>
+                    </connections>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gAQ-hm-7j9">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="55"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DDq-xl-Dtu">
+                            <rect key="frame" x="118" y="17" width="363" height="21"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="21" id="dYa-yi-Vml"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                            <color key="textColor" name="secondarySystemGroupedBackgroundColor" catalog="iPhoneSDK" colorSpace="catalog"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" name="labelColor" catalog="iPhoneSDK" colorSpace="catalog"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="55" id="HjN-8i-AbH"/>
+                        <constraint firstAttribute="trailing" secondItem="DDq-xl-Dtu" secondAttribute="trailing" constant="119" id="LyG-lk-3Gz"/>
+                        <constraint firstItem="DDq-xl-Dtu" firstAttribute="leading" secondItem="gAQ-hm-7j9" secondAttribute="leading" constant="118" id="aof-Pf-EdG"/>
+                        <constraint firstItem="DDq-xl-Dtu" firstAttribute="top" secondItem="gAQ-hm-7j9" secondAttribute="top" constant="17" id="jQ8-Qb-tLT"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" name="systemBackgroundColor" catalog="iPhoneSDK" colorSpace="catalog"/>
+            <constraints>
+                <constraint firstItem="OYY-Fi-55c" firstAttribute="top" secondItem="lay-5w-bVI" secondAttribute="bottom" constant="35" id="6AV-P9-rmE"/>
+                <constraint firstItem="lay-5w-bVI" firstAttribute="top" secondItem="gAQ-hm-7j9" secondAttribute="bottom" constant="25" id="9Mj-EB-PO9"/>
+                <constraint firstAttribute="trailing" secondItem="gAQ-hm-7j9" secondAttribute="trailing" id="Leu-hX-g6y"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="OYY-Fi-55c" secondAttribute="trailing" constant="72" id="Nlc-wJ-Amg"/>
+                <constraint firstItem="gAQ-hm-7j9" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="OHQ-1y-RBH"/>
+                <constraint firstItem="OYY-Fi-55c" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="72" id="RZF-Ng-CaY"/>
+                <constraint firstItem="lay-5w-bVI" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="WVM-su-S2z"/>
+                <constraint firstItem="gAQ-hm-7j9" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="kXo-d1-LxE"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="lay-5w-bVI" secondAttribute="trailing" constant="10" id="oDa-hG-c5C"/>
+            </constraints>
+            <point key="canvasLocation" x="137.68115942028987" y="91.741071428571431"/>
+        </view>
+    </objects>
+</document>

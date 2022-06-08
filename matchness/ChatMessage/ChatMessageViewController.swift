@@ -255,8 +255,6 @@ class ChatMessageViewController: UIViewController, UITableViewDelegate, UITableV
         return UITableView.automaticDimension
     }
     
-
-    
     func tappedSendButton(text: String) {
         self.point = self.userDefaults.object(forKey: "point") as! Int
         if self.sex == "1" {
@@ -269,7 +267,7 @@ class ChatMessageViewController: UIViewController, UITableViewDelegate, UITableV
                 UIAlertController(title:"メッセージを送信",message: "メッセージを送信には" + String(self.use_point) + "pt必要です",preferredStyle: .alert)
             let backView = alertController.view.subviews.last?.subviews.last
             backView?.layer.cornerRadius = 15.0
-            backView?.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+            backView?.backgroundColor = .white
             // Default のaction
             let defaultAction:UIAlertAction =
                 UIAlertAction(title: "ポイント変換ページへ",style: .destructive,handler:{
@@ -286,8 +284,8 @@ class ChatMessageViewController: UIViewController, UITableViewDelegate, UITableV
                 UIAlertAction(title: "キャンセル",style: .cancel,handler:{
                     (action:UIAlertAction!) -> Void in
                 })
-            defaultAction.setValue(#colorLiteral(red: 0.9884889722, green: 0.3815950453, blue: 0.7363485098, alpha: 1), forKey: "titleTextColor")
-            cancelAction.setValue(#colorLiteral(red: 0, green: 0.71307832, blue: 0.7217405438, alpha: 1), forKey: "titleTextColor")
+            defaultAction.setValue(UIColor.popoTextPink, forKey: "titleTextColor")
+            cancelAction.setValue(UIColor.popoTextGreen, forKey: "titleTextColor")
             // actionを追加
             alertController.addAction(cancelAction)
             alertController.addAction(defaultAction)
@@ -428,7 +426,7 @@ class ChatMessageViewController: UIViewController, UITableViewDelegate, UITableV
 
     func addMessage(_ last_message: String) {
         let chat_message = last_message != "" ? last_message : "画像が送信されました。"
-        presenter.apiChat(self.use_point, last_message, message_users["room_code"]!)
+        presenter.apiChat(self.use_point, chat_message, message_users["room_code"]!)
     }
 }
 

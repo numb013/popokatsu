@@ -50,7 +50,7 @@ class TweetCommentTableViewCell: UITableViewCell {
 
             rename.layer.cornerRadius = 12
             rename.clipsToBounds = true
-            rename.backgroundColor =  #colorLiteral(red: 0.2431372549, green: 0.6901960784, blue: 0.7333333333, alpha: 1)
+            rename.backgroundColor = .popoTextGreen
             rename.text = "Re:" + tweet!.target_name! + "   "
             rename.numberOfLines = 0
             //最大値の設定。　幅固定で高さはいい感じにしたい、と言う場合はこのように高さの最大値を無限大に

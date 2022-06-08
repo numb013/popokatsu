@@ -29,6 +29,9 @@ class PointChangeViewController: UIViewController, UITableViewDelegate, UITableV
     @IBOutlet weak var y_button: UIButton!
     let store = HKHealthStore()
     
+    var gray = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
+    var pink = UIColor.popoPink
+    
     var t_Point = 0
     var y_Point = 0
     var tapStatus = 1
@@ -51,6 +54,7 @@ class PointChangeViewController: UIViewController, UITableViewDelegate, UITableV
     }
         
     override func viewDidLoad() {
+        
         super.viewDidLoad()
 
         tableView.delegate = self
@@ -62,8 +66,8 @@ class PointChangeViewController: UIViewController, UITableViewDelegate, UITableV
         getStepDate1()
         getStepDate2()
 
-        loadInterstitial()
-        
+
+
         let presenter = PointChangePresenter(view: self)
         inject(presenter: presenter)
         presenter.apiPointSelect()
@@ -91,28 +95,7 @@ class PointChangeViewController: UIViewController, UITableViewDelegate, UITableV
         super.viewDidAppear(animated)
         navigationItem.title = "ポイント交換"
     }
-    
-    func pointView() {
-        var tunagi = " / "
-        var stepData = presenter.data[0]
-        self.userPoint.text = String(stepData.point!)
 
-        self.userPoint.font = UIFont.systemFont(ofSize: 3, weight: .bold)
-
-        self.userDefaults.set(stepData.point, forKey: "point")
-        let point_point = self.userDefaults.object(forKey: "point") as! Int
-        self.todayStep.text = String(stepData.todayPointChenge!) + tunagi + String(self.step_data[0])
-        self.yesterdayStep.text = String(stepData.yesterdayPointChenge!) + tunagi + String(self.step_data[1])
-        self.t_Point = self.step_data[0] - stepData.todayPointChenge!
-        self.y_Point = self.step_data[1] - stepData.yesterdayPointChenge!
-        self.todayPoint.text = String(Int(floor(Double(self.t_Point) * 0.01)))
-        self.yesterdayPoint.text = String(Int(floor(Double(self.y_Point) * 0.01)))
-        t_button.isEnabled = self.t_Point <= 100 ? false : true // ボタン無効
-        self.todayPoint.textColor =  self.t_Point <= 100 ? #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1) : #colorLiteral(red: 1, green: 0.1857388616, blue: 0.5733950138, alpha: 1)
-        y_button.isEnabled = self.y_Point <= 100 ? false : true // ボタン無効
-        self.yesterdayPoint.textColor =  self.y_Point <= 100 ? #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1) : #colorLiteral(red: 1, green: 0.1857388616, blue: 0.5733950138, alpha: 1)
-    }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 3
     }
@@ -132,14 +115,35 @@ class PointChangeViewController: UIViewController, UITableViewDelegate, UITableV
                 print("OPOPOPOPOPOPOPOP", stepData.point)
                 cell.userPoint.text = String(stepData.point!)
                 let point_point = self.userDefaults.object(forKey: "point") as! Int
+
+                print("ポイントチェンジポイントチェンジポイントチェンジ", cell.userPoint.text!.count)
+                if cell.userPoint.text!.count >= 5 {
+                    cell.userPoint.font = cell.userPoint.font.withSize(80)
+                }
+
                 cell.todayStep.text = String(stepData.todayPointChenge!) + tunagi + String(self.step_data[0])
                 cell.yesterdayStep.text = String(stepData.yesterdayPointChenge!) + tunagi + String(self.step_data[1])
                 self.t_Point = self.step_data[0] - stepData.todayPointChenge!
                 self.y_Point = self.step_data[1] - stepData.yesterdayPointChenge!
                 cell.todayPoint.text = String(Int(floor(Double(self.t_Point) * 0.01)))
                 cell.yesterdayPoint.text = String(Int(floor(Double(self.y_Point) * 0.01)))
-                cell.todayPoint.textColor =  self.t_Point <= 100 ? #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1) : #colorLiteral(red: 1, green: 0.1857388616, blue: 0.5733950138, alpha: 1)
-                cell.yesterdayPoint.textColor =  self.y_Point <= 100 ? #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1) : #colorLiteral(red: 1, green: 0.1857388616, blue: 0.5733950138, alpha: 1)
+                
+                cell.todayPoint.textColor =  self.t_Point <= 100 ? gray : pink
+                
+                cell.yesterdayPoint.textColor =  self.y_Point <= 100 ? gray : pink
+                
+
+                
+                cell.t_button.isEnabled = self.t_Point <= 100 ? false : true // ボタン無効
+                let b_color = self.t_Point <= 100 ? gray : pink
+                cell.t_button.setTitleColor(b_color, for: .normal)
+
+                cell.y_button.isEnabled = self.y_Point <= 100 ? false : true // ボタン無効
+                let y_color = self.y_Point <= 100 ? gray : pink
+                cell.y_button.setTitleColor(y_color, for: .normal)
+
+                
+
                 cell.t_button.isUserInteractionEnabled = true
                 var recognizer1 = MyTapGestureRecognizer(target: self, action: #selector(self.onTap(_:)))
                 recognizer1.targetString = "1"
@@ -162,7 +166,7 @@ class PointChangeViewController: UIViewController, UITableViewDelegate, UITableV
             cell.backgroundColor =  UIColor.clear
             cell.selectionStyle = UITableViewCell.SelectionStyle.none
             cell.textLabel!.font = UIFont.systemFont(ofSize: 14)
-            cell.textLabel!.textColor = #colorLiteral(red: 0.4321289659, green: 0.4295647442, blue: 0.4341031313, alpha: 1)
+            cell.textLabel!.textColor = .popoTextColor
             cell.textLabel!.text = "１００歩につき１ポイント交換ができます。\n\nもし歩数が０の場合は少し歩いてから再度確認してみて下さい、それでも０のまま動かない場合は下記の設定を行なってみて下さい。\n\niPhoneの設定アプリを起動して、「プライバシー」→「ヘルスケア」→「POPO-KATSU」を選択して、「全てのカテゴリーをオン」にしてください。"
             
             return cell
@@ -203,7 +207,7 @@ class PointChangeViewController: UIViewController, UITableViewDelegate, UITableV
                    let alert = UIAlertController(title: "ポイント交換できません", message: "ポイント交換が０の為、交換できません。\n１００歩につき１ポイント交換ができます。", preferredStyle: .alert)
                     let backView = alert.view.subviews.last?.subviews.last
                     backView?.layer.cornerRadius = 15.0
-                    backView?.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+                    backView?.backgroundColor = .white
                     self.present(alert, animated: true, completion: {
                        DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: {
                            alert.dismiss(animated: true, completion: nil)
@@ -220,7 +224,7 @@ class PointChangeViewController: UIViewController, UITableViewDelegate, UITableV
                    let alert = UIAlertController(title: "ポイント交換できません", message: "ポイント交換が０の為、交換できません。\n１００歩につき１ポイント交換ができます。", preferredStyle: .alert)
                     let backView = alert.view.subviews.last?.subviews.last
                     backView?.layer.cornerRadius = 15.0
-                    backView?.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+                    backView?.backgroundColor = .white
                     self.present(alert, animated: true, completion: {
                        DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: {
                            alert.dismiss(animated: true, completion: nil)
@@ -304,7 +308,7 @@ class PointChangeViewController: UIViewController, UITableViewDelegate, UITableV
 
     func requestUpdatePoint(_ day:Int, _ point:Int) {
         presenter.apiPointGet(day, point)
-        SKStoreReviewController.requestReview()
+//        SKStoreReviewController.requestReview()
     }
     
     @IBAction func paymentButton(_ sender: Any) {
@@ -319,9 +323,12 @@ extension Array {
 }
 
 extension PointChangeViewController: PointChangeOutput {
-    func update() {
+    func update(_ apiType:String) {
         self.tapStatus = 1
         tableView.reloadData()
+        if apiType == "get" {
+            loadInterstitial()
+        }
     }
     
     func error() {

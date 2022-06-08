@@ -46,7 +46,7 @@ class FBLoginViewController: UIViewController, UIViewControllerTransitioningDele
         button.setTitle("ユーザ登録", for:UIControl.State.normal)
         button.titleLabel?.font =  UIFont.systemFont(ofSize: 18, weight: .bold)
         button.setTitleColor(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), for: .normal)
-        button.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        button.backgroundColor = .white
         //外枠の色を指定
         button.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         //外枠の太さを指定
@@ -167,7 +167,7 @@ class FBLoginViewController: UIViewController, UIViewControllerTransitioningDele
                 let alert = UIAlertController(title: "アクセスエラー", message: "しばらくお待ちください", preferredStyle: .alert)
                 let backView = alert.view.subviews.last?.subviews.last
                 backView?.layer.cornerRadius = 15.0
-                backView?.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+            backView?.backgroundColor = .white
                 self.present(alert, animated: true, completion: {
                     DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
                         alert.dismiss(animated: true, completion: nil)

@@ -283,7 +283,7 @@ class GroupEventAddViewController: UIViewController, UITableViewDelegate, UITabl
         let alert = UIAlertController(title: "入力して下さい", message: self.error_text, preferredStyle: .alert)
         let backView = alert.view.subviews.last?.subviews.last
         backView?.layer.cornerRadius = 15.0
-        backView?.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        backView?.backgroundColor = .white
         // アラート表示
         self.present(alert, animated: true, completion: {
             // アラートを閉じる
@@ -302,7 +302,7 @@ class GroupEventAddViewController: UIViewController, UITableViewDelegate, UITabl
             UIAlertController(title:"グループを作成していいですか？",message: "作成するには" + self.usePointText + "pポント必要になります",preferredStyle: .alert)
         let backView = alertController.view.subviews.last?.subviews.last
         backView?.layer.cornerRadius = 15.0
-        backView?.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        backView?.backgroundColor = .white
         // Default のaction
         let defaultAction:UIAlertAction =
             UIAlertAction(title: "作成する",style: .default){
@@ -318,8 +318,8 @@ class GroupEventAddViewController: UIViewController, UITableViewDelegate, UITabl
                 // 処理
                 print("キャンセル")
             }
-        cancelAction.setValue(#colorLiteral(red: 0.2431372549, green: 0.6901960784, blue: 0.7333333333, alpha: 1), forKey: "titleTextColor")
-        defaultAction.setValue(#colorLiteral(red: 0.9884889722, green: 0.3815950453, blue: 0.7363485098, alpha: 1), forKey: "titleTextColor")
+        cancelAction.setValue(UIColor.popoTextGreen, forKey: "titleTextColor")
+        defaultAction.setValue(UIColor.popoTextPink, forKey: "titleTextColor")
         // actionを追加
         alertController.addAction(cancelAction)
         alertController.addAction(defaultAction)
@@ -337,15 +337,19 @@ class GroupEventAddViewController: UIViewController, UITableViewDelegate, UITabl
             "event_period": self.event_period
         ] as [String:Any]
         
-        if (parameters["title"] as! String == "") {
+        print("エラーーー")
+        dump(parameters)
+        
+        
+        if parameters["title"] as! String == "" {
             self.validator(1)
             return
         }
-        if (parameters["event_peple"] as! String == "0") {
+        if parameters["event_peple"] as! Int == 0 {
             self.validator(2)
             return
         }
-        if (parameters["event_period"] as! String == "0") {
+        if parameters["event_period"] as! Int == 0 {
             self.validator(3)
             return
         }
@@ -356,7 +360,7 @@ class GroupEventAddViewController: UIViewController, UITableViewDelegate, UITabl
             // Default のaction
             let backView = alertController.view.subviews.last?.subviews.last
             backView?.layer.cornerRadius = 15.0
-            backView?.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+            backView?.backgroundColor = .white
             let cancelAction:UIAlertAction =
                 UIAlertAction(title: "閉じる",style: .cancel,handler:{
                     (action:UIAlertAction!) -> Void in
@@ -366,7 +370,7 @@ class GroupEventAddViewController: UIViewController, UITableViewDelegate, UITabl
                     self.navigationController?.popViewController(animated: true)
                     self.close()
                 })
-            cancelAction.setValue(#colorLiteral(red: 0.2431372549, green: 0.6901960784, blue: 0.7333333333, alpha: 1), forKey: "titleTextColor")
+            cancelAction.setValue(UIColor.popoTextGreen, forKey: "titleTextColor")
             // actionを追加
             alertController.addAction(cancelAction)
             // UIAlertControllerの起動
@@ -389,7 +393,7 @@ class GroupEventAddViewController: UIViewController, UITableViewDelegate, UITabl
             UIAlertController(title:"ポイントが不足しています",message: "ポイント変換が必要です", preferredStyle: .alert)
         let backView = alertController.view.subviews.last?.subviews.last
         backView?.layer.cornerRadius = 15.0
-        backView?.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        backView?.backgroundColor = .white
         // Default のaction
         let defaultAction:UIAlertAction =
             UIAlertAction(title: "ポイント変換ページへ",style: .destructive,handler:{
@@ -406,8 +410,8 @@ class GroupEventAddViewController: UIViewController, UITableViewDelegate, UITabl
                 // 処理
                 print("キャンセル")
             })
-        cancelAction.setValue(#colorLiteral(red: 0.2431372549, green: 0.6901960784, blue: 0.7333333333, alpha: 1), forKey: "titleTextColor")
-        defaultAction.setValue(#colorLiteral(red: 0.9884889722, green: 0.3815950453, blue: 0.7363485098, alpha: 1), forKey: "titleTextColor")
+        cancelAction.setValue(UIColor.popoTextGreen, forKey: "titleTextColor")
+        defaultAction.setValue(UIColor.popoTextPink, forKey: "titleTextColor")
         // actionを追加
         alertController.addAction(cancelAction)
         alertController.addAction(defaultAction)

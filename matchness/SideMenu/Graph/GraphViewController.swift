@@ -197,7 +197,7 @@ class GraphViewController: UIViewController, ChartViewDelegate {
                 limit: Double(Int((targetWeight as! NSString).doubleValue)) as! Double,
                 label: goal
             )
-            limitLine.lineColor =  #colorLiteral(red: 0.2431372549, green: 0.6901960784, blue: 0.7333333333, alpha: 1)
+            limitLine.lineColor = .popoTextGreen
             limitLine.lineDashLengths = [4]
             limitLine.labelPosition = .topLeft
             lineChartView.leftAxis.addLimitLine(limitLine)
@@ -258,7 +258,7 @@ class GraphViewController: UIViewController, ChartViewDelegate {
          let alert = UIAlertController(title: "目標体重", message: "目標体重を入力してね", preferredStyle: .alert)
          let backView = alert.view.subviews.last?.subviews.last
          backView?.layer.cornerRadius = 15.0
-        backView?.backgroundColor =  #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        backView?.backgroundColor = .white
 
         //OKボタンを生成
          let okAction = UIAlertAction(title: "OK", style: .default) { (action:UIAlertAction) in
@@ -274,19 +274,19 @@ class GraphViewController: UIViewController, ChartViewDelegate {
             self.graph()
          }
 
-        okAction.setValue(#colorLiteral(red: 0.9884889722, green: 0.3815950453, blue: 0.7363485098, alpha: 1), forKey: "titleTextColor")
+        okAction.setValue(UIColor.popoTextPink, forKey: "titleTextColor")
          //OKボタンを追加
          alert.addAction(okAction)
          //Cancelボタンを生成
          let cancelAction = UIAlertAction(title: "キャンセル", style: .cancel) { (UIAlertAction) -> Void in
             print("閉じる")
          }
-        cancelAction.setValue(#colorLiteral(red: 0.2431372549, green: 0.6901960784, blue: 0.7333333333, alpha: 1), forKey: "titleTextColor")
+        cancelAction.setValue(UIColor.popoTextGreen, forKey: "titleTextColor")
         //Cancelボタンを追加
          alert.addAction(cancelAction)
 
         alert.addTextField { (text:UITextField!) in
-            text.textColor =  #colorLiteral(red: 0.41229707, green: 0.4098508656, blue: 0.4141805172, alpha: 1)
+            text.textColor = .popoTextColor
              text.textAlignment = NSTextAlignment.center
              text.font = UIFont.boldSystemFont(ofSize: 20)
              text.keyboardType = UIKeyboardType.decimalPad //数字と小数点のみ表示
@@ -311,7 +311,7 @@ class GraphViewController: UIViewController, ChartViewDelegate {
         let backView = alert.view.subviews.last?.subviews.last
         
         backView?.layer.cornerRadius = 15.0
-        backView?.backgroundColor =  #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        backView?.backgroundColor = .white
 
         let dateFormater = DateFormatter()
         dateFormater.locale = Locale(identifier: "ja_JP")
@@ -345,7 +345,7 @@ class GraphViewController: UIViewController, ChartViewDelegate {
              }
              self.graph()
         }
-        okAction.setValue(#colorLiteral(red: 0.9884889722, green: 0.3815950453, blue: 0.7363485098, alpha: 1), forKey: "titleTextColor")
+        okAction.setValue(UIColor.popoTextPink, forKey: "titleTextColor")
         //OKボタンを追加
          alert.addAction(okAction)
          
@@ -353,12 +353,12 @@ class GraphViewController: UIViewController, ChartViewDelegate {
          let cancelAction = UIAlertAction(title: "キャンセル", style: .cancel) { (UIAlertAction) -> Void in
             print("閉じる")
          }
-        cancelAction.setValue(#colorLiteral(red: 0.2431372549, green: 0.6901960784, blue: 0.7333333333, alpha: 1), forKey: "titleTextColor")
+        cancelAction.setValue(UIColor.popoTextGreen, forKey: "titleTextColor")
         //Cancelボタンを追加
          alert.addAction(cancelAction)
         //TextFieldを２つ追加
         alert.addTextField { (text:UITextField!) in
-            text.textColor =  #colorLiteral(red: 0.41229707, green: 0.4098508656, blue: 0.4141805172, alpha: 1)
+            text.textColor = .popoTextColor
             text.textAlignment = NSTextAlignment.center
             text.font = UIFont.boldSystemFont(ofSize: 20)
             text.keyboardType = UIKeyboardType.decimalPad //数字と小数点のみ表示
@@ -371,7 +371,7 @@ class GraphViewController: UIViewController, ChartViewDelegate {
             text.tag = 1
         }
         alert.addTextField { (text:UITextField!) in
-            text.textColor =  #colorLiteral(red: 0.41229707, green: 0.4098508656, blue: 0.4141805172, alpha: 1)
+            text.textColor = .popoTextColor
              text.textAlignment = NSTextAlignment.center
              text.font = UIFont.boldSystemFont(ofSize: 20)
              text.keyboardType = UIKeyboardType.decimalPad //数字と小数点のみ表示

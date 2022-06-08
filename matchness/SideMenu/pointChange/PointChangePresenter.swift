@@ -15,7 +15,7 @@ protocol PointChangeInput {
 }
 
 protocol PointChangeOutput: AnyObject {
-    func update()
+    func update(_ apiType:String)
     func error()
 }
 
@@ -35,11 +35,12 @@ class PointChangePresenter: PointChangeInput {
     func apiPointSelect() {
         API.requestHttp(POPOAPI.base.pointSelect, parameters: nil,success: { [self] (response: [ApiChangePoint]) in
                 data = response
-                view.update()
+            
+                view?.update("select")
             },
             failure: { [self] error in
                 print(error)
-                view.error()
+                view?.error()
             }
         )
     }
@@ -50,8 +51,9 @@ class PointChangePresenter: PointChangeInput {
             "change_point": point
         ] as [String: Any]
 
-        API.requestHttp(POPOAPI.base.pointGet, parameters: params,success: { [self] (response: ApiStatus) in
-                view.update()
+        API.requestHttp(POPOAPI.base.pointGet, parameters: params,success: { [self] (response: [ApiChangePoint]) in
+                data = response
+            view?.update("get")
             },
             failure: { [self] error in
                 print(error)

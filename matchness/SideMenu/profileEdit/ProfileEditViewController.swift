@@ -10,7 +10,7 @@ import UIKit
 import FirebaseStorage
 import SDWebImage
 
-class ProfileEditViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate, UITextViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, detePickerProtocol {
+class ProfileEditViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, UITextViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, detePickerProtocol {
 
     let userDefaults = UserDefaults.standard
     @IBOutlet weak var tableView: UITableView!
@@ -63,14 +63,17 @@ class ProfileEditViewController: UIViewController, UITableViewDelegate, UITableV
         self.presenter = presenter
     }
     
-    
+    override func viewDidAppear(_ animated: Bool) {
+        //タブバー表示
+        tabBarController?.tabBar.isHidden = true
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
         // Do any additional setup after loading the view.
-        pickerView.delegate   = self
-        pickerView.dataSource = self
+
         pickerView.showsSelectionIndicator = true
         myTextView.delegate = self
         
@@ -100,6 +103,8 @@ class ProfileEditViewController: UIViewController, UITableViewDelegate, UITableV
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationItem.title = "プロフィール更新"
+        pickerView.delegate   = self
+        pickerView.dataSource = self
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -319,7 +324,7 @@ class ProfileEditViewController: UIViewController, UITableViewDelegate, UITableV
                     cell.textLabel!.text = "自己紹介の入力はありません。"
                     cell.textLabel!.textColor = #colorLiteral(red: 0.572501719, green: 0.5725748539, blue: 0.5724850297, alpha: 1)
                 } else {
-                    cell.textLabel!.textColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
+                    cell.textLabel!.textColor = .popoTextColor
                     self.profile_text = myData.profile_text as! String
                     cell.textLabel!.text = myData.profile_text as! String
                 }
@@ -451,6 +456,7 @@ class ProfileEditViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     @IBAction func pickerSelectButton(_ sender: Any) {
+        print("セレクトピッカー")
         if self.selectPicker == 3 {
             presenter.data[0].fitness_parts_id = self.select_pcker_list[self.selectPicker] ?? 0
         }
@@ -473,6 +479,7 @@ class ProfileEditViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     func PickerPush(){
+        print("きてる？？？")
         self.view.endEditing(true)
         UIView.animate(withDuration: 0.5,animations: {
             if UIScreen.main.nativeBounds.height >= 1792 {
@@ -481,6 +488,7 @@ class ProfileEditViewController: UIViewController, UITableViewDelegate, UITableV
                 self.pickerBottom.constant = -260
             }
             self.pickerView.updateConstraints()
+            self.pickerView.reloadInputViews()
             self.tableView.updateConstraints()
             self.view.layoutIfNeeded()
         })
@@ -490,31 +498,12 @@ class ProfileEditViewController: UIViewController, UITableViewDelegate, UITableV
         UIView.animate(withDuration: 0.5,animations: {
             self.pickerBottom.constant = 300
             self.pickerView.updateConstraints()
+            self.pickerView.reloadInputViews()
             self.tableView.updateConstraints()
             self.view.layoutIfNeeded()
         })
     }
     
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return self.pcker_list.count
-    }
-    // UIPickerViewに表示する配列
-    func pickerView(_ pickerView: UIPickerView,titleForRow row: Int,forComponent component: Int) -> String? {
-        if (self.pcker_list.count > row) {
-            return self.pcker_list[row]
-        } else {
-            return ""
-        }
-    }
-
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        self.select_pcker_list[self.selectPicker] = row
-    }
-
     func detePickerSelect(date: String) {
         presenter.data[0].birthday = date
     }
@@ -562,7 +551,7 @@ class ProfileEditViewController: UIViewController, UITableViewDelegate, UITableV
             let alert = UIAlertController(title: "入力して下さい", message: message, preferredStyle: .alert)
             let backView = alert.view.subviews.last?.subviews.last
             backView?.layer.cornerRadius = 15.0
-            backView?.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+            backView?.backgroundColor = .white
             // アラート表示
             self.present(alert, animated: true, completion: {
                 // アラートを閉じる
@@ -574,7 +563,7 @@ class ProfileEditViewController: UIViewController, UITableViewDelegate, UITableV
             let alert = UIAlertController(title: "※は必須項目になります", message: "選択されていない項目があります", preferredStyle: .alert)
             let backView = alert.view.subviews.last?.subviews.last
             backView?.layer.cornerRadius = 15.0
-            backView?.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+            backView?.backgroundColor = .white
             // アラート表示
             self.present(alert, animated: true, completion: {
                 // アラートを閉じる
@@ -733,7 +722,7 @@ extension ProfileEditViewController: ProfileEditOutput {
                 UIAlertController(title:"プロフィールが更新されました",message: "プロフィールが更新されました",preferredStyle: .alert)
             let backView = alertController.view.subviews.last?.subviews.last
             backView?.layer.cornerRadius = 15.0
-            backView?.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+            backView?.backgroundColor = .white
             // Default のaction
             let defaultAction:UIAlertAction =
                 UIAlertAction(title: "更新されました",style: .destructive,handler:{
@@ -750,8 +739,9 @@ extension ProfileEditViewController: ProfileEditOutput {
                     self.activityIndicatorView.stopAnimating()
                     self.dismiss(animated: true, completion: nil)
                 })
-            cancelAction.setValue(#colorLiteral(red: 0, green: 0.71307832, blue: 0.7217405438, alpha: 1), forKey: "titleTextColor")
-            defaultAction.setValue(#colorLiteral(red: 0.9884889722, green: 0.3815950453, blue: 0.7363485098, alpha: 1), forKey: "titleTextColor")
+            
+            cancelAction.setValue(UIColor.popoTextGreen, forKey: "titleTextColor")
+            defaultAction.setValue(UIColor.popoTextPink, forKey: "titleTextColor")
             // actionを追加
             alertController.addAction(cancelAction)
             alertController.addAction(defaultAction)
@@ -769,4 +759,28 @@ extension ProfileEditViewController: ProfileEditOutput {
     func error() {
         //
     }
+}
+
+extension ProfileEditViewController:UIPickerViewDelegate, UIPickerViewDataSource {
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return self.pcker_list.count
+    }
+    // UIPickerViewに表示する配列
+    func pickerView(_ pickerView: UIPickerView,titleForRow row: Int,forComponent component: Int) -> String? {
+        if (self.pcker_list.count > row) {
+            return self.pcker_list[row]
+        } else {
+            return ""
+        }
+    }
+
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        self.select_pcker_list[self.selectPicker] = row
+    }
+
 }

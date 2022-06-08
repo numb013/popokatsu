@@ -61,11 +61,11 @@ class TermCompViewController: UIViewController, UITextViewDelegate{
     @IBAction func pushCheckButton(_ sender: Any) {
         self.checkButton.isSelected = !self.checkButton.isSelected
         if (self.checkButton.isSelected == true) {
-            self.comp.backgroundColor =  #colorLiteral(red: 0.9762895703, green: 0, blue: 0.5041214228, alpha: 1)
+            self.comp.backgroundColor = .popoPink
             self.comp.isEnabled = true
         } else {
             self.comp.isEnabled = false
-            self.comp.backgroundColor =  #colorLiteral(red: 0.4803626537, green: 0.05874101073, blue: 0.1950398982, alpha: 1)
+            self.comp.backgroundColor = .popoPinkOff
         }
     }
     

@@ -22,4 +22,5 @@ class ApiBaseParam: Codable {
     let api_token: String
     let profile_image: String
     let user_name: String
+    let roulette: Int?
 }

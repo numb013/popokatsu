@@ -131,6 +131,9 @@ class AllNoticeViewController: UIViewController, UITableViewDelegate, UITableVie
         tableView.deselectRow(at: indexPath as IndexPath, animated: true)
         var notice = self.dataSource[indexPath.row]
 
+        print("okokokokokokokok")
+        dump(notice)
+        
         //グループ
         if notice.type == 3 {
             if notice.sub_type == 1 {//参加希望

@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>dev_matchness.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>0</integer>
+		</dict>
 		<key>matchness.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
@@ -12,6 +17,16 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>841A27F828504FD2001AD203</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>841FBB72285064FA00A1EC22</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>84EFD8842475295000549BBD</key>
 		<dict>
 			<key>primary</key>

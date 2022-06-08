@@ -50,7 +50,7 @@ class GroupViewController: BaseViewController, UIViewControllerTransitioningDele
             button.layer.position = CGPoint(x: self.view.frame.width - 45, y:self.view.frame.height - 114)
         }
         button.setImage(UIImage(named: "pulus_group"), for: .normal)
-        button.backgroundColor = #colorLiteral(red: 1, green: 0.1857388616, blue: 0.5733950138, alpha: 1)
+        button.backgroundColor = .popoPink
         button.addTarget(self, action: #selector(self.goAddGroup(_:)), for: .touchUpInside)
         button.layer.cornerRadius = 30.0
         // 影の濃さを決める
@@ -83,12 +83,11 @@ class GroupViewController: BaseViewController, UIViewControllerTransitioningDele
     }
 
     func sideMenuButtonSet() {
-
-        menuButton.frame = CGRect(x: 0, y: 0, width: 0, height: 0)
+        menuButton.frame = CGRect(x: 0, y: 0, width: 30, height: 0)
         menuButton.setImage(UIImage(named: "menu")?.withRenderingMode(.alwaysTemplate), for: .normal)
         print("メニューーーーーーーーー", userDefaults.string(forKey: "sidemenu"))
         if userDefaults.object(forKey: "sidemenu") != nil {
-            menuButton.badgeEdgeInsets = UIEdgeInsets(top: 10, left: 20, bottom: 0, right: 0)
+            menuButton.badgeEdgeInsets = UIEdgeInsets(top: 10, left: 2, bottom: 0, right: 0)
             menuButton.badge = userDefaults.string(forKey: "sidemenu")
         }
         menuButton.addTarget(self,action: #selector(self.sideMenu(_ :)),for: .touchUpInside)

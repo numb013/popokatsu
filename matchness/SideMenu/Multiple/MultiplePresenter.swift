@@ -35,7 +35,7 @@ class MultiplePresenter: MultipleInput {
         API.requestHttp(setData, parameters: nil,success: { [self] (response: [ApiMultipleUser]) in
                 data.append(contentsOf: response)
                 isUpdate = data.count < 5 ? false : true
-                view.update(page: self.page, isUpdate:isUpdate)
+                view?.update(page: self.page, isUpdate:isUpdate)
             },
             failure: { [self] error in
                 print(error)
@@ -53,7 +53,7 @@ class MultiplePresenter: MultipleInput {
         API.requestHttp(POPOAPI.base.myList, parameters: params,success: { [self] (response: [ApiMultipleUser]) in
                 data.append(contentsOf: response)
                 isUpdate = data.count < 5 ? false : true
-                view.update(page: self.page, isUpdate:isUpdate)
+                view?.update(page: self.page, isUpdate:isUpdate)
             },
             failure: { [self] error in
                 print(error)

@@ -40,7 +40,6 @@ class WaitGroupViewController: UIViewController, UITableViewDelegate , UITableVi
 
         self.tableView.register(UINib(nibName: "GroupTableViewCell", bundle: nil), forCellReuseIdentifier: "GroupTableViewCell")
         self.navigationItem.title = "参加希望待ち"
-        apiRequest()
         tableView.tableFooterView = UIView(frame: .zero)
 
         let refreshControl = UIRefreshControl()
@@ -126,7 +125,7 @@ class WaitGroupViewController: UIViewController, UITableViewDelegate , UITableVi
             var recognizer = MyTapGestureRecognizer(target: self, action: #selector(self.onTap(_:)))
             recognizer.targetString = "3"
             recognizer.targetGroupId = waitGroup.id
-            cell.joinButton.layer.backgroundColor =  #colorLiteral(red: 0.2431372549, green: 0.6901960784, blue: 0.7333333333, alpha: 1)
+            cell.joinButton.layer.backgroundColor = #colorLiteral(red: 0.007505211513, green: 0.569126904, blue: 0.5776273608, alpha: 1)
             cell.joinButton.addGestureRecognizer(recognizer)
         } else {
             if (number_button == 1 || number_button == 2) {
@@ -134,14 +133,14 @@ class WaitGroupViewController: UIViewController, UITableViewDelegate , UITableVi
                 var recognizer = MyTapGestureRecognizer(target: self, action: #selector(self.onTap(_:)))
                 recognizer.targetString = "1"
                 recognizer.targetGroupId = waitGroup.id
-                cell.joinButton.layer.backgroundColor =  #colorLiteral(red: 0.5725490451, green: 0, blue: 0.2313725501, alpha: 1)
+                cell.joinButton.layer.backgroundColor = #colorLiteral(red: 0.4803626537, green: 0.05874101073, blue: 0.1950398982, alpha: 1)
                 cell.joinButton.addGestureRecognizer(recognizer)
             } else if (number_button == nil) {
                 cell.joinButton.setTitle("募集中", for: .normal)
                 var recognizer = MyTapGestureRecognizer(target: self, action: #selector(self.onTap(_:)))
                 recognizer.targetString = "0"
                 recognizer.targetGroupId = waitGroup.id
-                cell.joinButton.layer.backgroundColor =  #colorLiteral(red: 1, green: 0.194529444, blue: 0.5957843065, alpha: 1)
+                cell.joinButton.layer.backgroundColor = #colorLiteral(red: 1, green: 0.1857388616, blue: 0.5733950138, alpha: 1)
                 cell.joinButton.addGestureRecognizer(recognizer)
             }
         }
@@ -190,7 +189,7 @@ class WaitGroupViewController: UIViewController, UITableViewDelegate , UITableVi
                 UIAlertController(title:"キャンセルする",message: "本当にキャンセルしますか？",preferredStyle: .alert)
             let backView = alertController.view.subviews.last?.subviews.last
             backView?.layer.cornerRadius = 15.0
-            backView?.backgroundColor =  #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+            backView?.backgroundColor = .white
             // Default のaction
             let defaultAction:UIAlertAction =
                 UIAlertAction(title: "キャンセルする",style: .destructive,handler:{
@@ -203,8 +202,8 @@ class WaitGroupViewController: UIViewController, UITableViewDelegate , UITableVi
                 UIAlertAction(title: "閉じる",style: .cancel,handler:{
                     (action:UIAlertAction!) -> Void in
                 })
-            cancelAction.setValue(#colorLiteral(red: 0.2431372549, green: 0.6901960784, blue: 0.7333333333, alpha: 1), forKey: "titleTextColor")
-            defaultAction.setValue(#colorLiteral(red: 0.9884889722, green: 0.3815950453, blue: 0.7363485098, alpha: 1), forKey: "titleTextColor")
+            cancelAction.setValue(UIColor.popoTextGreen, forKey: "titleTextColor")
+            defaultAction.setValue(UIColor.popoTextPink, forKey: "titleTextColor")
             // actionを追加
             alertController.addAction(cancelAction)
             alertController.addAction(defaultAction)
@@ -215,7 +214,7 @@ class WaitGroupViewController: UIViewController, UITableViewDelegate , UITableVi
                 UIAlertController(title:"参加希望する",message: "本当に参加希望しますか？",preferredStyle: .alert)
             let backView = alertController.view.subviews.last?.subviews.last
             backView?.layer.cornerRadius = 15.0
-            backView?.backgroundColor =  #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+            backView?.backgroundColor = .white
             // Default のaction
             let defaultAction:UIAlertAction =
                 UIAlertAction(title: "参加希望する",style: .destructive,handler:{
@@ -228,8 +227,8 @@ class WaitGroupViewController: UIViewController, UITableViewDelegate , UITableVi
                 UIAlertAction(title: "キャンセル",style: .cancel,handler:{
                     (action:UIAlertAction!) -> Void in
                 })
-            cancelAction.setValue(#colorLiteral(red: 0.2431372549, green: 0.6901960784, blue: 0.7333333333, alpha: 1), forKey: "titleTextColor")
-            defaultAction.setValue(#colorLiteral(red: 0.9884889722, green: 0.3815950453, blue: 0.7363485098, alpha: 1), forKey: "titleTextColor")
+            cancelAction.setValue(UIColor.popoTextGreen, forKey: "titleTextColor")
+            defaultAction.setValue(UIColor.popoTextPink, forKey: "titleTextColor")
             // actionを追加
             alertController.addAction(cancelAction)
             alertController.addAction(defaultAction)
@@ -281,30 +280,50 @@ class WaitGroupViewController: UIViewController, UITableViewDelegate , UITableVi
     }
 
     func requestJoin(status: String) {
-        /****************
-         APIへリクエスト（ユーザー取得）
-         *****************/
         let parameters = [
             "group_id": self.group_id,
             "status": status,
-            "type": 1,
-            "page": 1,
-            "freeword": userDefaults.object(forKey: "searchGroupFreeword"),
-            "event_peple": userDefaults.object(forKey: "searchEventPeple"),
-            "event_period": userDefaults.object(forKey: "searchEventPeriod"),
-            "present_point": userDefaults.object(forKey: "searchPresentPoint"),
-            "group_flag": userDefaults.object(forKey: "searchGroupFlag"),
+            "type": 1
         ] as [String:Any]
         
-        API.requestHttp(POPOAPI.base.searchGroup, parameters: parameters,success: { [self] (response: [ApiGroupList]) in
-                isUpdate = response.count < 5 ? false : true
-                dataSource.append(contentsOf: response)
-                self.activityIndicatorView.stopAnimating()
-                tableView.reloadData()
+        API.requestHttp(POPOAPI.base.requestGroupEvent, parameters: parameters,success: { [self] (response: [ApiGroupList]) in
+            dataSource = response
+            isUpdate = response.count < 5 ? false : true
+            dataSource.append(contentsOf: response)
+            self.activityIndicatorView.stopAnimating()
+            tableView.reloadData()
             },
             failure: { [self] error in
                 print(error)
             }
         )
+        
+        
+        
+//        /****************
+//         APIへリクエスト（ユーザー取得）
+//         *****************/
+//        let parameters = [
+//            "group_id": self.group_id,
+//            "status": status,
+//            "type": 1,
+//            "page": 1,
+//            "freeword": userDefaults.object(forKey: "searchGroupFreeword"),
+//            "event_peple": userDefaults.object(forKey: "searchEventPeple"),
+//            "event_period": userDefaults.object(forKey: "searchEventPeriod"),
+//            "present_point": userDefaults.object(forKey: "searchPresentPoint"),
+//            "group_flag": userDefaults.object(forKey: "searchGroupFlag"),
+//        ] as [String:Any]
+//
+//        API.requestHttp(POPOAPI.base.searchGroup, parameters: parameters,success: { [self] (response: [ApiGroupList]) in
+//                isUpdate = response.count < 5 ? false : true
+//                dataSource.append(contentsOf: response)
+//                self.activityIndicatorView.stopAnimating()
+//                tableView.reloadData()
+//            },
+//            failure: { [self] error in
+//                print(error)
+//            }
+//        )
     }
 }

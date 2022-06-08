@@ -37,14 +37,14 @@ class PreferredGroupList: UIViewController, UITableViewDelegate , UITableViewDat
         self.tableView.register(UINib(nibName: "PreferredGroupTableViewCell", bundle: nil), forCellReuseIdentifier: "PreferredGroupTableViewCell")
         // Do any additional setup after loading the view.
 
-        view.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        view.backgroundColor = .white
         activityIndicatorView.center = view.center
         activityIndicatorView.style = .whiteLarge
         activityIndicatorView.color = .gray
         view.addSubview(activityIndicatorView)
 
         decisionButton.isEnabled = false // ボタン無効
-        decisionButton.backgroundColor = #colorLiteral(red: 0.4803626537, green: 0.05874101073, blue: 0.1950398982, alpha: 1)
+        decisionButton.backgroundColor = .popoPinkOff
         GroupEventDeleteItem = UIBarButtonItem(title: "削除", style: .done, target: self, action: #selector(GroupEventDelete(_:)))
         self.navigationItem.rightBarButtonItems = [GroupEventDeleteItem]
         navigationController!.navigationBar.topItem!.title = ""
@@ -76,10 +76,10 @@ class PreferredGroupList: UIViewController, UITableViewDelegate , UITableViewDat
     func tableView(_ tableView: UITableView,cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if (self.dataSource[0].decision_type == 1) {
             decisionButton.isEnabled = true // ボタン有効
-            decisionButton.backgroundColor = #colorLiteral(red: 1, green: 0, blue: 0.6039506793, alpha: 1)
+            decisionButton.backgroundColor = .popoPink
         } else {
             decisionButton.isEnabled = false // ボタン無効
-            decisionButton.backgroundColor = #colorLiteral(red: 0.4803626537, green: 0.05874101073, blue: 0.1950398982, alpha: 1)
+            decisionButton.backgroundColor = .popoPinkOff
         }
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "PreferredGroupTableViewCell") as! PreferredGroupTableViewCell
@@ -92,7 +92,7 @@ class PreferredGroupList: UIViewController, UITableViewDelegate , UITableViewDat
             var recognizer = MyTapGestureRecognizer(target: self, action: #selector(self.onTap(_:)))
             recognizer.targetString = "1"
             recognizer.targetUserId = requestGroup.user_id
-            cell.joinButton.layer.backgroundColor = #colorLiteral(red: 0.2431372549, green: 0.6901960784, blue: 0.7333333333, alpha: 1)
+            cell.joinButton.layer.backgroundColor = #colorLiteral(red: 0.007505211513, green: 0.569126904, blue: 0.5776273608, alpha: 1)
             cell.joinButton.addGestureRecognizer(recognizer)
         } else if (requestGroup.status == 2) {
             cell.joinButton.setTitle("選択中", for: .normal)
@@ -142,7 +142,7 @@ class PreferredGroupList: UIViewController, UITableViewDelegate , UITableViewDat
                 let alert = UIAlertController(title: "参加人数オーバー", message: "選択人数が参加人数より多くなります、選択しているユーザーをキャンセルする必要があります", preferredStyle: .alert)
                 let backView = alert.view.subviews.last?.subviews.last
                 backView?.layer.cornerRadius = 15.0
-                backView?.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+                backView?.backgroundColor = .white
                 // アラート表示
                 self.present(alert, animated: true, completion: {
                     // アラートを閉じる
@@ -162,7 +162,7 @@ class PreferredGroupList: UIViewController, UITableViewDelegate , UITableViewDat
             UIAlertController(title:"本当に削除してよろしいですか",message: "作成時に使用したポイントは戻りません"  ,preferredStyle: .alert)
         let backView = alertController.view.subviews.last?.subviews.last
         backView?.layer.cornerRadius = 15.0
-        backView?.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        backView?.backgroundColor = .white
         // Default のaction
         let defaultAction:UIAlertAction =
             UIAlertAction(title: "削除",style: .destructive,handler:{
@@ -185,8 +185,8 @@ class PreferredGroupList: UIViewController, UITableViewDelegate , UITableViewDat
                 (action:UIAlertAction!) -> Void in
                 self.dismiss(animated: true, completion: nil)
             })
-        cancelAction.setValue(#colorLiteral(red: 0.2431372549, green: 0.6901960784, blue: 0.7333333333, alpha: 1), forKey: "titleTextColor")
-        defaultAction.setValue(#colorLiteral(red: 0.9884889722, green: 0.3815950453, blue: 0.7363485098, alpha: 1), forKey: "titleTextColor")
+        cancelAction.setValue(UIColor.popoTextGreen, forKey: "titleTextColor")
+        defaultAction.setValue(UIColor.popoTextPink, forKey: "titleTextColor")
         alertController.addAction(defaultAction)
         alertController.addAction(cancelAction)
 //        // UIAlertControllerの起動
@@ -233,7 +233,7 @@ class PreferredGroupList: UIViewController, UITableViewDelegate , UITableViewDat
         let alert = UIAlertController(title: "グループの開催を受け付けました", message: message, preferredStyle: .alert)
         let backView = alert.view.subviews.last?.subviews.last
         backView?.layer.cornerRadius = 15.0
-        backView?.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        backView?.backgroundColor = .white
         // アラート表示
         self.present(alert, animated: true, completion: {
             // アラートを閉じる
@@ -307,7 +307,7 @@ class PreferredGroupList: UIViewController, UITableViewDelegate , UITableViewDat
                 let alert = UIAlertController(title: "設定", message: "失敗しました。", preferredStyle: .alert)
                 let backView = alert.view.subviews.last?.subviews.last
                 backView?.layer.cornerRadius = 15.0
-                backView?.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+                backView?.backgroundColor = .white
                 self.present(alert, animated: true, completion: {
                     DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
                         alert.dismiss(animated: true, completion: nil)
@@ -332,7 +332,7 @@ class PreferredGroupList: UIViewController, UITableViewDelegate , UITableViewDat
                 let alert = UIAlertController(title: "設定", message: "失敗しました。", preferredStyle: .alert)
                 let backView = alert.view.subviews.last?.subviews.last
                 backView?.layer.cornerRadius = 15.0
-                backView?.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+                backView?.backgroundColor = .white
                 self.present(alert, animated: true, completion: {
                     DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
                         alert.dismiss(animated: true, completion: nil)

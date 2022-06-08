@@ -67,7 +67,7 @@ class ProfileAddViewController: UIViewController, UITableViewDelegate, UITableVi
 
         self.tableView.register(UINib(nibName: "DetePickerViewCell", bundle: nil), forCellReuseIdentifier: "DetePickerViewCell")
 
-        view.backgroundColor = #colorLiteral(red: 0.9803921569, green: 0.9803921569, blue: 0.9803921569, alpha: 1)
+        view.backgroundColor = .white
         activityIndicatorView.center = view.center
         activityIndicatorView.style = .whiteLarge
         activityIndicatorView.color = .gray

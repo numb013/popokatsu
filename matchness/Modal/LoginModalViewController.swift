@@ -53,7 +53,7 @@ class LoginModalViewController: UIViewController, LoginButtonDelegate, UIViewCon
 //        label.sizeToFit()
         title.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.8833208476)
         title.font = UIFont.boldSystemFont(ofSize:25.0)
-        title.textColor = #colorLiteral(red: 0.3277077377, green: 0.3560283184, blue: 0.3939625323, alpha: 1)
+        title.textColor = UIColor.popoTextColor
         title.textAlignment = NSTextAlignment.center
         view.addSubview(title)
 
@@ -62,7 +62,7 @@ class LoginModalViewController: UIViewController, LoginButtonDelegate, UIViewCon
         detail.text = "SNSログインで新規登録をご利用になりますと別端末でも同じユーザで使用も可能になります。"
         detail.numberOfLines = 0;
         detail.font = UIFont.systemFont(ofSize:14.0)
-        detail.textColor = #colorLiteral(red: 0.3277077377, green: 0.3560283184, blue: 0.3939625323, alpha: 1)
+        detail.textColor = UIColor.popoTextColor
         detail.textAlignment = NSTextAlignment.center
         view.addSubview(detail)
 
@@ -258,7 +258,7 @@ class LoginModalViewController: UIViewController, LoginButtonDelegate, UIViewCon
                 let alert = UIAlertController(title: "アカウントが無効です", message: "申し訳ございませんが、ご利用停止にさせていただいています", preferredStyle: .alert)
                 let backView = alert.view.subviews.last?.subviews.last
                 backView?.layer.cornerRadius = 15.0
-                backView?.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+               backView?.backgroundColor = .white
                 self.present(alert, animated: true, completion: {
                     DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
                         alert.dismiss(animated: true, completion: nil)
@@ -271,7 +271,7 @@ class LoginModalViewController: UIViewController, LoginButtonDelegate, UIViewCon
                let alert = UIAlertController(title: "アクセスエラー", message: "しばらくお待ちください", preferredStyle: .alert)
                let backView = alert.view.subviews.last?.subviews.last
                backView?.layer.cornerRadius = 15.0
-               backView?.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+           backView?.backgroundColor = .white
                self.present(alert, animated: true, completion: {
                    DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
                        alert.dismiss(animated: true, completion: nil)

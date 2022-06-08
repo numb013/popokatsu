@@ -273,7 +273,7 @@ class TweetMyViewController: BaseViewController, IndicatorInfoProvider, UITableV
                 let alert = UIAlertController(title: alert_title, message: alert_text, preferredStyle: .alert)
                 let backView = alert.view.subviews.last?.subviews.last
                 backView?.layer.cornerRadius = 15.0
-                backView?.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+                backView?.backgroundColor = .white
                 // アラート表示
                 self.present(alert, animated: true, completion: {
                     // アラートを閉じる
@@ -334,7 +334,7 @@ class TweetMyViewController: BaseViewController, IndicatorInfoProvider, UITableV
                         UIAlertController(title:"ポイントが不足しています",message: "いいねするにはポイント5p必要です", preferredStyle: .alert)
                     let backView = alertController.view.subviews.last?.subviews.last
                     backView?.layer.cornerRadius = 15.0
-                    backView?.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+                    backView?.backgroundColor = .white
                     // Default のaction
                     let defaultAction:UIAlertAction =
                     UIAlertAction(title: "ポイント変ページへ",style: .destructive,handler:{
@@ -350,8 +350,9 @@ class TweetMyViewController: BaseViewController, IndicatorInfoProvider, UITableV
                             // 処理
                             print("キャンセル")
                         })
-                    cancelAction.setValue(#colorLiteral(red: 0, green: 0.71307832, blue: 0.7217405438, alpha: 1), forKey: "titleTextColor")
-                    defaultAction.setValue(#colorLiteral(red: 0.9884889722, green: 0.3815950453, blue: 0.7363485098, alpha: 1), forKey: "titleTextColor")
+                    
+                    cancelAction.setValue(UIColor.popoTextGreen, forKey: "titleTextColor")
+                    defaultAction.setValue(UIColor.popoTextPink, forKey: "titleTextColor")
                     // actionを追加
                     alertController.addAction(cancelAction)
                     alertController.addAction(defaultAction)
@@ -370,7 +371,7 @@ class TweetMyViewController: BaseViewController, IndicatorInfoProvider, UITableV
                 let alert = UIAlertController(title: "アクセス失敗", message: "しばらくお待ちください", preferredStyle: .alert)
                 let backView = alert.view.subviews.last?.subviews.last
                 backView?.layer.cornerRadius = 15.0
-                backView?.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+            backView?.backgroundColor = .white
                 self.present(alert, animated: true, completion: {
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.8, execute: {
                         alert.dismiss(animated: true, completion: nil)
@@ -391,7 +392,7 @@ class TweetMyViewController: BaseViewController, IndicatorInfoProvider, UITableV
                 let myString  = "削除しました"
                 var myMutableString = NSMutableAttributedString()
                 myMutableString = NSMutableAttributedString(string: myString as String, attributes: [NSAttributedString.Key.font:UIFont.boldSystemFont(ofSize: 20.0)])
-                myMutableString.addAttribute(NSAttributedString.Key.foregroundColor, value: #colorLiteral(red: 0.9884889722, green: 0.3815950453, blue: 0.7363485098, alpha: 1), range: NSRange(location:0,length:myString.count))
+                myMutableString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.popoTextPink, range: NSRange(location:0,length:myString.count))
                 alert.setValue(myMutableString, forKey: "attributedTitle")
 
                 self.present(alert, animated: true, completion: {
@@ -407,7 +408,7 @@ class TweetMyViewController: BaseViewController, IndicatorInfoProvider, UITableV
                 let alert = UIAlertController(title: "アクセス失敗", message: "しばらくお待ちください", preferredStyle: .alert)
                 let backView = alert.view.subviews.last?.subviews.last
                 backView?.layer.cornerRadius = 15.0
-                backView?.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+            backView?.backgroundColor = .white
                 self.present(alert, animated: true, completion: {
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.8, execute: {
                         alert.dismiss(animated: true, completion: nil)
