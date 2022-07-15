@@ -41,9 +41,6 @@ class API<T: Decodable> {
 //        guard let accessToken: String = UserDefaults.standard.object(forKey: "pasch_api_token") as? String else { return }
         
         var api_key = userDefaults.object(forKey: "api_token") as? String
-        
-        print("ssss", api_key)
-        
         var Authorization = api_key != nil ? "Bearer " + api_key! : ""
         let requestHeader: HTTPHeaders = [
             "Accept" : "application/json",
@@ -76,7 +73,8 @@ class API<T: Decodable> {
                         return
                     }
                     
-                    print("SUCCESS [Status: \(statusCode)] (URL: \(url)")
+//                    print("SUCCESS [Status: \(statusCode)] (URL: \(url)")
+                    
                     success(model)
                 case .failure(let error):
                     print("2モデルエラーーーーー")

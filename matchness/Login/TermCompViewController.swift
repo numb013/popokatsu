@@ -9,7 +9,6 @@
 import UIKit
 import SafariServices
 import Alamofire
-import SwiftyJSON
 
 class TermCompViewController: UIViewController, UITextViewDelegate{
     private var requestAlamofire: Alamofire.Request?

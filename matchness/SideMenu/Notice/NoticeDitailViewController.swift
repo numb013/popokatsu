@@ -27,6 +27,7 @@ class NoticeDetailViewController: UIViewController{
         super.viewWillAppear(animated)
         self.navigationItem.title = "お知らせ詳細"
         navigationController!.navigationBar.topItem!.title = ""
+        navigationController!.navigationBar.tintColor = .white
         //タブバー表示
         tabBarController?.tabBar.isHidden = true
     }

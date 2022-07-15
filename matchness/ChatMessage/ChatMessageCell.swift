@@ -41,19 +41,20 @@ class ChatMessageCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        backgroundColor = .clear
+        
+        self.backgroundColor = .clear
         dayIntervalView.layer.cornerRadius = 9
         userImageView.layer.cornerRadius = userImageView.frame.width / 2
+
         partnerMessageTextView.layer.cornerRadius = 15
-        myMessageTextView.layer.cornerRadius = 15
         partnerMessageTextView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner,  .layerMaxXMaxYCorner]
-        myMessageTextView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner, .layerMinXMaxYCorner]
-        
         partnerMessageTextView.textContainerInset = UIEdgeInsets(top: 15, left: 5, bottom: 5, right: 5)
         partnerMessageTextView.sizeToFit()
         
         myMessageTextView.textContainerInset = UIEdgeInsets(top: 15, left: 5, bottom: 5, right: 5)
         myMessageTextView.sizeToFit()
+        myMessageTextView.layer.cornerRadius = 15
+        myMessageTextView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner, .layerMinXMaxYCorner]
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

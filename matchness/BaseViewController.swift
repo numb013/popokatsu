@@ -8,7 +8,6 @@
 
 import UIKit
 import Alamofire
-import SwiftyJSON
 
 class BaseViewController: UIViewController {
     private var requestAlamofire: Alamofire.Request?
@@ -26,8 +25,13 @@ class BaseViewController: UIViewController {
     }
     
     func apiNoticeRequest() {
-        API.requestHttp(POPOAPI.base.baseGet, parameters: nil,success: { [self] (response: ApiBaseParam) in
-            print("結果", response)
+        
+        let onesignal_id = userDefaults.string(forKey: "fcmToken")?.isEmpty == false ? userDefaults.string(forKey: "fcmToken") : ""
+        let parameters = [
+            "onesignal_id": onesignal_id
+        ] as [String:Any]
+        
+        API.requestHttp(POPOAPI.base.baseGet, parameters: parameters,success: { [self] (response: ApiBaseParam) in
             var baseParam = response
             if (baseParam.status == 0) {
                 let storyboard: UIStoryboard = self.storyboard!
@@ -139,8 +143,5 @@ class BaseViewController: UIViewController {
             print("Handle the default case") //TODO
         }
     }
-    
-    
-    
 }
 

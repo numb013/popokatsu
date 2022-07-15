@@ -9,7 +9,13 @@
 import UIKit
 
 protocol SideMenuProtocol: class {
-    func selected(_ vc: UIViewController, _ type:Int)
+    func selected(_ vc: UIViewController, _ type:pageType)
+}
+
+enum pageType {
+    case navi
+    case naviFull
+    case present
 }
 
 class SideMenuCollectionCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIViewControllerTransitioningDelegate {
@@ -17,7 +23,6 @@ class SideMenuCollectionCell: UITableViewCell, UICollectionViewDataSource, UICol
     @IBOutlet weak var collectionView: UICollectionView!
     weak var delegate: SideMenuProtocol?
     var width:CGFloat = 0.0
-    var type = 1
     
     var menuList1 = [
         ["title": "ルーレットチャンス", "icon": "roulette"],
@@ -109,69 +114,65 @@ class SideMenuCollectionCell: UITableViewCell, UICollectionViewDataSource, UICol
 
         if indexPath.row == 0 {
             let vc = UIStoryboard(name: "Roulette", bundle: nil).instantiateViewController(withIdentifier: "RouletteList") as! RouletteListViewController
-            type = 2
-            delegate?.selected(vc, type)
+            delegate?.selected(vc, pageType.navi)
         }
         
         if indexPath.row == 1 {
             let vc = UIStoryboard(name: "Calender", bundle: nil).instantiateViewController(withIdentifier: "NewCalendar") as! CalendarViewController
-            delegate?.selected(vc, type)
+            delegate?.selected(vc, pageType.present)
         }
         
         if indexPath.row == 2 {
             let vc = UIStoryboard(name: "Chart", bundle: nil).instantiateInitialViewController()! as! MyDateStepViewController
-            delegate?.selected(vc, type)
+            delegate?.selected(vc, pageType.present)
         }
         
         if indexPath.row == 3 {
             let vc = UIStoryboard(name: "Graph", bundle: nil).instantiateViewController(withIdentifier: "Graph") as! GraphViewController
-            delegate?.selected(vc, type)
+            delegate?.selected(vc, pageType.present)
         }
 
         if indexPath.row == 4 {
             let vc = UIStoryboard(name: "Multiple", bundle: nil).instantiateViewController(withIdentifier: "MultipleType") as! MultipleTypeViewController
             vc.status = 0
-            delegate?.selected(vc, type)
+            delegate?.selected(vc, pageType.naviFull)
         }
         if indexPath.row == 5 {
             let vc = UIStoryboard(name: "Multiple", bundle: nil).instantiateViewController(withIdentifier: "MultipleType") as! MultipleTypeViewController
             vc.status = 3
-            delegate?.selected(vc, type)
+            delegate?.selected(vc, pageType.naviFull)
         }
         
         if indexPath.row == 6 {
             let vc = UIStoryboard(name: "Profile", bundle: nil).instantiateInitialViewController()! as! ProfileEditViewController
-            type = 2
-            delegate?.selected(vc, type)
+            delegate?.selected(vc, pageType.present)
         }
         
         if indexPath.row == 7 {
             let vc = UIStoryboard(name: "pointChange", bundle: nil).instantiateInitialViewController()! as! PointChangeViewController
-            type = 2
-            delegate?.selected(vc, type)
+            delegate?.selected(vc, pageType.naviFull)
         }
         
         if indexPath.row == 8 {
             let vc = UIStoryboard(name: "Menu", bundle: nil).instantiateInitialViewController()! as! MenuViewController
-            delegate?.selected(vc, type)
+            delegate?.selected(vc, pageType.present)
         }
         if indexPath.row == 9 {
             let vc = UIStoryboard(name: "Notice", bundle: nil).instantiateInitialViewController()! as! NoticeViewController
-            type = 2
-            delegate?.selected(vc, type)
+            delegate?.selected(vc, pageType.naviFull)
         }
         if indexPath.row == 10 {
             let vc = UIStoryboard(name: "RankUp", bundle: nil).instantiateViewController(withIdentifier: "rankup") as! RankUpViewController
-            delegate?.selected(vc, type)
+            delegate?.selected(vc, pageType.present)
         }
         if indexPath.row == 11 {
             let vc = UIStoryboard(name: "Event", bundle: nil).instantiateViewController(withIdentifier: "wishEvent") as! WishViewController
-            delegate?.selected(vc, type)
+            delegate?.selected(vc, pageType.present)
         }
         if indexPath.row == 12 {
             let vc = UIStoryboard(name: "Multiple", bundle: nil).instantiateViewController(withIdentifier: "MultipleType") as! MultipleTypeViewController
             vc.status = 6
-            delegate?.selected(vc, type)
+            delegate?.selected(vc, pageType.naviFull)
         }
 
         if indexPath.row != 0 {

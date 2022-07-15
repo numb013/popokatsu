@@ -14,17 +14,8 @@ class MenuTableViewCell: UITableViewCell {
 
     lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "default text"
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
-    }()
-
-    lazy var checkBoxButton: UIButton = {
-        let btn = UIButton()
-        btn.setImage(unCheckedBoxImage, for: .normal)
-        btn.addTarget(self, action: #selector(toggleCheckBox), for: .touchUpInside)
-        btn.translatesAutoresizingMaskIntoConstraints = false
-        return btn
     }()
 
 

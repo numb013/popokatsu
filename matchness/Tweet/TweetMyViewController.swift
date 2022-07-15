@@ -7,7 +7,6 @@
 import UIKit
 import DZNEmptyDataSet
 import Alamofire
-import SwiftyJSON
 import XLPagerTabStrip
 import SDWebImage
 //import Lottie

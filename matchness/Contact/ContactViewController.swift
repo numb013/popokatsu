@@ -8,7 +8,6 @@
 
 import UIKit
 import Alamofire
-import SwiftyJSON
 
 @available(iOS 13.0, *)
 class ContactViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate  {

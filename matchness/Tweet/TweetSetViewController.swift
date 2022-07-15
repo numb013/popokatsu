@@ -75,6 +75,7 @@ class TweetSetViewController: ButtonBarPagerTabStripViewController {
     }
     
     func sideMenuButtonSet() {
+        print("ナビナビナビきてる？？？つぶやき", userDefaults.object(forKey: "sidemenu"))
         menuButton.frame = CGRect(x: 0, y: 0, width: 30, height: 0)
         menuButton.setImage(UIImage(named: "menu")?.withRenderingMode(.alwaysTemplate), for: .normal)
         if userDefaults.object(forKey: "sidemenu") != nil {

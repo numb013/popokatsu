@@ -83,6 +83,9 @@ class MultipleSecondViewController: UIViewController, IndicatorInfoProvider, UIT
         super.viewWillAppear(animated)
         activityIndicatorView.startAnimating()
         tabBarController?.tabBar.isHidden = true
+
+        self.page_no = 1
+        self.presenter.data = []
         apiRequest()
     }
 
@@ -172,10 +175,10 @@ class MultipleSecondViewController: UIViewController, IndicatorInfoProvider, UIT
     func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
         if status == 0 {
             //足跡
-             return "相手から"
+             return "自分から"
          } else if status == 3 {
             //いいね
-             return "相手から"
+             return "自分から"
          } else if status == 6 {
             //お気に入りブロック
              return "ブロック"

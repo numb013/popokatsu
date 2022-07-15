@@ -216,7 +216,6 @@
 		841A28CB28504FD2001AD203 /* UserDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 849675BB243633E200DC76FC /* UserDetail.storyboard */; };
 		841A28CC28504FD2001AD203 /* ChatMessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8429DB57274B63DA00D421C8 /* ChatMessageCell.xib */; };
 		841A28CD28504FD2001AD203 /* Group.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 849675BF2437155000DC76FC /* Group.storyboard */; };
-		841A28CE28504FD2001AD203 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8405B09823F5BD8400073DE5 /* GoogleService-Info.plist */; };
 		841A28CF28504FD2001AD203 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE4B098D220942E100F8A430 /* LaunchScreen.storyboard */; };
 		841A28D028504FD2001AD203 /* SideMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 843EE57A27061E9B002315F5 /* SideMenu.storyboard */; };
 		841A28D128504FD2001AD203 /* GroupEvent.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 841B19BB263229C200779FA2 /* GroupEvent.storyboard */; };
@@ -484,7 +483,6 @@
 		841FBC45285064FA00A1EC22 /* UserDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 849675BB243633E200DC76FC /* UserDetail.storyboard */; };
 		841FBC46285064FA00A1EC22 /* ChatMessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8429DB57274B63DA00D421C8 /* ChatMessageCell.xib */; };
 		841FBC47285064FA00A1EC22 /* Group.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 849675BF2437155000DC76FC /* Group.storyboard */; };
-		841FBC48285064FA00A1EC22 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8405B09823F5BD8400073DE5 /* GoogleService-Info.plist */; };
 		841FBC49285064FA00A1EC22 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE4B098D220942E100F8A430 /* LaunchScreen.storyboard */; };
 		841FBC4A285064FA00A1EC22 /* SideMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 843EE57A27061E9B002315F5 /* SideMenu.storyboard */; };
 		841FBC4B285064FA00A1EC22 /* GroupEvent.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 841B19BB263229C200779FA2 /* GroupEvent.storyboard */; };
@@ -544,6 +542,8 @@
 		841FBC81285064FA00A1EC22 /* DetePickerViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8429DB42273C0DE400D421C8 /* DetePickerViewCell.xib */; };
 		841FBC82285064FA00A1EC22 /* RankUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84CE23C62446E4D900D7E5DD /* RankUp.storyboard */; };
 		841FBC83285064FA00A1EC22 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE4B0988220942DE00F8A430 /* Main.storyboard */; };
+		84864A742867296A00CE8724 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84864A732867296A00CE8724 /* GoogleService-Info.plist */; };
+		84864A752867298C00CE8724 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84864A732867296A00CE8724 /* GoogleService-Info.plist */; };
 		B3565A62D733D4EFF661A704 /* Pods_matchness_dev.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B1CFED412EB10AE6336B995 /* Pods_matchness_dev.framework */; };
 		CC715F1110D416987B5D6E84 /* Pods_matchnessUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F717D51EBF89C23A7E5AA1C3 /* Pods_matchnessUITests.framework */; };
 		CE4B099A220942E100F8A430 /* matchnessTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4B0999220942E100F8A430 /* matchnessTests.swift */; };
@@ -612,7 +612,6 @@
 		8404136925F2070C00978229 /* GroupChat.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupChat.xib; sourceTree = "<group>"; };
 		840413E025F9A83700978229 /* TweetNoticeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetNoticeViewController.swift; sourceTree = "<group>"; };
 		840525D323DD994300E405A1 /* ApiGroupRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiGroupRequest.swift; sourceTree = "<group>"; };
-		8405B09823F5BD8400073DE5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8405B09A23FA503100073DE5 /* ApiProfileImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiProfileImage.swift; sourceTree = "<group>"; };
 		8409E5FA23377623009BA908 /* PointHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointHistoryViewController.swift; sourceTree = "<group>"; };
 		8409E5FE233779B4009BA908 /* ApiPointHistory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiPointHistory.swift; sourceTree = "<group>"; };
@@ -732,6 +731,7 @@
 		84782A8B246013BD00B0DBD5 /* Event.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Event.storyboard; sourceTree = "<group>"; };
 		84782A8D246014A600B0DBD5 /* EventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = "<group>"; };
 		84782A8F24601B2700B0DBD5 /* WishViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishViewController.swift; sourceTree = "<group>"; };
+		84864A732867296A00CE8724 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		848913DD23A0CA90003055CF /* CustomPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPresentationController.swift; sourceTree = "<group>"; };
 		848913E123A6140E003055CF /* PointExplanationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointExplanationTableViewCell.swift; sourceTree = "<group>"; };
 		848913E223A6140E003055CF /* PointExplanationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PointExplanationTableViewCell.xib; sourceTree = "<group>"; };
@@ -1447,6 +1447,7 @@
 		CE1D51EE22CDD60C0093DC58 /* UserDetail */ = {
 			isa = PBXGroup;
 			children = (
+				849675BB243633E200DC76FC /* UserDetail.storyboard */,
 				CE4B09C02209D2EA00F8A430 /* UserDetailViewController.swift */,
 				848A32CB230AF96600144950 /* UserDetailInfoTableViewCell.swift */,
 				848A32CA230AF96600144950 /* UserDetailInfoTableViewCell.xib */,
@@ -1494,7 +1495,6 @@
 				84689EE9284DC7F00013A4E0 /* Info */,
 				CE4B0988220942DE00F8A430 /* Main.storyboard */,
 				849BE956252305BB00CE6C56 /* Modal.storyboard */,
-				849675BB243633E200DC76FC /* UserDetail.storyboard */,
 				849675BF2437155000DC76FC /* Group.storyboard */,
 				841A27F7284FB4DB001AD203 /* matchness_dev.entitlements */,
 				CE1D51F322CDDC240093DC58 /* matchness.entitlements */,
@@ -1529,7 +1529,7 @@
 				8432F2AF22F09D6C00A60EC5 /* LaunchScreen.xib */,
 				848AA33F25CC5E6F004B45DD /* love.json */,
 				848AA32F25CC5857004B45DD /* like-animation.json */,
-				8405B09823F5BD8400073DE5 /* GoogleService-Info.plist */,
+				84864A732867296A00CE8724 /* GoogleService-Info.plist */,
 				847398A92346764E00D28135 /* GradationView.swift */,
 			);
 			path = matchness;
@@ -1725,7 +1725,6 @@
 				841A28CB28504FD2001AD203 /* UserDetail.storyboard in Resources */,
 				841A28CC28504FD2001AD203 /* ChatMessageCell.xib in Resources */,
 				841A28CD28504FD2001AD203 /* Group.storyboard in Resources */,
-				841A28CE28504FD2001AD203 /* GoogleService-Info.plist in Resources */,
 				841A28CF28504FD2001AD203 /* LaunchScreen.storyboard in Resources */,
 				841A28D028504FD2001AD203 /* SideMenu.storyboard in Resources */,
 				841A28D128504FD2001AD203 /* GroupEvent.storyboard in Resources */,
@@ -1763,6 +1762,7 @@
 				841A28F028504FD2001AD203 /* Notice.storyboard in Resources */,
 				841A28F128504FD2001AD203 /* StepSideCell.xib in Resources */,
 				841A28F228504FD2001AD203 /* TweetCommentDetailViewController.xib in Resources */,
+				84864A752867298C00CE8724 /* GoogleService-Info.plist in Resources */,
 				841A28F328504FD2001AD203 /* TweetCommentTableViewCell.xib in Resources */,
 				841A28F428504FD2001AD203 /* WeekRanking.storyboard in Resources */,
 				841A28F528504FD2001AD203 /* Multiple.storyboard in Resources */,
@@ -1812,7 +1812,6 @@
 				841FBC45285064FA00A1EC22 /* UserDetail.storyboard in Resources */,
 				841FBC46285064FA00A1EC22 /* ChatMessageCell.xib in Resources */,
 				841FBC47285064FA00A1EC22 /* Group.storyboard in Resources */,
-				841FBC48285064FA00A1EC22 /* GoogleService-Info.plist in Resources */,
 				841FBC49285064FA00A1EC22 /* LaunchScreen.storyboard in Resources */,
 				841FBC4A285064FA00A1EC22 /* SideMenu.storyboard in Resources */,
 				841FBC4B285064FA00A1EC22 /* GroupEvent.storyboard in Resources */,
@@ -1856,6 +1855,7 @@
 				841FBC71285064FA00A1EC22 /* ContactViewController.xib in Resources */,
 				841FBC72285064FA00A1EC22 /* MyDate.storyboard in Resources */,
 				841FBC73285064FA00A1EC22 /* love.json in Resources */,
+				84864A742867296A00CE8724 /* GoogleService-Info.plist in Resources */,
 				841FBC74285064FA00A1EC22 /* UserDetailTableViewCell.xib in Resources */,
 				841FBC75285064FA00A1EC22 /* Chart.storyboard in Resources */,
 				841FBC76285064FA00A1EC22 /* AddTweetView.xib in Resources */,
@@ -2476,8 +2476,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = DF4553FC0E10A5E5CD8A7A72 /* Pods-matchness_dev.develop.xcconfig */;
 			buildSettings = {
-				APIHOST = "https://59a7-2001-f70-b360-2d00-dd9c-d1e5-7ebb-eedf.ngrok.io/api";
-				API_URL = "https://59a7-2001-f70-b360-2d00-dd9c-d1e5-7ebb-eedf.ngrok.io/api";
+				API_URL = "https://e86c-2001-f70-b360-2d00-bcbe-3ebf-5e99-6ae8.ngrok.io/api";
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
@@ -2520,9 +2519,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1;
+				MARKETING_VERSION = 5.6.4;
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.a2c.popokatsu-dev";
+				PRODUCT_BUNDLE_IDENTIFIER = com.a2c.popokatsu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
@@ -2537,7 +2536,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C91606550A3D2A0E7C1B5A74 /* Pods-matchness_dev.release.xcconfig */;
 			buildSettings = {
-				APIHOST = "https://popokatsu.com/api";
 				API_URL = "https://popokatsu.com/api";
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -2582,7 +2580,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1;
+				MARKETING_VERSION = 5.6.4;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.a2c.popokatsu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2599,8 +2597,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C943D62D8445FB83969D401B /* Pods-matchness_dev-matchness.develop.xcconfig */;
 			buildSettings = {
-				APIHOST = "https://59a7-2001-f70-b360-2d00-dd9c-d1e5-7ebb-eedf.ngrok.io/api";
-				API_URL = "https://59a7-2001-f70-b360-2d00-dd9c-d1e5-7ebb-eedf.ngrok.io/api";
+				API_URL = "https://06ff-2001-f70-b360-2d00-fd60-8d06-7377-da09.ngrok.io/api";
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
@@ -2645,7 +2642,7 @@
 				);
 				MARKETING_VERSION = 5.6.3;
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.a2c.popokatsu-dev";
+				PRODUCT_BUNDLE_IDENTIFIER = com.a2c.popokatsu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
@@ -2660,7 +2657,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7D458D9A16B644828821509E /* Pods-matchness_dev-matchness.release.xcconfig */;
 			buildSettings = {
-				APIHOST = "https://popokatsu.com/api";
 				API_URL = "https://popokatsu.com/api";
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;

@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ChatInputAccessoryView" customModule="popo" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ChatInputAccessoryView" customModule="matchness" customModuleProvider="target">
             <connections>
                 <outlet property="chatTextView" destination="WBj-fI-7wh" id="NiN-Vw-oud"/>
                 <outlet property="photoButton" destination="vpd-QD-dYL" id="0IE-tl-irb"/>
@@ -21,15 +21,15 @@
             <rect key="frame" x="0.0" y="0.0" width="511" height="207"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" text="ここにメッセージが入ります" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="WBj-fI-7wh">
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" text="ここにメッセージが入ります" translatesAutoresizingMaskIntoConstraints="NO" id="WBj-fI-7wh">
                     <rect key="frame" x="42" y="10" width="420" height="153"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <color key="textColor" systemColor="labelColor"/>
-                    <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="14"/>
+                    <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="17"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
                 <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4mb-GA-nmN">
-                    <rect key="frame" x="472" y="133" width="27" height="27"/>
+                    <rect key="frame" x="472" y="131" width="27" height="27"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="27" id="kSc-zf-207"/>
                         <constraint firstAttribute="width" constant="27" id="py3-hq-fL0"/>
@@ -40,7 +40,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vpd-QD-dYL">
-                    <rect key="frame" x="10" y="135" width="22" height="22"/>
+                    <rect key="frame" x="10" y="133" width="22" height="22"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="vpd-QD-dYL" secondAttribute="height" multiplier="1:1" id="7hZ-6b-ElJ"/>
                         <constraint firstAttribute="width" constant="22" id="JvA-bo-JB1"/>
@@ -55,10 +55,10 @@
             <viewLayoutGuide key="safeArea" id="HPE-tc-gfA"/>
             <color key="backgroundColor" systemColor="systemGray5Color"/>
             <constraints>
-                <constraint firstItem="HPE-tc-gfA" firstAttribute="bottom" secondItem="vpd-QD-dYL" secondAttribute="bottom" constant="16" id="3RO-kd-R85"/>
+                <constraint firstItem="HPE-tc-gfA" firstAttribute="bottom" secondItem="vpd-QD-dYL" secondAttribute="bottom" constant="18" id="3RO-kd-R85"/>
                 <constraint firstItem="HPE-tc-gfA" firstAttribute="trailing" secondItem="4mb-GA-nmN" secondAttribute="trailing" constant="12" id="IPt-cc-pOh"/>
                 <constraint firstItem="WBj-fI-7wh" firstAttribute="top" secondItem="0sr-Rl-Gdn" secondAttribute="top" constant="10" id="M2L-aI-OiG"/>
-                <constraint firstItem="HPE-tc-gfA" firstAttribute="bottom" secondItem="4mb-GA-nmN" secondAttribute="bottom" constant="13" id="N4K-E5-jBo"/>
+                <constraint firstItem="HPE-tc-gfA" firstAttribute="bottom" secondItem="4mb-GA-nmN" secondAttribute="bottom" constant="15" id="N4K-E5-jBo"/>
                 <constraint firstItem="HPE-tc-gfA" firstAttribute="bottom" secondItem="WBj-fI-7wh" secondAttribute="bottom" constant="10" id="SdX-5j-Ka1"/>
                 <constraint firstItem="WBj-fI-7wh" firstAttribute="leading" secondItem="vpd-QD-dYL" secondAttribute="trailing" constant="10" id="XIr-eb-by3"/>
                 <constraint firstItem="WBj-fI-7wh" firstAttribute="leading" secondItem="vpd-QD-dYL" secondAttribute="trailing" constant="10" id="aal-BW-WG9"/>
@@ -70,7 +70,7 @@
         </view>
     </objects>
     <resources>
-        <image name="photo" width="512" height="512"/>
+        <image name="photo" width="256" height="256"/>
         <image name="send" width="256" height="256"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

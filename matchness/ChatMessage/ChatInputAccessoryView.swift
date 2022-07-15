@@ -42,15 +42,15 @@ class ChatInputAccessoryView: UIView, UITextViewDelegate {
         chatTextView.layer.cornerRadius = 10
         chatTextView.layer.borderColor = #colorLiteral(red: 0.7523477674, green: 0.7478769422, blue: 0.7557855248, alpha: 1).cgColor
         chatTextView.layer.borderWidth = 1
+        chatTextView.text = ""
+        chatTextView.delegate = self
+        
 
         sendButton.layer.cornerRadius = 15
         sendButton.imageView?.contentMode = .scaleAspectFill
         sendButton.contentHorizontalAlignment = .fill
         sendButton.contentVerticalAlignment = .fill
         sendButton.isEnabled = false
-        
-        chatTextView.text = ""
-        chatTextView.delegate = self
         
         let picture = UIImage(named: "photo")
         photoButton.setImage(picture, for: .normal)

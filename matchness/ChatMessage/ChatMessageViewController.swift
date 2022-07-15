@@ -13,6 +13,7 @@ import ImageViewer
 
 class ChatMessageViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, ChatInputAccessoryViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, GalleryItemsDataSource {
 
+    @IBOutlet weak var tableView: UITableView!
     let userDefaults = UserDefaults.standard
     var message_users = [String:String]()
     private var messages = [Message]()
@@ -22,8 +23,8 @@ class ChatMessageViewController: UIViewController, UITableViewDelegate, UITableV
     var boy_message_point = 50
     var use_point = Int()
     var sex = String()
-    @IBOutlet weak var tableView: UITableView!
-    private let accessoryHeight: CGFloat = 100
+
+    private let accessoryHeight: CGFloat = 50
     private let tableViewContentInset: UIEdgeInsets = .init(top: 60, left: 0, bottom: 0, right: 0)
     private let tableViewIndicatorInset: UIEdgeInsets = .init(top: 60, left: 0, bottom: 0, right: 0)
     
@@ -87,7 +88,7 @@ class ChatMessageViewController: UIViewController, UITableViewDelegate, UITableV
         tableView.contentInset = tableViewContentInset
         tableView.scrollIndicatorInsets = tableViewIndicatorInset
         tableView.keyboardDismissMode = .interactive
-        tableView.contentInset.top = 30
+        tableView.contentInset.top = 80
         tableView.transform = CGAffineTransform(a: 1, b: 0, c: 0, d: -1, tx: 0, ty: 0)
     }
     
@@ -100,10 +101,6 @@ class ChatMessageViewController: UIViewController, UITableViewDelegate, UITableV
             var moveY = -(top - tableView.contentOffset.y)
             // 最下部意外の時は少しずれるので微調整
             if tableView.contentOffset.y != -60 { moveY += 60 }
-//            let contentInset = UIEdgeInsets(top: top, left: 0, bottom: 0, right: 0)
-            
-//            tableView.contentInset = contentInset
-//            tableView.scrollIndicatorInsets = contentInset
             tableView.contentInset.top = top+90
             tableView.contentOffset = CGPoint(x: 0, y: moveY)
         }
@@ -113,7 +110,6 @@ class ChatMessageViewController: UIViewController, UITableViewDelegate, UITableV
         tableView.contentInset = tableViewContentInset
         tableView.scrollIndicatorInsets = tableViewIndicatorInset
     }
-    
     
     override var inputAccessoryView: UIView? {
         get {
@@ -144,10 +140,7 @@ class ChatMessageViewController: UIViewController, UITableViewDelegate, UITableV
                         let m2Date = StringToDate(dateValue: m2.create_at, format: "yyyy-MM-dd HH:mm:ss")
                         return m1Date > m2Date
                     }
-
                     self.tableView.reloadData()
-//                    self.tableView.scrollToRow(at: IndexPath(row: self.messages.count - 1, section: 0), at: .bottom, animated: true)
-
                 case .modified, .removed:
                     print("nothing to do")
                 }

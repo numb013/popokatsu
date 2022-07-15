@@ -63,12 +63,14 @@ class WeekRankingSetViewController: ButtonBarPagerTabStripViewController, UIView
     }
     
     func sideMenuButtonSet() {
-
+        print("ナビナビナビきてる？？？ランキング", userDefaults.object(forKey: "sidemenu"))
         menuButton.frame = CGRect(x: 0, y: 0, width: 30, height: 0)
         menuButton.setImage(UIImage(named: "menu")?.withRenderingMode(.alwaysTemplate), for: .normal)
         if userDefaults.object(forKey: "sidemenu") != nil {
             menuButton.badgeEdgeInsets = UIEdgeInsets(top: 10, left: 2, bottom: 0, right: 0)
             menuButton.badge = userDefaults.string(forKey: "sidemenu")
+        } else {
+            menuButton.badge = nil
         }
         menuButton.addTarget(self,action: #selector(self.sideMenu(_ :)),for: .touchUpInside)
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: menuButton)

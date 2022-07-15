@@ -7,8 +7,6 @@
 //
 
 import UIKit
-//import Alamofire
-//import SwiftyJSON
 import SDWebImage
 import FBSDKCoreKit
 import FBSDKLoginKit
@@ -71,8 +69,6 @@ class UserSearchViewController: BaseViewController,UICollectionViewDataSource, U
     override func viewDidLoad() {
         var api_key = userDefaults.object(forKey: "api_token") as? String
         super.viewDidLoad()
-
-        
         if HKHealthStore.isHealthDataAvailable() {
             let readDataTypes: Set<HKObjectType> = [
              HKObjectType.quantityType(forIdentifier:HKQuantityTypeIdentifier.stepCount)!
@@ -84,8 +80,6 @@ class UserSearchViewController: BaseViewController,UICollectionViewDataSource, U
         } else{
             Alert.helthError(alertNum: self.errorData, viewController: self)
         }
-        
-
         dateFormatter.timeZone = TimeZone(identifier: "Asia/Tokyo")
         dateFormatter.locale = Locale(identifier: "ja_JP")
         dateFormatter.dateFormat = "yyyy/MM/dd HH:mm:ss"
@@ -117,7 +111,6 @@ class UserSearchViewController: BaseViewController,UICollectionViewDataSource, U
         collectionView.dataSource = self
         collectionView.emptyDataSetDelegate = self
         collectionView.emptyDataSetSource = self
- 
 
         view.backgroundColor = .lightGray
         activityIndicatorView.center = view.center
@@ -141,16 +134,13 @@ class UserSearchViewController: BaseViewController,UICollectionViewDataSource, U
         
         let tabBarController: UITabBarController = UITabBarController()
         let tabBarHeight = tabBarController.tabBar.frame.size.height
-        tabBarController.appearance()
+//        tabBarController.appearance()
         
         apiRequest()
     }
     
-
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
-        
         if (userDefaults.object(forKey: "status") == nil) {
              let storyboard: UIStoryboard = self.storyboard!
              let multiple = storyboard.instantiateViewController(withIdentifier: "profile")
@@ -217,7 +207,6 @@ class UserSearchViewController: BaseViewController,UICollectionViewDataSource, U
         self.refreshControl?.endRefreshing()
     }
 
-    
     // 画面に表示された直後に呼ばれます。
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -226,11 +215,14 @@ class UserSearchViewController: BaseViewController,UICollectionViewDataSource, U
     }
     
     func sideMenuButtonSet() {
+        print("ナビナビナビきてる？？？トップ", userDefaults.object(forKey: "sidemenu"))
         menuButton.frame = CGRect(x: 0, y: 0, width: 30, height: 0)
         menuButton.setImage(UIImage(named: "menu")?.withRenderingMode(.alwaysTemplate), for: .normal)
         if userDefaults.object(forKey: "sidemenu") != nil {
             menuButton.badgeEdgeInsets = UIEdgeInsets(top: 10, left: 2, bottom: 0, right: 0)
             menuButton.badge = userDefaults.string(forKey: "sidemenu")
+        } else {
+            menuButton.badge = nil
         }
         menuButton.addTarget(self,action: #selector(self.sideMenu(_ :)),for: .touchUpInside)
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: menuButton)
@@ -573,14 +565,14 @@ extension UserSearchViewController: KolodaViewDelegate {
 }
 
 
-extension UITabBarController {
-    func appearance() {
-        let appearance = UITabBarAppearance()
-        appearance.configureWithOpaqueBackground()
-        appearance.backgroundColor = UIColor(red: 248/255, green: 248/255, blue: 248/255, alpha: 1.0)
-        UITabBar.appearance().standardAppearance = appearance
-        if #available(iOS 15.0, *) {
-            UITabBar.appearance().scrollEdgeAppearance = appearance
-        }
-    }
-}
+//extension UITabBarController {
+//    func appearance() {
+//        let appearance = UITabBarAppearance()
+//        appearance.configureWithOpaqueBackground()
+//        appearance.backgroundColor = UIColor(red: 248/255, green: 248/255, blue: 248/255, alpha: 1.0)
+//        UITabBar.appearance().standardAppearance = appearance
+//        if #available(iOS 15.0, *) {
+//            UITabBar.appearance().scrollEdgeAppearance = appearance
+//        }
+//    }
+//}

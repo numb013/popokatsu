@@ -66,8 +66,6 @@ class PointChangeViewController: UIViewController, UITableViewDelegate, UITableV
         getStepDate1()
         getStepDate2()
 
-
-
         let presenter = PointChangePresenter(view: self)
         inject(presenter: presenter)
         presenter.apiPointSelect()
@@ -129,10 +127,7 @@ class PointChangeViewController: UIViewController, UITableViewDelegate, UITableV
                 cell.yesterdayPoint.text = String(Int(floor(Double(self.y_Point) * 0.01)))
                 
                 cell.todayPoint.textColor =  self.t_Point <= 100 ? gray : pink
-                
                 cell.yesterdayPoint.textColor =  self.y_Point <= 100 ? gray : pink
-                
-
                 
                 cell.t_button.isEnabled = self.t_Point <= 100 ? false : true // ボタン無効
                 let b_color = self.t_Point <= 100 ? gray : pink

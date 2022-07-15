@@ -1,6 +1,5 @@
 //
 //  ModalViewController.swift
-//  ccc
 //
 //  Created by 中村篤史 on 2020/09/26.
 //
@@ -8,15 +7,12 @@
 import UIKit
 import FBSDKCoreKit
 import FBSDKLoginKit
-//import FBSDKShareKit
 import GoogleSignIn
 import GTMSessionFetcher
 import GoogleAPIClientForREST
 import Alamofire
-import SwiftyJSON
 import AuthenticationServices
 import Swifter
-
 
 struct loginParam: Codable {
     let id: Int
@@ -38,8 +34,6 @@ class LoginModalViewController: UIViewController, LoginButtonDelegate, UIViewCon
     var email = ""
     var status = 0
     let userDefaults = UserDefaults.standard
-    
-//    @IBOutlet weak var stackView: UIStackView!
     
     @IBOutlet weak var topImage: UIImageView!
 
@@ -78,7 +72,6 @@ class LoginModalViewController: UIViewController, LoginButtonDelegate, UIViewCon
         var recognizer1 = MyTapGestureRecognizer(target: self, action: #selector(self.onTapTwitter(_:)))
         twitterImage.addGestureRecognizer(recognizer1)
         
-        
         let googleImage = UIImageView(image: UIImage(named: "googlelogin"))
         googleImage.isUserInteractionEnabled = true
         var recognizer = MyTapGestureRecognizer(target: self, action: #selector(self.onTapGoogle(_:)))
@@ -105,11 +98,7 @@ class LoginModalViewController: UIViewController, LoginButtonDelegate, UIViewCon
         }
 
         appleButton.addTarget(self, action: #selector(handleAuthorizationAppleIDButtonPress), for: .touchUpInside)
-//        self.stackView.addArrangedSubview(authorizationButton)
         self.view.addSubview(appleButton)
-//        setupProviderLoginView()
-        // Do any additional setup after loading the view, typically from a nib.
-
     }
 
     // 3. 認証リクエスト
@@ -157,7 +146,6 @@ class LoginModalViewController: UIViewController, LoginButtonDelegate, UIViewCon
 
         let swifter = Swifter(consumerKey: "48093gZGYB2kcfZfQMCV3bWCu", consumerSecret: "vRj14C1Fl5h4jLzmVC28DH6dwC79DMO7FeQKeDzc4xm8ShKV2O")
 
-
         swifter.authorize(
             withCallback: URL(string: "popokatsu://")!,
             presentingFrom: self,
@@ -196,7 +184,6 @@ class LoginModalViewController: UIViewController, LoginButtonDelegate, UIViewCon
         }
     }
 
-
     //FBログイン
     func returnUserData()
     {
@@ -230,9 +217,12 @@ class LoginModalViewController: UIViewController, LoginButtonDelegate, UIViewCon
         "name": self.name,
         "email": self.email,
         "login_sns_type": self.login_sns_type,
-        "sns_id": self.sns_id
+        "sns_id": self.sns_id,
+        "onesignal_id": userDefaults.string(forKey: "fcmToken")!,
        ] as [String:Any]
        
+       print("ログインログインログインログインログインログインログイン")
+
        API.requestHttp(POPOAPI.base.userAdd, parameters: parameters,success: { [self] (response: loginParam) in
            self.status = response.status
            if self.status == 1 || self.status == 0 {
@@ -258,7 +248,7 @@ class LoginModalViewController: UIViewController, LoginButtonDelegate, UIViewCon
                 let alert = UIAlertController(title: "アカウントが無効です", message: "申し訳ございませんが、ご利用停止にさせていただいています", preferredStyle: .alert)
                 let backView = alert.view.subviews.last?.subviews.last
                 backView?.layer.cornerRadius = 15.0
-               backView?.backgroundColor = .white
+                backView?.backgroundColor = .white
                 self.present(alert, animated: true, completion: {
                     DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
                         alert.dismiss(animated: true, completion: nil)
@@ -271,7 +261,7 @@ class LoginModalViewController: UIViewController, LoginButtonDelegate, UIViewCon
                let alert = UIAlertController(title: "アクセスエラー", message: "しばらくお待ちください", preferredStyle: .alert)
                let backView = alert.view.subviews.last?.subviews.last
                backView?.layer.cornerRadius = 15.0
-           backView?.backgroundColor = .white
+               backView?.backgroundColor = .white
                self.present(alert, animated: true, completion: {
                    DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
                        alert.dismiss(animated: true, completion: nil)
@@ -340,7 +330,6 @@ extension LoginModalViewController: ASAuthorizationControllerDelegate {
             self.sns_id = appleIDCredential.user
             self.name = "\(fullName)"
             self.email = email
-
             userDefaults.set(appleIDCredential.user, forKey: "apple_user_id")
 
             apiLoginCheck()
@@ -348,9 +337,7 @@ extension LoginModalViewController: ASAuthorizationControllerDelegate {
             // 既存のiCloud Keychainクレデンシャル情報
             let username = passwordCredential.user
             let password = passwordCredential.password
-
             // 取得した情報を元にアカウントの作成などを行う
-
         }
     }
 

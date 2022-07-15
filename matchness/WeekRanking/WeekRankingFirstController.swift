@@ -87,7 +87,6 @@ class WeekRankingFirstController: UIViewController, UITableViewDelegate , UITabl
         kikan.layer.shadowRadius = 2
     }
     
-    
     fileprivate func getHeightOfHeaderView() -> CGFloat {
         return CGFloat(headerView.frame.height)
     }

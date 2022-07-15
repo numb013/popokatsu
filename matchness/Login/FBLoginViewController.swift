@@ -9,7 +9,6 @@
 import UIKit
 
 import Alamofire
-import SwiftyJSON
 
 struct noSnsloginParam: Codable {
     let id: Int
@@ -176,50 +175,5 @@ class FBLoginViewController: UIViewController, UIViewControllerTransitioningDele
                 return
             }
         )
-        
-        
-        
-        
-//         let requestUrl: String = ApiConfig.REQUEST_URL_API_NO_SNS_USER_ADD;
-//         //パラメーター
-//         var query: Dictionary<String,String> = Dictionary<String,String>();
-//         let headers: HTTPHeaders = [
-//             "Accept" : "application/json",
-//             "Authorization" : "",
-//             "Content-Type" : "application/x-www-form-urlencoded"
-//         ]
-////         query["name"] = self.name
-////         query["email"] = self.email
-////         query["login_sns_type"] = self.login_sns_type
-////         query["sns_id"] = self.sns_id
-//         self.requestAlamofire = AF.request(requestUrl, method: .post, parameters: query, encoding: JSONEncoding.default, headers: headers).responseJSON{ response in
-//               switch response.result {
-//               case .success:
-//                    guard let data = response.data else { return }
-//                    guard let noSnsloginParam = try? JSONDecoder().decode(noSnsloginParam.self, from: data) else {
-//                        print("取得失敗")
-//                        self.activityIndicatorView.stopAnimating()
-//                        return
-//                    }
-//                    self.activityIndicatorView.stopAnimating()
-//                    self.status = noSnsloginParam.status
-//                    let userDefaults = UserDefaults.standard
-//                    userDefaults.set(noSnsloginParam.api_token, forKey: "api_token")
-//                    //画面遷移
-//                    self.performSegue(withIdentifier: "toProfileAdd", sender: self)
-//               case .failure:
-//                   //  リクエスト失敗 or キャンセル時
-//                   let alert = UIAlertController(title: "アクセスエラー", message: "しばらくお待ちください", preferredStyle: .alert)
-//                   let backView = alert.view.subviews.last?.subviews.last
-//                   backView?.layer.cornerRadius = 15.0
-//                   backView?.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-//                   self.present(alert, animated: true, completion: {
-//                       DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
-//                           alert.dismiss(animated: true, completion: nil)
-//                       })
-//                   })
-//               return;
-//           }
-//       }
     }
 }

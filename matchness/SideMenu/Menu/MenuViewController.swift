@@ -8,21 +8,21 @@
 
 import UIKit
 import Alamofire
-import SwiftyJSON
 import SafariServices
 
 class MenuViewController: UIViewController {
-
     @IBOutlet weak var tableView: UITableView!
 
     var status = ""
     var notice_setting = ""
     var swich_status:Bool = true
     var cellCount: Int = 0
+    var dataSource = [ApiSetting]()
     var errorData: Dictionary<String, ApiErrorAlert> = [:]
     private var requestAlamofire: Alamofire.Request?;
     var webType = ""
-    var dataSource = [ApiSetting]()
+    var dataSourceOrder: Array<String> = []
+//    var ActivityIndicator: UIActivityIndicatorView!
     var activityIndicatorView = UIActivityIndicatorView()
     
     private var sections: [Section] = [
@@ -44,6 +44,7 @@ class MenuViewController: UIViewController {
         super.viewDidLoad()
         self.tableView.estimatedRowHeight = 100
         self.tableView.rowHeight = UITableView.automaticDimension
+        tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: CGFloat.leastNonzeroMagnitude))
         setupTableView()
         
         view.backgroundColor = .white
@@ -98,7 +99,7 @@ class MenuViewController: UIViewController {
 
 extension MenuViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        if self.dataSource.count == 0 {
+        if self.dataSource.isEmpty == true {
             return 0
         }
         return sections.count
@@ -117,6 +118,7 @@ extension MenuViewController: UITableViewDataSource {
         return 4
     }
 
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var mySetting = self.dataSource[0]
         if (indexPath.section == 0) {
@@ -249,8 +251,8 @@ extension MenuViewController: UITableViewDataSource {
                 let alertController:UIAlertController =
                     UIAlertController(title:"退会する",message: "本当に退会しますか？",preferredStyle: .alert)
                 let backView = alertController.view.subviews.last?.subviews.last
-                backView?.layer.cornerRadius = 15.0
-                backView?.backgroundColor = .white
+                backView?.layer.cornerRadius = 5.0
+                backView?.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
                 let defaultAction:UIAlertAction =
                     UIAlertAction(title: "退会する",style: .destructive,handler:{
                     (action:UIAlertAction!) -> Void in
@@ -260,10 +262,8 @@ extension MenuViewController: UITableViewDataSource {
                     UIAlertAction(title: "キャンセル",style: .cancel,handler:{
                     (action:UIAlertAction!) -> Void in
                     })
-                
-                cancelAction.setValue(UIColor.popoTextGreen, forKey: "titleTextColor")
-                defaultAction.setValue(UIColor.popoTextPink, forKey: "titleTextColor")
-                
+                cancelAction.setValue(#colorLiteral(red: 0, green: 0.71307832, blue: 0.7217405438, alpha: 1), forKey: "titleTextColor")
+                defaultAction.setValue(#colorLiteral(red: 0.9884889722, green: 0.3815950453, blue: 0.7363485098, alpha: 1), forKey: "titleTextColor")
                 alertController.addAction(cancelAction)
                 alertController.addAction(defaultAction)
                 present(alertController, animated: true, completion: nil)
@@ -274,10 +274,13 @@ extension MenuViewController: UITableViewDataSource {
             }
         } else {
             if (indexPath.row == 0) {
-                let contactView = ContactViewController()
-                contactView.type = 1
-                present(contactView, animated: true, completion: nil)
-//                navigationController?.pushViewController(contactView, animated: true)
+                if #available(iOS 13.0, *) {
+                    let contactView = ContactViewController()
+                    contactView.type = 1
+                    navigationController?.pushViewController(contactView, animated: true)
+                } else {
+                    // Fallback on earlier versions
+                }
             } else {
                 self.webType = String(indexPath.section) + String(indexPath.row)
                 switch (webType) {
@@ -309,13 +312,12 @@ extension MenuViewController: UITableViewDataSource {
     }
 
     func settingApi(_ status1:Int, _ status2:Bool) {
-
-        var parameters = [String:Any]()
         if (status2 == false) {
             self.status = "0"
         } else {
             self.status = "1"
         }
+        var parameters = [String:Any]()
         if (status1 == 0) {
             parameters["message_notice"] = self.status
         }
@@ -331,63 +333,12 @@ extension MenuViewController: UITableViewDataSource {
         if (status1 == 4) {
             parameters["match_notice"] = self.status
         }
-//        var headers: HTTPHeaders = [:]
-//
-//        var api_key = userDefaults.object(forKey: "api_token") as? String
-//        if ((api_key) != nil) {
-//            headers = [
-//                "Accept" : "application/json",
-//                "Authorization" : "Bearer " + api_key!,
-//                "Content-Type" : "application/x-www-form-urlencoded"
-//            ]
-//        }
-//
-//        self.requestAlamofire = AF.request(requestUrl, method: .post, parameters: query, encoding: JSONEncoding.default, headers: headers).responseJSON{ response in
-//            switch response.result {
-//            case .success:
-//                var json:JSON;
-//                do{
-//                    //レスポンスデータを解析
-//                    json = try SwiftyJSON.JSON(data: response.data!);
-//                } catch {
-//                    // error
-//                    print("json error: \(error.localizedDescription)");
-//    //                     self.onFaild(response as AnyObject);
-//                    break;
-//                }
-//                self.activityIndicatorView.stopAnimating()
-//            case .failure:
-//                //  リクエスト失敗 or キャンセル時
-//                let alert = UIAlertController(title: "設定", message: "失敗しました。", preferredStyle: .alert)
-//                let backView = alert.view.subviews.last?.subviews.last
-//                backView?.layer.cornerRadius = 15.0
-//                backView?.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-//                self.present(alert, animated: true, completion: {
-//                    DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
-//                        alert.dismiss(animated: true, completion: nil)
-//                    })
-//                })
-//                return;
-//            }
-//        }
         
-    
         API.requestHttp(POPOAPI.base.menuEdit, parameters: parameters,success: { [self] (response: ApiStatus) in
                 self.activityIndicatorView.stopAnimating()
             },
             failure: { [self] error in
                 print(error)
-                //  リクエスト失敗 or キャンセル時
-                let alert = UIAlertController(title: "設定", message: "失敗しました。", preferredStyle: .alert)
-                let backView = alert.view.subviews.last?.subviews.last
-                backView?.layer.cornerRadius = 15.0
-            backView?.backgroundColor = .white
-                self.present(alert, animated: true, completion: {
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
-                        alert.dismiss(animated: true, completion: nil)
-                    })
-                })
-                return;
             }
         )
     }
@@ -408,7 +359,7 @@ extension MenuViewController: UITableViewDataSource {
                 let alert = UIAlertController(title: "退会", message: "退会に失敗しました。", preferredStyle: .alert)
                 let backView = alert.view.subviews.last?.subviews.last
                 backView?.layer.cornerRadius = 15.0
-            backView?.backgroundColor = .white
+                backView?.backgroundColor = .white
                 self.present(alert, animated: true, completion: {
                     DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
                         alert.dismiss(animated: true, completion: nil)
@@ -418,21 +369,11 @@ extension MenuViewController: UITableViewDataSource {
             }
         )
         
-        userDefaults.removeObject(forKey: "api_token")
-        userDefaults.removeObject(forKey: "login_type")
-        userDefaults.removeObject(forKey: "login_step_0")
-        userDefaults.removeObject(forKey: "login_step_1")
-        userDefaults.removeObject(forKey: "login_step_2")
-        userDefaults.removeObject(forKey: "profileImageURL")
-        userDefaults.removeObject(forKey: "searchWork")
-        userDefaults.removeObject(forKey: "prefecture_id")
-        userDefaults.removeObject(forKey: "blood_type")
-        userDefaults.removeObject(forKey: "fitness_parts_id")
-        userDefaults.removeObject(forKey: "matchness_user_id")
-        userDefaults.removeObject(forKey: "point")
+        let appDomain = Bundle.main.bundleIdentifier
+        UserDefaults.standard.removePersistentDomain(forName: appDomain!)
         
-        let storyboard: UIStoryboard = self.storyboard!
-        let vc = storyboard.instantiateViewController(withIdentifier: "fblogin")
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "fblogin") as! FBLoginViewController
         vc.modalPresentationStyle = .fullScreen
         self.present(vc, animated: false, completion: nil)
     }

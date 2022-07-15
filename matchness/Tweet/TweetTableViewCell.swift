@@ -88,9 +88,7 @@ class TweetTableViewCell: UITableViewCell {
             if (tweet!.is_like)! >= 1 {
                 image = UIImage(named: "tweet_liked")
             }
-            let state = UIControl.State.normal
-            like_button.setImage(image, for: state)
-
+            like_button.setImage(image, for: .normal)
         }
     }
     

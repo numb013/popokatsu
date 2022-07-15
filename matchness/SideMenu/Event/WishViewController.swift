@@ -9,7 +9,6 @@
 import UIKit
 import HealthKit
 import Alamofire
-import SwiftyJSON
 
 struct wishParam: Codable {
     let next_week_step: String

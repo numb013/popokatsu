@@ -7,10 +7,8 @@
 import UIKit
 import DZNEmptyDataSet
 import Alamofire
-import SwiftyJSON
 import XLPagerTabStrip
 import SDWebImage
-//import Lottie
 
 @available(iOS 13.0, *)
 class TweetViewController: BaseViewController, IndicatorInfoProvider, UITableViewDelegate, UITableViewDataSource, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate, UINavigationControllerDelegate {
@@ -67,7 +65,6 @@ class TweetViewController: BaseViewController, IndicatorInfoProvider, UITableVie
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        print("タブバー表示")
         BaseViewController()
     }
     
@@ -398,6 +395,10 @@ class TweetViewController: BaseViewController, IndicatorInfoProvider, UITableVie
 
     @objc private func likePush(_ sender:UIButton)
     {
+        if self.dataSource.isEmpty == true {
+            return
+        }
+        var setAPIModule : APIModule = POPOAPI.base.likeTweet
         let generator = UINotificationFeedbackGenerator()
         generator.notificationOccurred(.warning)
         var target_tweet = self.dataSource[sender.tag]
@@ -416,7 +417,7 @@ class TweetViewController: BaseViewController, IndicatorInfoProvider, UITableVie
                 self.like_change_count = target_tweet.like_count - 1
                 self.dataSource[sender.tag].is_like = 0
                 //リクエスト先
-//                self.requestUrl = ApiConfig.REQUEST_URL_API_LIKE_CANCEL_TWEET;
+                setAPIModule = POPOAPI.base.likeCancelTweet
             } else {
                 var image = UIImage(named: "tweet_liked")
                 cell.like_button.setImage(image, for: .normal)
@@ -425,13 +426,12 @@ class TweetViewController: BaseViewController, IndicatorInfoProvider, UITableVie
                 self.like_change_count = target_tweet.like_count + 1
                 self.dataSource[sender.tag].is_like = 1
                 //リクエスト先
-//                self.requestUrl = ApiConfig.REQUEST_URL_API_LIKE_TWEET;
+                setAPIModule = POPOAPI.base.likeTweet
             }
             cell.like_button.isEnabled = true
             
 
         } else {
-
             let cell = tableView.cellForRow(at: IndexPath(row: sender.tag, section: 0)) as! TweetCommentTableViewCell
             cell.like_button.isEnabled = false
             self.is_like = (target_tweet.is_like)
@@ -445,7 +445,7 @@ class TweetViewController: BaseViewController, IndicatorInfoProvider, UITableVie
                 self.like_change_count = target_tweet.like_count - 1
                 self.dataSource[sender.tag].is_like = 0
                 //リクエスト先
-                // self.requestUrl = ApiConfig.REQUEST_URL_API_LIKE_CANCEL_TWEET;
+                setAPIModule = POPOAPI.base.likeCancelTweet
             } else {
                 var image = UIImage(named: "tweet_liked")
                 cell.like_button.setImage(image, for: .normal)
@@ -453,22 +453,20 @@ class TweetViewController: BaseViewController, IndicatorInfoProvider, UITableVie
                 self.dataSource[sender.tag].like_count = target_tweet.like_count + 1
                 self.like_change_count = target_tweet.like_count + 1
                 self.dataSource[sender.tag].is_like = 1
-                // self.requestUrl = ApiConfig.REQUEST_URL_API_LIKE_TWEET;
+                setAPIModule = POPOAPI.base.likeTweet
             }
             cell.like_button.isEnabled = true
         }
         
         //リクエスト先
-        var setAPIModule : APIModule = POPOAPI.base.likeTweet
         var parameters = [String:Any]()
         if target_tweet.type == 1 {
-            parameters["tweet_id"] = target_tweet.tweet_id
-            parameters["type"] = 1
-            setAPIModule = POPOAPI.base.likeCancelTweet
+            parameters["tweet_id"] = String(target_tweet.tweet_id)
+            parameters["type"] = "1"
         } else {
-            parameters["type"] = 2
-            parameters["tweet_comment_id"] = target_tweet.tweet_comment_id
-            parameters["tweet_id"] = target_tweet.tweet_id
+            parameters["tweet_comment_id"] = String(target_tweet.tweet_comment_id!)
+            parameters["type"] = "2"
+            parameters["tweet_id"] = String(target_tweet.tweet_id)
         }
         
         API.requestHttp(setAPIModule, parameters: parameters,success: { [self] (response: detailParam) in

@@ -65,14 +65,21 @@ class SideMenuController: UITableViewController, UIViewControllerTransitioningDe
         present(vc, animated: true, completion: nil)
     }
     
-    func selected(_ vc: UIViewController, _ type:Int) {
+    func selected(_ vc: UIViewController, _ type:pageType) {
         switch type {
-        case 1:
-            vc.modalPresentationStyle = .popover
-            vc.transitioningDelegate = self
-            present(vc, animated: true, completion: nil)
-        default:
-            navigationController?.pushViewController(vc, animated: true)
+            case .present:
+                vc.modalPresentationStyle = .popover
+                vc.transitioningDelegate = self
+                present(vc, animated: true, completion: nil)
+            case .naviFull:
+                vc.modalPresentationStyle = .fullScreen
+                vc.transitioningDelegate = self
+                let navigationController = UINavigationController(rootViewController: vc)
+                navigationController.navigationBar.backgroundColor = .black
+                navigationController.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
+                self.present(navigationController, animated: true, completion: nil)
+            default:
+                navigationController?.pushViewController(vc, animated: true)
         }
     }
     

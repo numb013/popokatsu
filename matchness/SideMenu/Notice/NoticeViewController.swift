@@ -24,22 +24,20 @@ class NoticeViewController: UIViewController {
 //        pagingMenuController.view.frame.origin.y += 65
 //        pagingMenuController.view.frame.size.height -= 65
         
-        pagingMenuController.view.frame.origin.y += (navBarHeight! + statusBarHeight)
-        pagingMenuController.view.frame.size.height -= (navBarHeight! + statusBarHeight)
+        pagingMenuController.view.frame.origin.y += navBarHeight!
+        pagingMenuController.view.frame.size.height -= navBarHeight!
 
         print("ナビばーーーーー", (navBarHeight! + statusBarHeight))
         
         self.addChild(pagingMenuController)
         self.view.addSubview(pagingMenuController.view)
         pagingMenuController.didMove(toParent: self)
-
-        tabBarController?.tabBar.isHidden = true
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationItem.title = "お知らせ"
-        navigationController!.navigationBar.topItem!.title = ""
+        navigationController!.navigationBar.topItem!.title = "お知らせ"
         //タブバー表示
         tabBarController?.tabBar.isHidden = true
     }

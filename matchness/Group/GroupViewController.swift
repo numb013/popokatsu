@@ -83,12 +83,14 @@ class GroupViewController: BaseViewController, UIViewControllerTransitioningDele
     }
 
     func sideMenuButtonSet() {
+        print("ナビナビナビきてる？？？グループ", userDefaults.object(forKey: "sidemenu"))
         menuButton.frame = CGRect(x: 0, y: 0, width: 30, height: 0)
         menuButton.setImage(UIImage(named: "menu")?.withRenderingMode(.alwaysTemplate), for: .normal)
-        print("メニューーーーーーーーー", userDefaults.string(forKey: "sidemenu"))
         if userDefaults.object(forKey: "sidemenu") != nil {
             menuButton.badgeEdgeInsets = UIEdgeInsets(top: 10, left: 2, bottom: 0, right: 0)
             menuButton.badge = userDefaults.string(forKey: "sidemenu")
+        } else {
+            menuButton.badge = nil
         }
         menuButton.addTarget(self,action: #selector(self.sideMenu(_ :)),for: .touchUpInside)
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: menuButton)
@@ -134,12 +136,12 @@ private struct PagingMenuOptions: PagingMenuControllerCustomizable {
         return .all(menuOptions: MenuOptions(), pagingControllers: pagingControllers)
     }
     fileprivate var pagingControllers: [UIViewController] {
-        return [pv1, pv2, pv3]
-//        if userDefaults.object(forKey: "join_group") as? Int == 1 {
-//            return [pv2, pv1, pv3]
-//        } else {
-//            return [pv1, pv2, pv3]
-//        }
+//        return [pv1, pv2, pv3]
+        if userDefaults.object(forKey: "join_group") as? Int == 1 {
+            return [pv2, pv1, pv3]
+        } else {
+            return [pv1, pv2, pv3]
+        }
     }
 
     fileprivate struct MenuOptions: MenuViewCustomizable {
@@ -147,7 +149,7 @@ private struct PagingMenuOptions: PagingMenuControllerCustomizable {
             return .infinite(widthMode: .flexible, scrollingMode: .scrollEnabled)
         }
         var height: CGFloat {
-            return 45
+            return 40
         }
         var backgroundColor: UIColor {
             return UIColor.black
@@ -160,13 +162,12 @@ private struct PagingMenuOptions: PagingMenuControllerCustomizable {
             return .roundRect(radius: 1, horizontalPadding: 1, verticalPadding: 1, selectedColor: UIColor(red: 0.1, green: 0.7, blue: 0.7, alpha: 0.7))
         }
         var itemsOptions: [MenuItemViewCustomizable] {
-            return [MenuItem1(), MenuItem2(), MenuItem3()]
-//            let userDefaults = UserDefaults.standard
-//            if userDefaults.object(forKey: "join_group") as? Int == 1 {
-//                return [MenuItem2(), MenuItem1(), MenuItem3()]
-//            } else {
-//                return [MenuItem1(), MenuItem2(), MenuItem3()]
-//            }
+//            return [MenuItem1(), MenuItem2(), MenuItem3()]
+            if UserDefaults.standard.object(forKey: "join_group") as? Int == 1 {
+                return [MenuItem2(), MenuItem1(), MenuItem3()]
+            } else {
+                return [MenuItem1(), MenuItem2(), MenuItem3()]
+            }
         }
     }
 

@@ -31,6 +31,9 @@ PODS:
     - FirebaseAnalytics (~> 8.10.0)
   - Firebase/CoreOnly (8.10.0):
     - FirebaseCore (= 8.10.0)
+  - Firebase/Messaging (8.10.0):
+    - Firebase/CoreOnly
+    - FirebaseMessaging (~> 8.10.0)
   - Firebase/Storage (8.10.0):
     - Firebase/CoreOnly
     - FirebaseStorage (~> 8.10.0)
@@ -72,6 +75,15 @@ PODS:
     - GoogleUtilities/Environment (~> 7.6)
     - GoogleUtilities/UserDefaults (~> 7.6)
     - PromisesObjC (< 3.0, >= 1.2)
+  - FirebaseMessaging (8.10.0):
+    - FirebaseCore (~> 8.0)
+    - FirebaseInstallations (~> 8.0)
+    - GoogleDataTransport (~> 9.1)
+    - GoogleUtilities/AppDelegateSwizzler (~> 7.6)
+    - GoogleUtilities/Environment (~> 7.6)
+    - GoogleUtilities/Reachability (~> 7.6)
+    - GoogleUtilities/UserDefaults (~> 7.6)
+    - nanopb (~> 2.30908.0)
   - FirebaseStorage (8.10.0):
     - FirebaseCore (~> 8.0)
     - GTMSessionFetcher/Core (~> 1.5)
@@ -159,7 +171,6 @@ PODS:
   - SideMenu (6.5.0)
   - Siren (5.8.1)
   - Swifter (2.5.0)
-  - SwiftyJSON (5.0.1)
   - XLPagerTabStrip (9.0.0)
 
 DEPENDENCIES:
@@ -170,6 +181,7 @@ DEPENDENCIES:
   - FBSDKLoginKit
   - Firebase/Analytics
   - Firebase/Auth
+  - Firebase/Messaging
   - Firebase/Storage
   - FirebaseFirestore (from `https://github.com/invertase/firestore-ios-sdk-frameworks.git`, tag `7.11.0`)
   - Google-Mobile-Ads-SDK
@@ -186,7 +198,6 @@ DEPENDENCIES:
   - SideMenu
   - Siren
   - Swifter (from `https://github.com/mattdonnelly/Swifter.git`)
-  - SwiftyJSON
   - XLPagerTabStrip
 
 SPEC REPOS:
@@ -204,6 +215,7 @@ SPEC REPOS:
     - FirebaseCore
     - FirebaseCoreDiagnostics
     - FirebaseInstallations
+    - FirebaseMessaging
     - FirebaseStorage
     - Google-Mobile-Ads-SDK
     - GoogleAPIClientForREST
@@ -226,7 +238,6 @@ SPEC REPOS:
     - SDWebImage
     - SideMenu
     - Siren
-    - SwiftyJSON
     - XLPagerTabStrip
 
 EXTERNAL SOURCES:
@@ -259,6 +270,7 @@ SPEC CHECKSUMS:
   FirebaseCoreDiagnostics: 56fb7216d87e0e6ec2feddefa9d8a392fe8b2c18
   FirebaseFirestore: 783538aced1557a6b817ee121593561127a00244
   FirebaseInstallations: 830327b45345ffc859eaa9c17bcd5ae893fd5425
+  FirebaseMessaging: b0aeba17332ee1ee610662b4d1e02a86db82f08f
   FirebaseStorage: 815410224b548172c578f02554a86bbc8f817f50
   Google-Mobile-Ads-SDK: 05e5d68bb42a61b2e5bef336a52789785605aa22
   GoogleAPIClientForREST: a8b95a252014ce2e618df6b75dc72eca2c00b4af
@@ -282,9 +294,8 @@ SPEC CHECKSUMS:
   SideMenu: f583187d21c5b1dd04c72002be544b555a2627a2
   Siren: de768099aff1f1c9acda4247064788a4940b4bf3
   Swifter: 4c2f8cf320c2f751c10128f841d8e9bd8609d988
-  SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
   XLPagerTabStrip: 61c57fd61f611ee5f01ff1495ad6fbee8bf496c5
 
-PODFILE CHECKSUM: 3cfa393f757a32d0989c6df3100fd6d6e92fccea
+PODFILE CHECKSUM: abcc8c5de8fc43f70f7bec65c2a1b16415c9d8e4
 
 COCOAPODS: 1.11.2

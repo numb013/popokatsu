@@ -20,23 +20,23 @@ pod 'Google-Mobile-Ads-SDK'
 pod 'MBCircularProgressBar'
 pod 'Charts'
 pod 'Swifter', :git => 'https://github.com/mattdonnelly/Swifter.git'
+
 pod 'Firebase/Auth'
-
 pod 'Firebase/Storage'
-#pod 'Firebase/Firestore'
 pod 'FirebaseFirestore', :git => 'https://github.com/invertase/firestore-ios-sdk-frameworks.git', :tag => '7.11.0'
-
-
 pod 'Firebase/Analytics'
-pod 'IQKeyboardManagerSwift'
+pod 'Firebase/Messaging'
+
 pod 'FacebookCore'
+pod 'FBSDKLoginKit'
+
+pod 'IQKeyboardManagerSwift'
 pod 'SDWebImage'
 pod 'GoogleSignIn', '~> 5.0.0'
 pod 'GoogleAPIClientForREST/Drive', '~> 1.2.1'
 pod 'GTMAppAuth'
-pod 'FBSDKLoginKit'
+
 pod 'Alamofire'
-pod 'SwiftyJSON'
 pod 'Siren'
 
 end

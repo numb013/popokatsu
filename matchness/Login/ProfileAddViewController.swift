@@ -10,7 +10,6 @@ import UIKit
 import FBSDKCoreKit
 import FBSDKLoginKit
 import Alamofire
-import SwiftyJSON
 import Foundation
 
 class ProfileAddViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, UITextViewDelegate,UIPickerViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPickerViewDataSource, detePickerProtocol{
@@ -39,7 +38,7 @@ class ProfileAddViewController: UIViewController, UITableViewDelegate, UITableVi
     private var response: AFDataResponse<Any>?;
     let userDefaults = UserDefaults.standard
     var userProfile : NSDictionary!
-    var json_data:JSON = []
+//    var json_data:JSON = []
     var profileImage:UIImage = UIImage()
     var image_main:String = ""
     var base64String:String = ""
@@ -445,6 +444,7 @@ class ProfileAddViewController: UIViewController, UITableViewDelegate, UITableVi
             "birthday": self.dataSource[0].birthday,
             "sex": self.dataSource[0].sex ?? 0,
             "prefecture_id": self.dataSource[0].prefecture_id ?? 0,
+            "onesignal_id": userDefaults.string(forKey: "fcmToken")!,
             "image_main": self.image_main ?? ""
         ] as! [String:Any]
         
@@ -474,35 +474,6 @@ class ProfileAddViewController: UIViewController, UITableViewDelegate, UITableVi
                 // Alert.common(alertNum: self.errorData, viewController: self)
             }
         )
-        
-//
-//
-//        var query: Dictionary<String,String> = Dictionary<String,String>();
-//        query["id"] = String(self.dataSource["0"]?.id ?? "0")
-//        query["profile_text"] = myTextView.text
-//        query["name"] = self.dataSource["0"]?.name
-//        query["birthday"] = self.dataSource["0"]?.birthday
-//        query["sex"] = String(self.dataSource["0"]?.sex ?? 0)
-//        query["prefecture_id"] = String(self.dataSource["0"]?.prefecture_id ?? 0)
-//        query["image_main"] = self.image_main ?? ""
-//
-//        if (query["name"]!.trimmingCharacters(in: .whitespacesAndNewlines).count == 0) {
-//            validator(1)
-//        }
-//
-//        if (query["name"]!.count > 15) {
-//            validator(2)
-//        }
-//        if (query["sex"] == "0") {
-//            validator(4)
-//        }
-//        self.sex = self.dataSource["0"]?.sex as! Int
-//
-//            //リクエスト実行
-//            if( !requestProfileAddModel.requestApi(url: requestUrl, addQuery: query) ){
-//
-//            }
-
     }
     
     func completeJamp() {

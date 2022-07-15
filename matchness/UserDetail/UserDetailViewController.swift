@@ -9,7 +9,6 @@
 import UIKit
 import ImageViewer
 import Alamofire
-import SwiftyJSON
 import SDWebImage
 import Lottie
 
@@ -64,11 +63,9 @@ class UserDetailViewController: UIViewController, UITableViewDelegate, UITableVi
         super.viewDidLoad()
         tableView?.delegate = self
         tableView?.dataSource = self
-        self.navigationItem.title = "プロフィール"
-        self.tableView?.register(UINib(nibName: "UserDetailTableViewCell", bundle: nil), forCellReuseIdentifier: "UserDetailTableViewCell")
-        self.tableView?.register(UINib(nibName: "UserDetailInfoTableViewCell", bundle: nil), forCellReuseIdentifier: "UserDetailInfoTableViewCell")
-        navigationController!.navigationBar.topItem!.title = ""
-
+        tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: CGFloat.leastNonzeroMagnitude))
+        tableView?.register(UINib(nibName: "UserDetailTableViewCell", bundle: nil), forCellReuseIdentifier: "UserDetailTableViewCell")
+        tableView?.register(UINib(nibName: "UserDetailInfoTableViewCell", bundle: nil), forCellReuseIdentifier: "UserDetailInfoTableViewCell")
         LikeRequest.isHidden = true
         chatButton.isHidden = true
 
@@ -130,6 +127,12 @@ class UserDetailViewController: UIViewController, UITableViewDelegate, UITableVi
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+
+        super.viewDidDisappear(animated)
+        self.navigationItem.title = "プロフィール"
+        self.navigationController!.navigationBar.topItem!.title = ""
+        self.navigationController!.navigationBar.tintColor = UIColor.popoPink
+
         activityIndicatorView.startAnimating()
         DispatchQueue.global(qos: .default).async {
             // 非同期処理などを実行

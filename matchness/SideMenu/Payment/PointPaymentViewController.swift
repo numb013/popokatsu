@@ -8,7 +8,6 @@
 
 import UIKit
 import Alamofire
-import SwiftyJSON
 import StoreKit
 
 struct payParam: Codable {
@@ -17,43 +16,32 @@ struct payParam: Codable {
 
 class PointPaymentViewController: UIViewController, UITableViewDelegate , UITableViewDataSource, PurchaseManagerDelegate {
 
-    
-//    var cellCount: Int = 0
-//    var dataSource: Dictionary<String, ApiPaymentPointList> = [:]
-//    var dataSourceOrder: Array<String> = []
-//    var errorData: Dictionary<String, ApiErrorAlert> = [:]
-//    private var requestAlamofire: Alamofire.Request?;
-//    var cell_count = 0
-//    var page_no = "1"
-    
     @IBOutlet weak var tableView: UITableView!
     var dataSource = [ApiPaymentPointList]()
     var activityIndicatorView = UIActivityIndicatorView()
     let userDefaults = UserDefaults.standard
     var pay_point = ""
 
-
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-        self.tableView.register(UINib(nibName: "pointPaymentTableViewCell", bundle: nil), forCellReuseIdentifier: "pointPaymentTableViewCell")
-        self.tableView.register(UINib(nibName: "PointExplanationTableViewCell", bundle: nil), forCellReuseIdentifier: "PointExplanationTableViewCell")
+        tableView.contentInset.top = 10
+        tableView.register(UINib(nibName: "pointPaymentTableViewCell", bundle: nil), forCellReuseIdentifier: "pointPaymentTableViewCell")
+        tableView.register(UINib(nibName: "PointExplanationTableViewCell", bundle: nil), forCellReuseIdentifier: "PointExplanationTableViewCell")
         activityIndicatorView.center = view.center
         activityIndicatorView.style = .whiteLarge
         activityIndicatorView.color = .gray
         view.addSubview(activityIndicatorView)
-        self.navigationItem.title = "ポイント購入"
-        navigationController!.navigationBar.topItem!.title = ""
-
         apiRequest()
     }
 
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         self.navigationItem.title = "ポイント購入"
+        navigationController!.navigationBar.topItem!.title = ""
+        navigationController!.navigationBar.tintColor = .white
     }
-
     
     func apiRequest() {
         /****************

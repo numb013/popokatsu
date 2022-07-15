@@ -8,7 +8,6 @@
 
 import UIKit
 import Alamofire
-import SwiftyJSON
 import DZNEmptyDataSet
 import SDWebImage
 //import Lottie

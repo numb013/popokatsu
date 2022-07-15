@@ -15,7 +15,6 @@ class MultipleTypeViewController: ButtonBarPagerTabStripViewController {
     @IBOutlet weak var titleLabel: UILabel!
     
     override func viewDidLoad() {
-        super.viewDidLoad()
         //バーの色
         settings.style.buttonBarBackgroundColor = UIColor.black
         //ボタンの色
@@ -24,34 +23,29 @@ class MultipleTypeViewController: ButtonBarPagerTabStripViewController {
         settings.style.buttonBarItemTitleColor = UIColor.white
         //セレクトバーの色
         settings.style.selectedBarBackgroundColor = .popoPink
+        
         super.viewDidLoad()
-
-        if status == 0 {
-            self.navigationItem.title = "足あと"
-            titleLabel.text = "足あと"
-        } else if status == 3 {
-             self.navigationItem.title = "いいね"
-            titleLabel.text = "いいね"
-        } else if status == 6 {
-             self.navigationItem.title = "マイリスト"
-            titleLabel.text = "マイリスト"
-        }
-//        navigationController!.navigationBar.topItem!.title = ""
-        tabBarController?.tabBar.isHidden = true
-
     }
-    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        //タブバー表示
         tabBarController?.tabBar.isHidden = true
     }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
         //タブバー表示
-        tabBarController?.tabBar.isHidden = true
+        if status == 0 {
+            navigationController!.navigationBar.topItem!.title = "足あと"
+        } else if status == 3 {
+            navigationController!.navigationBar.topItem!.title = "いいね"
+        } else if status == 6 {
+            navigationController!.navigationBar.topItem!.title = "マイリスト"
+        }
     }
+    
+    
 
     override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
         //管理されるViewControllerを返す処理

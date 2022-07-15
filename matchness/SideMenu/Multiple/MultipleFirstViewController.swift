@@ -70,6 +70,7 @@ class MultipleFirstViewController: UIViewController, IndicatorInfoProvider, UITa
         self.page_no = 1
         self.presenter.data = []
         apiRequest()
+        
     }
 
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
