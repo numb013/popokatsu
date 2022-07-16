@@ -342,7 +342,13 @@ class MyDateStepViewController: UIViewController, ChartViewDelegate {
         self.barChartView.marker = marker
     }
     
+    func generator() {
+        let generator = UINotificationFeedbackGenerator()
+        generator.notificationOccurred(.warning)
+    }
+    
     @IBAction func leftButton(_ sender: Any) {
+        generator()
         if (day > 0) {
             count_time = 0.0
             day = day - 1
@@ -354,6 +360,7 @@ class MyDateStepViewController: UIViewController, ChartViewDelegate {
     }
 
     @IBAction func toToday(_ sender: Any) {
+        generator()
         count_time = 0.0
         day = 0
         self.step_1 = []
@@ -364,6 +371,7 @@ class MyDateStepViewController: UIViewController, ChartViewDelegate {
     }
     
     @IBAction func rightButton(_ sender: Any) {
+        generator()
         day = day + 1
         count_time = 0.0
         self.step_1 = []

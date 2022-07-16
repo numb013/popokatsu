@@ -152,13 +152,18 @@ class CalendarViewController: UIViewController, UITableViewDelegate, UITableView
 
 //MARK:- Setting Button Items
 extension CalendarViewController {
-    
+    func generator() {
+        let generator = UINotificationFeedbackGenerator()
+        generator.notificationOccurred(.warning)
+    }
     private func nextMonth() {
+        generator()
         monthCounter += 1
         commonSettingMoveMonth()
     }
     
     private func prevMonth() {
+        generator()
         monthCounter -= 1
         commonSettingMoveMonth()
     }

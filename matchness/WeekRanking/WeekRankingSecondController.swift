@@ -55,6 +55,7 @@ class WeekRankingSecondController: UIViewController, UITableViewDelegate , UITab
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("今週うううううううううう２２２２２２２")
         tableView.delegate = self
         tableView.dataSource = self
         tableView.allowsSelection = false

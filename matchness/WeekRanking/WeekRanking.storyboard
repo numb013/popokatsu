@@ -1,103 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="LEB-Ty-jfg">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="LEB-Ty-jfg">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Week Ranking Controller-->
-        <scene sceneID="KcL-g3-KH5">
-            <objects>
-                <viewController id="cOA-MH-oLh" customClass="WeekRankingController" customModule="popo" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="48f-bd-dXc">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QKQ-Eq-gAv">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" focusStyle="custom" id="kMz-Fn-5xS">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="43.666667938232422"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kMz-Fn-5xS" id="3w1-ey-xnd">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.666667938232422"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                        <edgeInsets key="layoutMargins" top="8" left="0.0" bottom="8" right="8"/>
-                                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="hjb-fJ-iOM"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="QKQ-Eq-gAv" firstAttribute="top" secondItem="hjb-fJ-iOM" secondAttribute="top" id="BD3-E5-dhQ"/>
-                            <constraint firstItem="QKQ-Eq-gAv" firstAttribute="leading" secondItem="hjb-fJ-iOM" secondAttribute="leading" id="Cmd-Qe-XhQ"/>
-                            <constraint firstItem="QKQ-Eq-gAv" firstAttribute="trailing" secondItem="hjb-fJ-iOM" secondAttribute="trailing" id="Olg-MV-NTc"/>
-                            <constraint firstItem="QKQ-Eq-gAv" firstAttribute="bottom" secondItem="hjb-fJ-iOM" secondAttribute="bottom" id="tiN-te-aRL"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="jEq-O5-Zpk"/>
-                    <connections>
-                        <outlet property="tableView" destination="QKQ-Eq-gAv" id="CiV-fM-3NL"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Bne-HL-pbN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1145" y="680"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="rDn-Ba-KZz">
-            <objects>
-                <viewController id="D6v-s3-7o1" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Oh3-QH-YFZ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WMF-94-8S7">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" focusStyle="custom" id="MqN-Is-Ovh">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="43.666667938232422"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="MqN-Is-Ovh" id="oGY-dU-v7j">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.666667938232422"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                        <edgeInsets key="layoutMargins" top="8" left="0.0" bottom="8" right="8"/>
-                                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="8YL-AX-fht"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="WMF-94-8S7" firstAttribute="leading" secondItem="8YL-AX-fht" secondAttribute="leading" id="1iq-hF-gua"/>
-                            <constraint firstItem="WMF-94-8S7" firstAttribute="top" secondItem="8YL-AX-fht" secondAttribute="top" id="Go1-fo-LMl"/>
-                            <constraint firstItem="WMF-94-8S7" firstAttribute="trailing" secondItem="8YL-AX-fht" secondAttribute="trailing" id="LGh-uS-B0B"/>
-                            <constraint firstItem="WMF-94-8S7" firstAttribute="bottom" secondItem="8YL-AX-fht" secondAttribute="bottom" id="Qyq-Yy-8cI"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="tableView" destination="WMF-94-8S7" id="epk-4R-kYw"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="iit-L8-Rte" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="323" y="680"/>
-        </scene>
         <!--やりとり-->
         <scene sceneID="2JQ-No-tOh">
             <objects>
-                <viewController id="LEB-Ty-jfg" customClass="WeekRankingSetViewController" customModule="popo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="LEB-Ty-jfg" customClass="WeekRankingSetViewController" customModule="matchness" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uKZ-Gy-6RW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -164,7 +79,7 @@
         <!--Week Ranking First Controller-->
         <scene sceneID="iw4-l4-Mnl">
             <objects>
-                <viewController storyboardIdentifier="first_week" id="Udu-Vw-Jol" customClass="WeekRankingFirstController" customModule="popo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="first_week" id="Udu-Vw-Jol" customClass="WeekRankingFirstController" customModule="matchness" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bUt-4g-WfY">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -273,7 +188,7 @@
         <!--Week Ranking Second Controller-->
         <scene sceneID="nNF-0h-8cc">
             <objects>
-                <viewController storyboardIdentifier="second_week" id="kXx-6w-9Wn" customClass="WeekRankingSecondController" customModule="popo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="second_week" id="kXx-6w-9Wn" customClass="WeekRankingSecondController" customModule="matchness" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zZT-20-HeK">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

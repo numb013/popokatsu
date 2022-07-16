@@ -207,10 +207,11 @@ class AddTweetView: BaseViewController, UITextViewDelegate, UITextFieldDelegate 
 
             }
             // アラート作成
-            let alert = UIAlertController(title: "つぶやき", message: "投稿しました。", preferredStyle: .alert)
+            let alert = UIAlertController(title: nil, message: "つぶやきを投稿しました。", preferredStyle: .alert)
             let backView = alert.view.subviews.last?.subviews.last
             backView?.layer.cornerRadius = 15.0
             backView?.backgroundColor = .white
+
             // アラート表示
             self.present(alert, animated: true, completion: {
                 // アラートを閉じる

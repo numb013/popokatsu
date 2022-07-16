@@ -188,6 +188,7 @@ class ChatFirstViewController: BaseViewController, IndicatorInfoProvider, UITabl
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if dataSource.isEmpty == true { return }
         tableView.deselectRow(at: indexPath, animated: true)
         let selectedCell = tableView.cellForRow(at: indexPath)
         let message_id = selectedCell?.tag ?? 0

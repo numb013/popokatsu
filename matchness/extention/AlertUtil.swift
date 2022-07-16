@@ -118,7 +118,7 @@ class Alert: UIAlertController {
     class func helthError(alertNum : Dictionary<String, ApiErrorAlert>, viewController: UIViewController) {
 
         let alertController:UIAlertController =
-            UIAlertController(title:"データが取得できません",message: "設定アプリを起動し、「プライバシー」→「ヘルスケア」→「POPOKATSU」と選択し、全ての項目をオンにして下さい", preferredStyle: .alert)
+            UIAlertController(title:"歩数が取得できません",message: "設定アプリを起動し、「プライバシー」→「ヘルスケア」→「データアクセスとデバイス」→「ポポカツ」と選択し、歩数の項目をオンにして下さい", preferredStyle: .alert)
         let backView = alertController.view.subviews.last?.subviews.last
         backView?.layer.cornerRadius = 15.0
         backView?.backgroundColor = .white

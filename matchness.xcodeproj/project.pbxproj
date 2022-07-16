@@ -13,7 +13,6 @@
 		841A27FD28504FD2001AD203 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841BBDC52384CE800047546C /* BaseViewController.swift */; };
 		841A27FE28504FD2001AD203 /* LoginModalPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F26AF7253AC0780085D185 /* LoginModalPresentationController.swift */; };
 		841A27FF28504FD2001AD203 /* LoginModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849BE95D2523060200CE6C56 /* LoginModalViewController.swift */; };
-		841A280028504FD2001AD203 /* WeekRankingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8428AE98268B794900D224D1 /* WeekRankingController.swift */; };
 		841A280128504FD2001AD203 /* GroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE05740E22A3AD9F0082182F /* GroupViewController.swift */; };
 		841A280228504FD2001AD203 /* TutorialCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848AA35325D110C4004B45DD /* TutorialCell.swift */; };
 		841A280328504FD2001AD203 /* TweetLikeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CEE0D725C1CE6800EEB32E /* TweetLikeListViewController.swift */; };
@@ -280,7 +279,6 @@
 		841FBB77285064FA00A1EC22 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841BBDC52384CE800047546C /* BaseViewController.swift */; };
 		841FBB78285064FA00A1EC22 /* LoginModalPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F26AF7253AC0780085D185 /* LoginModalPresentationController.swift */; };
 		841FBB79285064FA00A1EC22 /* LoginModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849BE95D2523060200CE6C56 /* LoginModalViewController.swift */; };
-		841FBB7A285064FA00A1EC22 /* WeekRankingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8428AE98268B794900D224D1 /* WeekRankingController.swift */; };
 		841FBB7B285064FA00A1EC22 /* GroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE05740E22A3AD9F0082182F /* GroupViewController.swift */; };
 		841FBB7C285064FA00A1EC22 /* TutorialCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848AA35325D110C4004B45DD /* TutorialCell.swift */; };
 		841FBB7D285064FA00A1EC22 /* TweetLikeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CEE0D725C1CE6800EEB32E /* TweetLikeListViewController.swift */; };
@@ -652,7 +650,6 @@
 		84250417274B710D00DAEE36 /* ChatInputAccessoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatInputAccessoryView.swift; sourceTree = "<group>"; };
 		84250419274B711E00DAEE36 /* ChatInputAccessoryView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatInputAccessoryView.xib; sourceTree = "<group>"; };
 		8428AE92268B791100D224D1 /* WeekRanking.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WeekRanking.storyboard; sourceTree = "<group>"; };
-		8428AE98268B794900D224D1 /* WeekRankingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekRankingController.swift; sourceTree = "<group>"; };
 		8428AEAC268FA16600D224D1 /* ApiChatRoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiChatRoom.swift; sourceTree = "<group>"; };
 		8428AEF0269046B600D224D1 /* WeekRankingSetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekRankingSetViewController.swift; sourceTree = "<group>"; };
 		8428AEFE26904A8000D224D1 /* WeekRankingSecondController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekRankingSecondController.swift; sourceTree = "<group>"; };
@@ -1021,7 +1018,6 @@
 			children = (
 				8428AE92268B791100D224D1 /* WeekRanking.storyboard */,
 				8428AEF0269046B600D224D1 /* WeekRankingSetViewController.swift */,
-				8428AE98268B794900D224D1 /* WeekRankingController.swift */,
 				8494B3592690CC65003BB5D6 /* WeekRankingFirstController.swift */,
 				8428AEFE26904A8000D224D1 /* WeekRankingSecondController.swift */,
 				841B19B32631999900779FA2 /* NewGroupPepleTopTableViewCell.swift */,
@@ -1082,10 +1078,12 @@
 				843BE55428178BE500778D35 /* SideWidthCell.swift */,
 				843BE55528178BE500778D35 /* SideWidthCell.xib */,
 				84441EFC27B1EA1B00F1D51C /* Roulette */,
+				CE1D51EF22CDD6540093DC58 /* Step */,
+				840A37A7272955C4002DB086 /* Calender */,
+				84DF20422707061400B53083 /* Graph */,
 				84782A8A2460138E00B0DBD5 /* Event */,
 				84CE23C32446E46800D7E5DD /* RankUp */,
 				840FB9BA240C24F20036DC1E /* Tutorial */,
-				CE1D51EF22CDD6540093DC58 /* Step */,
 				84A4FFDC24526E0D00FE5C9C /* Multiple */,
 				848A332E231BA63800144950 /* profileEdit */,
 				848A331A2319F99100144950 /* pointChange */,
@@ -1093,8 +1091,6 @@
 				84C79C4A2369B195000B6648 /* Payment */,
 				B456770E2330DC6300E0E9B7 /* Notice */,
 				84C79C7F23793A70000B6648 /* Menu */,
-				840A37A7272955C4002DB086 /* Calender */,
-				84DF20422707061400B53083 /* Graph */,
 			);
 			path = SideMenu;
 			sourceTree = "<group>";
@@ -2060,7 +2056,6 @@
 				841A27FD28504FD2001AD203 /* BaseViewController.swift in Sources */,
 				841A27FE28504FD2001AD203 /* LoginModalPresentationController.swift in Sources */,
 				841A27FF28504FD2001AD203 /* LoginModalViewController.swift in Sources */,
-				841A280028504FD2001AD203 /* WeekRankingController.swift in Sources */,
 				841A280128504FD2001AD203 /* GroupViewController.swift in Sources */,
 				841A280228504FD2001AD203 /* TutorialCell.swift in Sources */,
 				841A280328504FD2001AD203 /* TweetLikeListViewController.swift in Sources */,
@@ -2251,7 +2246,6 @@
 				841FBB77285064FA00A1EC22 /* BaseViewController.swift in Sources */,
 				841FBB78285064FA00A1EC22 /* LoginModalPresentationController.swift in Sources */,
 				841FBB79285064FA00A1EC22 /* LoginModalViewController.swift in Sources */,
-				841FBB7A285064FA00A1EC22 /* WeekRankingController.swift in Sources */,
 				841FBB7B285064FA00A1EC22 /* GroupViewController.swift in Sources */,
 				841FBB7C285064FA00A1EC22 /* TutorialCell.swift in Sources */,
 				841FBB7D285064FA00A1EC22 /* TweetLikeListViewController.swift in Sources */,
@@ -2640,7 +2634,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 5.6.3;
+				MARKETING_VERSION = 6.0.0;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.a2c.popokatsu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2701,7 +2695,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 5.6.3;
+				MARKETING_VERSION = 6.0.0;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.a2c.popokatsu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
